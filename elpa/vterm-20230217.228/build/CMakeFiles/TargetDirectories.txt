@@ -1,0 +1,5 @@
+/Users/hajime-f/.emacs.d/elpa/vterm-20230217.228/build/CMakeFiles/vterm-module.dir
+/Users/hajime-f/.emacs.d/elpa/vterm-20230217.228/build/CMakeFiles/libvterm.dir
+/Users/hajime-f/.emacs.d/elpa/vterm-20230217.228/build/CMakeFiles/run.dir
+/Users/hajime-f/.emacs.d/elpa/vterm-20230217.228/build/CMakeFiles/edit_cache.dir
+/Users/hajime-f/.emacs.d/elpa/vterm-20230217.228/build/CMakeFiles/rebuild_cache.dir
