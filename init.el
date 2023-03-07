@@ -4,29 +4,6 @@
 ;; オプションキーを Meta キーにする
 (setq mac-option-modifier 'meta)
 
-;; パスを通す
-(defun add-to-load-path (&rest paths)
- (let (path)
-   (dolist (path paths paths)
-    (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
-       (add-to-list 'load-path default-directory)
-        (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-            (normal-top-level-add-subdirs-to-load-path))))))
-(add-to-load-path "elisp" "conf" "public_repos")
-
-;; 言語の設定
-(set-language-environment 'Japanese)
-(prefer-coding-system 'utf-8)
-
-;; パッケージ管理
-(require 'package)
-(setq package-archives
-      '(("gnu" . "http://elpa.gnu.org/packages/")
-        ("marmalade" . "https://marmalade-repo.org/packages/")
-        ("melpa" . "http://melpa.org/packages/")
-        ("org" . "http://orgmode.org/elpa/")))
-(package-initialize)
-
 ;; キーバインディングの設定
 (define-key global-map (kbd "C-q") 'Control-X-prefix)
 (define-key global-map (kbd "C-j") 'mode-specific-command-prefix)
@@ -53,14 +30,6 @@
 (define-key global-map (kbd "C-q g") 'magit-status)
 (define-key global-map (kbd "C-j t j") 'quickrun)
 
-;; ¥の代わりにバックスラッシュを入力する
-(define-key global-map [?¥] [?\\])
-
-;; ウィンドウの色の設定
-(load-theme 'doom-dark+ t)
-(if window-system (progn
-    (set-frame-parameter nil 'alpha 93) ;透明度
-    ))
 
 ;; フレームの設定
 (setq default-frame-alist
@@ -72,6 +41,39 @@
                '(left . 2500)  ; フレーム左上角 x 座標
                )
               default-frame-alist))
+
+;; メニューバーとツールバーを表示しない
+(menu-bar-mode 0)
+(tool-bar-mode 0)
+
+;; パスを通す
+(defun add-to-load-path (&rest paths)
+ (let (path)
+   (dolist (path paths paths)
+    (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
+       (add-to-list 'load-path default-directory)
+        (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+            (normal-top-level-add-subdirs-to-load-path))))))
+(add-to-load-path "elisp" "conf" "public_repos")
+
+;; 言語の設定
+(set-language-environment 'Japanese)
+(prefer-coding-system 'utf-8)
+
+;; パッケージ管理
+(require 'package)
+(setq package-archives
+      '(("gnu" . "http://elpa.gnu.org/packages/")
+        ("marmalade" . "https://marmalade-repo.org/packages/")
+        ("melpa" . "http://melpa.org/packages/")
+        ("org" . "http://orgmode.org/elpa/")))
+(package-initialize)
+
+;; ウィンドウの色の設定
+(load-theme 'doom-dark+ t)
+(if window-system (progn
+    (set-frame-parameter nil 'alpha 93) ;透明度
+    ))
 
 ;; スクロールは1行ごとに
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 5)))
@@ -92,15 +94,14 @@
 (show-paren-mode t)
 (setq show-paren-style 'mixed)
 
-;; メニューバーとツールバーを表示しない
-(menu-bar-mode 0)
-(tool-bar-mode 0)
-
 ;; scratch の初期メッセージを表示しない
 (setq initial-scratch-message "")
 
 ;; 起動時のメッセージを表示しない
 (setq inhibit-startup-message t)
+
+;; ¥の代わりにバックスラッシュを入力する
+(define-key global-map [?¥] [?\\])
 
 ;; Tabキーを無効化する
 (setq-default indent-tabs-mode nil)
