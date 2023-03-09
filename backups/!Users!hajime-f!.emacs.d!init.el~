@@ -4,29 +4,6 @@
 ;; オプションキーを Meta キーにする
 (setq mac-option-modifier 'meta)
 
-;; パスを通す
-(defun add-to-load-path (&rest paths)
- (let (path)
-   (dolist (path paths paths)
-    (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
-       (add-to-list 'load-path default-directory)
-        (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-            (normal-top-level-add-subdirs-to-load-path))))))
-(add-to-load-path "elisp" "conf" "public_repos")
-
-;; 言語の設定
-(set-language-environment 'Japanese)
-(prefer-coding-system 'utf-8)
-
-;; パッケージ管理
-(require 'package)
-(setq package-archives
-      '(("gnu" . "http://elpa.gnu.org/packages/")
-        ("marmalade" . "https://marmalade-repo.org/packages/")
-        ("melpa" . "http://melpa.org/packages/")
-        ("org" . "http://orgmode.org/elpa/")))
-(package-initialize)
-
 ;; キーバインディングの設定
 (define-key global-map (kbd "C-q") 'Control-X-prefix)
 (define-key global-map (kbd "C-j") 'mode-specific-command-prefix)
@@ -53,15 +30,6 @@
 (define-key global-map (kbd "C-q g") 'magit-status)
 (define-key global-map (kbd "C-j t j") 'quickrun)
 
-;; ¥の代わりにバックスラッシュを入力する
-(define-key global-map [?¥] [?\\])
-
-;; ウィンドウの色の設定
-(load-theme 'doom-dark+ t)
-(if window-system (progn
-    (set-frame-parameter nil 'alpha 93) ;透明度
-    ))
-
 ;; フレームの設定
 (setq default-frame-alist
       (append (list
@@ -72,6 +40,39 @@
                '(left . 2500)  ; フレーム左上角 x 座標
                )
               default-frame-alist))
+
+;; メニューバーとツールバーを表示しない
+(menu-bar-mode 0)
+(tool-bar-mode 0)
+
+;; パスを通す
+(defun add-to-load-path (&rest paths)
+ (let (path)
+   (dolist (path paths paths)
+    (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
+       (add-to-list 'load-path default-directory)
+        (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+            (normal-top-level-add-subdirs-to-load-path))))))
+(add-to-load-path "elisp" "conf" "public_repos")
+
+;; 言語の設定
+(set-language-environment 'Japanese)
+(prefer-coding-system 'utf-8)
+
+;; パッケージ管理
+(require 'package)
+(setq package-archives
+      '(("gnu" . "http://elpa.gnu.org/packages/")
+        ("marmalade" . "https://marmalade-repo.org/packages/")
+        ("melpa" . "http://melpa.org/packages/")
+        ("org" . "http://orgmode.org/elpa/")))
+(package-initialize)
+
+;; ウィンドウの色の設定
+(load-theme 'doom-dark+ t)
+(if window-system (progn
+    (set-frame-parameter nil 'alpha 93) ;透明度
+    ))
 
 ;; スクロールは1行ごとに
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 5)))
@@ -92,15 +93,14 @@
 (show-paren-mode t)
 (setq show-paren-style 'mixed)
 
-;; メニューバーとツールバーを表示しない
-(menu-bar-mode 0)
-(tool-bar-mode 0)
-
 ;; scratch の初期メッセージを表示しない
 (setq initial-scratch-message "")
 
 ;; 起動時のメッセージを表示しない
 (setq inhibit-startup-message t)
+
+;; ¥の代わりにバックスラッシュを入力する
+(define-key global-map [?¥] [?\\])
 
 ;; Tabキーを無効化する
 (setq-default indent-tabs-mode nil)
@@ -152,9 +152,8 @@
 (scroll-bar-mode 0)
 
 ;; フォント設定
-;; (set-frame-font "PlemolJP light 19")
-(set-frame-font "Cica 22")
-;; (add-to-list 'default-frame-alist '(font . "Cica-21.5"))
+(set-frame-font "PlemolJP light 19")
+;; (set-frame-font "Cica 22")
 
 ;; フォントサイズ変更の設定
 (global-set-key [(control +)] (lambda () (interactive) (text-scale-increase 1)))
@@ -233,13 +232,19 @@
           '(lambda()
              (add-hook 'before-save-hook 'py-isort-before-save)))
 
+;; Wanderlust
+(load "mime-setup") ;; wl の設定ではないが、無ければ追加しておく。
+(require 'mime-w3m)
+(autoload 'wl "wl" "Wanderlust" t)
+(autoload 'wl-draft "wl" "Write draft with Wanderlust." t)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(py-isort cmake-mode vterm elpy py-autopep8 leaf flycheck lsp-python-ms lsp-pyright lsp-ui lsp-mode eglot smartparens undohist doom-themes doom-modeline-now-playing doom company))
+   '(wanderlust py-isort cmake-mode vterm elpy py-autopep8 leaf flycheck lsp-python-ms lsp-pyright lsp-ui lsp-mode eglot smartparens undohist doom-themes doom-modeline-now-playing doom company))
  '(python-shell-completion-native-disabled-interpreters '("pypy" "python3"))
  '(python-shell-interpreter "python3"))
 (custom-set-faces

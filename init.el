@@ -30,7 +30,6 @@
 (define-key global-map (kbd "C-q g") 'magit-status)
 (define-key global-map (kbd "C-j t j") 'quickrun)
 
-
 ;; フレームの設定
 (setq default-frame-alist
       (append (list
@@ -233,13 +232,20 @@
           '(lambda()
              (add-hook 'before-save-hook 'py-isort-before-save)))
 
+;; Wanderlust
+(load "mime-setup") ;; wl の設定ではないが、無ければ追加しておく。
+(require 'mime-w3m)
+(require 'w3m-load)
+(autoload 'wl "wl" "Wanderlust" t)
+(autoload 'wl-draft "wl" "Write draft with Wanderlust." t)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(py-isort cmake-mode vterm elpy py-autopep8 leaf flycheck lsp-python-ms lsp-pyright lsp-ui lsp-mode eglot smartparens undohist doom-themes doom-modeline-now-playing doom company))
+   '(w3m company-c-headers wanderlust py-isort cmake-mode vterm elpy py-autopep8 leaf flycheck lsp-python-ms lsp-pyright lsp-ui lsp-mode eglot smartparens undohist doom-themes doom-modeline-now-playing doom company))
  '(python-shell-completion-native-disabled-interpreters '("pypy" "python3"))
  '(python-shell-interpreter "python3"))
 (custom-set-faces
