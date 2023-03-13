@@ -1,5 +1,0 @@
-;;;; -*- mode: lisp-data -*-
-(
- (:id "sha1:bd2929c2cc71ebd20a69210f0a7fb42fb9395b97" :fingerprints ("sha1:db:0a:6a:bc:c5:d1:f8:1b:13:92:67:93:ba:77:44:08:35:4f:ff:57") :host "pvsc.blob.core.windows.net:443" :conditions (:invalid-ocsp-status :invalid :verify-cert))
- (:id "sha1:85457c729378cc93c732b6a3941c8e4f9c2e60f3" :fingerprints ("sha1:ab:a6:d7:6a:b3:d3:63:fa:19:0d:65:41:60:23:6e:ef:d3:2a:46:dc") :host "marmalade-repo.org:443" :conditions (:expired :unknown-ca :invalid :verify-cert))
-)
