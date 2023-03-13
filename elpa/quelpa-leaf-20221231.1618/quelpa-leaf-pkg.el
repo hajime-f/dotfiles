@@ -1,0 +1,2 @@
+;;; Generated package description from quelpa-leaf.el  -*- no-byte-compile: t -*-
+(define-package "quelpa-leaf" "20221231.1618" "Quelpa handler for leaf" '((emacs "25.1") (quelpa "1.0") (leaf "4.1.0")) :commit "296ef97c29d7540316441715b92f6d15430f3579" :authors '(("Shen, Jen-Chieh" . "jcs090218@gmail.com")) :maintainer '("Shen, Jen-Chieh" . "jcs090218@gmail.com") :keywords '("convenience" "package" "managment" "elpa" "leaf") :url "https://github.com/quelpa/quelpa-leaf")

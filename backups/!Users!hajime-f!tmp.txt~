@@ -1,8 +1,8 @@
- 9日木曜 18:00〜歯医者
-11日土曜 10:00〜心療内科
+12日日曜 17:30〜ドコモショップ
 13日月曜 18:30〜まゆ＠大阪→てんぷら木坂
+15日水曜 15:00〜Buysell technologies
 16日木曜 18:15〜早美＠大阪→Teppanyaki×Wineあかくろ
-18日土曜 17:00〜乙葉＠三宮or大阪
+18日土曜 17:00〜乙葉＠三宮
 19日日曜 10:00〜四柱推命
 21日火曜 14:00〜かおり＠難波
 
@@ -824,6 +824,68 @@ https://www.fronteo.com/wp-content/themes/FRONTEO/ir/ir-data/pdf/FRONTEO_RD16_JP
 
 当初スケジュールから１ヶ月近くビハインドしているので、そろそろどこかで巻き返しを図りたいと考えています。
 お忙しいところ恐れ入りますが、よろしくお願いいたします。
+
+
+このたびはお世話になります。
+藤田と申します。
+
+面談の日時候補をお送りいたしますので、ご確認くださいますでしょうか。
+
+第1希望: 3月14日 16:00 ~ 17:00
+第2希望: 3月14日 17:00 ~ 18:00
+第3希望: 3月15日 13:00 ~ 14:00
+
+お忙しいところ恐れ入りますが、どうぞよろしくお願いいたします。
+藤田
+
+
+
+紙山様
+
+このたびはお世話になります。藤田と申します。
+ご連絡ありがとうございました。
+
+まず、１次面接の日時候補につきましては、先ほどツールに入力いたしましたので、
+ご確認くださいますでしょうか。
+
+次に、履歴書・職務経歴書を添付してお送りいたしますので、
+こちらもあわせてご確認ください。
+
+引き続きよろしくお願いいたします。
+藤田
+
+
+
+[jsonrpc] Server exited with status 1
+
+[jsonrpc] Server exited with status 1
+jsonrpc-request: jsonrpc-error: "request id=1 failed:", (jsonrpc-error-code . -1), (jsonrpc-error-message . "Server died"), (jsonrpc-error-data)
+
+
+
+[client-request] (id:1) Sat Mar 11 21:04:26 2023:
+(:jsonrpc "2.0" :id 1 :method "initialize" :params
+          (:capabilities 'nil))
+[stderr] node:internal/modules/cjs/loader:936
+[stderr]   throw err;
+[stderr]   ^
+[stderr] 
+[stderr] Error: Cannot find module '/Users/hajime-f/.emacs.d/elisp/dist/agent.js'
+[stderr]     at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)
+[stderr]     at Function.Module._load (node:internal/modules/cjs/loader:778:27)
+[stderr]     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)
+[stderr]     at node:internal/main/run_main_module:17:47 {
+[stderr]   code: 'MODULE_NOT_FOUND',
+[stderr]   requireStack: []
+[stderr] }
+[stderr] 
+[stderr] Node.js v17.9.1
+[internal] Sat Mar 11 21:04:26 2023:
+(:message "Connection state changed" :change "exited abnormally with code 1\n")
+
+----------b---y---e---b---y---e----------
+
+
 
 
 
