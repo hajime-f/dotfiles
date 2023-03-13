@@ -2,3 +2,6 @@ undohist/
 backups/
 auto-save-list/
 dot_addresses
+network-security.data
+ac-comphist.dat
+places
