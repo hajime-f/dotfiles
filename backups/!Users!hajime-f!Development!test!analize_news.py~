@@ -1,5 +1,0 @@
-"""Livedoorニュースコーパスを分類するプログラム"""
-
-import polar as pl
-
-if __name__ == "__main__":
