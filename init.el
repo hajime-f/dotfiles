@@ -248,7 +248,6 @@
   (delq 'company-preview-if-just-one-frontend company-frontends))
   
 (define-key copilot-completion-map (kbd "C-f") 'copilot-accept-completion)
-;; (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
 
 
 (custom-set-variables
@@ -257,7 +256,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(editorconfig quelpa quelpa-leaf quelpa-use-package w3m company-c-headers wanderlust py-isort cmake-mode vterm elpy py-autopep8 leaf flycheck lsp-python-ms lsp-pyright lsp-ui lsp-mode eglot smartparens undohist doom-themes doom-modeline-now-playing doom company))
+   '(yaml-mode editorconfig quelpa quelpa-leaf quelpa-use-package w3m company-c-headers wanderlust py-isort cmake-mode vterm elpy py-autopep8 leaf flycheck lsp-python-ms lsp-pyright lsp-ui lsp-mode eglot smartparens undohist doom-themes doom-modeline-now-playing doom company))
  '(python-shell-completion-native-disabled-interpreters '("pypy" "python3"))
  '(python-shell-interpreter "python3"))
 (custom-set-faces
