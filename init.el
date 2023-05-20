@@ -28,16 +28,18 @@
 (define-key global-map (kbd "M-p") 'previous-buffer)
 (define-key global-map (kbd "M-k") 'next-buffer)
 (define-key global-map (kbd "C-q g") 'magit-status)
-(define-key global-map (kbd "C-j t j") 'quickrun)
+(define-key global-map (kbd "C-j t j") 'compile)
+
+(local-set-key (kbd "C-j") 'YaTeX-prefix)
 
 ;; フレームの設定
 (setq default-frame-alist
       (append (list
                ;; サイズ・位置
-               '(width . 170)  ; 横幅(文字数)
-               '(height . 56)  ; 高さ(行数)
-               '(top . 120)    ; フレーム左上角 y 座標
-               '(left . 2500)  ; フレーム左上角 x 座標
+               '(width . 170)           ; 横幅(文字数)
+               '(height . 56)           ; 高さ(行数)
+               '(top . 120)             ; フレーム左上角 y 座標
+               '(left . 2500)           ; フレーム左上角 x 座標
                )
               default-frame-alist))
 
@@ -249,6 +251,13 @@
   
 (define-key copilot-completion-map (kbd "C-f") 'copilot-accept-completion)
 
+;; Yatex mode
+(setq auto-mode-alist
+      (cons (cons "\\.tex$" 'yatex-mode) auto-mode-alist))
+(autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
+(setq compilation-scroll-output t)
+(setq tex-command "platex")
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -256,7 +265,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(yaml-mode editorconfig quelpa quelpa-leaf quelpa-use-package w3m company-c-headers wanderlust py-isort cmake-mode vterm elpy py-autopep8 leaf flycheck lsp-python-ms lsp-pyright lsp-ui lsp-mode eglot smartparens undohist doom-themes doom-modeline-now-playing doom company))
+   '(yatex dockerfile-mode yaml-mode editorconfig quelpa quelpa-leaf quelpa-use-package w3m company-c-headers wanderlust py-isort cmake-mode vterm elpy py-autopep8 leaf flycheck lsp-python-ms lsp-pyright lsp-ui lsp-mode eglot smartparens undohist doom-themes doom-modeline-now-playing doom company))
  '(python-shell-completion-native-disabled-interpreters '("pypy" "python3"))
  '(python-shell-interpreter "python3"))
 (custom-set-faces
