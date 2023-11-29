@@ -36,10 +36,10 @@
 (setq default-frame-alist
       (append (list
                ;; サイズ・位置
-               '(width . 170)           ; 横幅(文字数)
-               '(height . 56)           ; 高さ(行数)
-               '(top . 120)             ; フレーム左上角 y 座標
-               '(left . 2500)           ; フレーム左上角 x 座標
+               '(width . 130)           ; 横幅(文字数)
+               '(height . 50)           ; 高さ(行数)
+               '(top . 46)             ; フレーム左上角 y 座標
+               '(left . 800)           ; フレーム左上角 x 座標
                )
               default-frame-alist))
 
@@ -154,7 +154,7 @@
 (scroll-bar-mode 0)
 
 ;; フォント設定
-(set-frame-font "PlemolJP light 19")
+(set-frame-font "PlemolJP light 16")
 ;; (set-frame-font "Cica 22")
 
 ;; フォントサイズ変更の設定
@@ -234,22 +234,14 @@
           '(lambda()
              (add-hook 'before-save-hook 'py-isort-before-save)))
 
-;; Wanderlust
-(load "mime-setup") ;; wl の設定ではないが、無ければ追加しておく。
-(require 'mime-w3m)
-(require 'w3m-load)
-(autoload 'wl "wl" "Wanderlust" t)
-(autoload 'wl-draft "wl" "Write draft with Wanderlust." t)
-
-(require 'copilot)
-(setq copilot-node-executable "~/.nvm/versions/node/v17.9.1/bin/node")
-(add-hook 'prog-mode-hook 'copilot-mode)
+;; (require 'copilot)
+;; (setq copilot-node-executable "~/.nvm/versions/node/v17.9.1/bin/node")
+;; (add-hook 'prog-mode-hook 'copilot-mode)
+;; (define-key copilot-completion-map (kbd "C-f") 'copilot-accept-completion)
 
 (with-eval-after-load 'company
   ;; disable inline previews
   (delq 'company-preview-if-just-one-frontend company-frontends))
-  
-(define-key copilot-completion-map (kbd "C-f") 'copilot-accept-completion)
 
 ;; Yatex mode
 (setq auto-mode-alist
@@ -258,6 +250,12 @@
 (setq compilation-scroll-output t)
 (setq tex-command "platex")
 
+;; Markdown mode
+(autoload 'markdown-preview-mode "markdown-preview-mode.el" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+(add-to-list 'markdown-preview-stylesheets "https://raw.githubusercontent.com/richleland/pygments-css/master/emacs.css")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -265,9 +263,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(yatex dockerfile-mode yaml-mode editorconfig quelpa quelpa-leaf quelpa-use-package w3m company-c-headers wanderlust py-isort cmake-mode vterm elpy py-autopep8 leaf flycheck lsp-python-ms lsp-pyright lsp-ui lsp-mode eglot smartparens undohist doom-themes doom-modeline-now-playing doom company))
- '(python-shell-completion-native-disabled-interpreters '("pypy" "python3"))
- '(python-shell-interpreter "python3"))
+   '(markdown-preview-mode flymd elpy python-django python-isort python-black py-yapf jedi doom doom-modeline doom-modeline-now-playing doom-themes)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
