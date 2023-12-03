@@ -44,8 +44,8 @@
               default-frame-alist))
 
 ;; メニューバーとツールバーを表示しない
-(menu-bar-mode 0)
-(tool-bar-mode 0)
+;; (menu-bar-mode 0)
+;; (tool-bar-mode 0)
 
 ;; パスを通す
 (defun add-to-load-path (&rest paths)
