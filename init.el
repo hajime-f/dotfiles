@@ -250,12 +250,12 @@
 (setq compilation-scroll-output t)
 (setq tex-command "platex")
 
-;; Markdown mode
-(autoload 'markdown-preview-mode "markdown-preview-mode.el" t)
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
-(add-to-list 'markdown-preview-stylesheets "https://raw.githubusercontent.com/richleland/pygments-css/master/emacs.css")
+;; ;; Markdown mode
+;; (autoload 'markdown-preview-mode "markdown-preview-mode.el" t)
+;; (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+;; (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+;; (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+;; (add-to-list 'markdown-preview-stylesheets "https://raw.githubusercontent.com/richleland/pygments-css/master/emacs.css")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
