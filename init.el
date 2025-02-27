@@ -223,6 +223,10 @@
            (company-transformers . '(company-sort-by-occurrence)))
   :global-minor-mode global-company-mode)
 
+;; (with-eval-after-load 'company
+;;   ;; disable inline previews
+;;   (delq 'company-preview-if-just-one-frontend company-frontends))
+
 ;; Undohist
 (leaf undohist
   :defvar undohist-initialize
@@ -280,6 +284,23 @@
   :url "http://paetzke.me/project/py-isort.el"
   :added "2025-02-27"
   :ensure t)
+
+;; タブ
+(leaf tab-bar-mode
+  :init
+  (defvar my:ctrl-o-map (make-sparse-keymap)
+    "My original keymap binded to C-o.")
+  (defalias 'my:ctrl-o-prefix my:ctrl-o-map)
+  (define-key global-map (kbd "C-<up>") 'tab-bar-switch-to-prev-tab)
+  (define-key global-map (kbd "C-<down>") 'tab-bar-switch-to-next-tab)
+  (define-key global-map (kbd "C-t") 'tab-bar-new-tab)
+  (define-key global-map (kbd "C-w") 'tab-bar-close-tab)
+  :custom
+  ((tab-bar-new-tab-choice . "*scratch*"))
+  :config
+  (tab-bar-mode t)
+  (face-spec-set 'tab-bar-tab '((((background light)) (:background "gold")) (((background dark)) (:background "#808080")))))
+
 
 
 ;; ;; GitHub Copilot
