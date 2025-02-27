@@ -1,8 +1,132 @@
 
-((digest . "96b5ce40b212f886d40067fd0847b9ab") (undo-list nil ("=" . -7530) ((marker . 7530) . -1) ((marker . 7530) . -1) 7531 nil ("-" . -7494) ((marker . 7530) . -1) 7495 nil ("+" . -7460) ((marker . 7530) . -1) 7461 (t 26560 31698 257446 93000) nil (apply 30 3843 4187 undo--wrap-and-run-primitive-undo 3843 4187 ((";; " . -4147) (";; " . -4124) (";; " . -4112) (";; " . -4096) (";; " . -4074) (";; " . -4021) (";; " . -3980) (";; " . -3903) (";; " . -3863) (";; " . -3843) 4217)) nil ("
-" . -3841) ((marker . 3841) . -1) ((marker . 3841) . -1) ((marker . 3841) . -1) ((marker . 4187) . -1) ((marker . 3841) . -1) ((marker . 4187) . -1) ((marker . 3841) . -1) ((marker . 7530) . -1) ("
-" . -3842) ((marker . 3841) . -1) ((marker . 3841) . -1) ((marker . 3841) . -1) ((marker . 4187) . -1) ((marker . 3841) . -1) ((marker . 4187) . -1) ((marker . 3841) . -1) ((marker . 7530) . -1) ("
-" . -3843) ((marker . 4187) . -1) ((marker . 3841) . -1) ((marker . 4187) . -1) ((marker . 7530) . -1) 3844 nil ("(leaf *modeline-settings
+((digest . "6f5edb511e9cb457949f16c380c9cfd9") (undo-list nil ("(leaf undohist
+  :defvar undohist-initialize
+  :ensure t
+  :init
+  (let ((custom--inhibit-theme-enable nil))
+    (unless (memq 'use-package custom-known-themes)
+      (deftheme use-package)
+      (enable-theme 'use-package)
+      (setq custom-enabled-themes (remq 'use-package custom-enabled-themes)))
+    (custom-theme-set-variables 'use-package
+				'(undohist-ignored-files
+				  `(,(rx \"/.git/COMMIT_EDITMSG\" eot))
+				  nil nil \"Customized with use-package undohist\")))
+  :require t
+  :config
+  (undohist-initialize))
+
+" . 6980) ((marker . 6980) . -523) ((marker . 6980) . -523) ((marker . 6994) . -523) ((marker . 6980) . -15) ((marker . 6980) . -45) ((marker . 6980) . -57) ((marker . 6980) . -65) ((marker . 6980) . -109) ((marker . 6980) . -161) ((marker . 6980) . -190) ((marker . 6980) . -224) ((marker . 6980) . -302) ((marker . 6980) . -347) ((marker . 6980) . -376) ((marker . 6980) . -418) ((marker . 6980) . -474) ((marker . 6980) . -487) ((marker . 6980) . -497) ((marker . 6980) . -522) ((marker) . -523) ((marker . 6980) . -523) ((marker . 6980) . -1) ((marker . 6980) . -389) ((marker . 6980) . -390) ((marker . 6980) . -499) ((marker . 6980) . -500) ((marker) . -523) 7503 nil ("
+" . -7693) ((marker . 6994) . -1) 7694 nil ("
+" . -7693) (7503 . 7694) nil (7502 . 7505) (t 26560 33345 206549 758000) nil ("
+" . -10197) ((marker . 6980) . -1) ((marker . 9866) . -1) ((marker . 6980) . -1) ((marker . 9866) . -1) ((marker . 6994) . -1) 10198 nil (";; Google Translate
+(leaf google-translate
+  :ensure t
+  :preface
+  (defvar google-translate-english-chars \"[:ascii:]’“”–\"
+    \"これらの文字が含まれているときは英語とみなす\")
+  (defun google-translate-enja-or-jaen (&optional string)
+    \"regionか、現在のセンテンスを言語自動判別でGoogle翻訳する。\"
+    (interactive)
+    (setq string
+          (cond ((stringp string) string)
+                (current-prefix-arg
+                 (read-string \"Google Translate: \"))
+                ((use-region-p)
+                 (buffer-substring (region-beginning) (region-end)))
+                (t
+                 (save-excursion
+                   (let (s)
+                     (forward-char 1)
+                     (backward-sentence)
+                     (setq s (point))
+                     (forward-sentence)
+                     (buffer-substring s (point)))))))
+    (let* ((asciip (string-match
+                    (format \"\\\\`[%s]+\\\\'\" google-translate-english-chars)
+                    string)))
+      (run-at-time 0.1 nil 'deactivate-mark)))
+  :config
+  (global-set-key (kbd \"C-c t\") 'google-translate-enja-or-jaen)
+  )
+" . 10198) ((marker . 9866) . -520) ((marker . 6980) . -1074) ((marker . 9866) . -993) ((marker . 6994) . -1074) 11272 nil ("
+" . -11191) ((marker . 6980) . -1) ((marker . 6980) . -1) ((marker . 6994) . -1) 11192 nil ("      (google-translate-translate
+       (if asciip \"en\" \"ja\")
+       (if asciip \"ja\" \"en\")
+       string)" . 11192) ((marker . 6994) . -106) ((marker . 6980) . -106) 11298 (t 26560 33286 990632 383000) nil ("
+" . -9967) ((marker . 6994) . -1) 9968 (t 26560 33284 180833 838000) nil ("
+" . -9968) ((marker . 6994) . -1) 9969 nil (9967 . 9969) nil ("
+" . -9967) ((marker . 6994) . -1) 9968 (t 26560 32991 329676 480000) nil ("q" . 11644) ((marker . 10130) . -1) ((marker . 10130) . -1) ((marker . 6980) . -1) ((marker . 6994) . -1) nil (11644 . 11645) (t 26560 32991 329676 480000) nil (";" . 10199) nil ("
+" . 10220) (";; Google Translate を使えるようにする" . 10220) nil ("
+" . -10199) 10200 nil (11411 . 11412) nil ("
+" . -11411) 11412 (t 26560 32983 840684 237000) nil (nil rear-nonsticky nil 11410 . 11411) (nil fontified nil 10200 . 11411) (10200 . 11411) nil (10198 . 10201) (t 26560 32731 335558 233000) nil ("
+" . -9968) 9969 nil (";;; copilot
+;; Github Copilot を使えるようにする
+(leaf copilot
+  :el-get (copilot
+           :type github
+           :pkgname \"zerolfx/copilot.el\"
+           )
+  :config
+  (leaf editorconfig
+    :ensure t
+    )
+  (leaf s
+    :ensure t
+    )
+  (leaf dash
+    :ensure t
+    )
+  (leaf jsonrpc
+    :ensure t
+    )
+  (with-eval-after-load 'copilot
+    (define-key global-map (kbd \"C-f\") 'copilot-accept-completion)
+    )
+  )
+
+" . 9969) 10381 nil ("
+" . 10381) ("(leaf" . 10381) nil (10382 . 10386) nil ("e" . -10382) ("a" . -10383) ("f" . -10384) 10385 nil (10381 . 10385) nil (10380 . 10382) (t 26560 32646 112292 533000) nil ("-map" . 10329) (10319 . 10329) ("glob" . -10319) 10323 nil (10319 . 10323) nil ("copilot-" . -10319) 10327 nil ("completion" . -10327) 10337 (t 26560 32606 993789 466000) nil (10382 . 10386) ("    (define-key copilot-mode-map (kbd \"<tab>\") #'my/copilot-tab)" . 10382) nil (nil rear-nonsticky nil 10380 . 10381) (nil fontified nil 10307 . 10381) (10307 . 10381) nil (10302 . 10307) nil ("  (defun my/copilot-tab ()
+    (interactive)
+    (or (copilot-accept-completion)
+        (indent-for-tab-command)))
+
+" . 10270) 10387 nil (nil rear-nonsticky nil 10488 . 10489) (nil fontified nil 9969 . 10489) (9969 . 10489) nil (9967 . 9970) nil ("
+" . -6966) ("
+" . -6967) ("c" . -6968) ("o" . -6969) ("m" . -6970) 6971 nil (6968 . 6971) nil (6966 . 6968) (t 26560 32403 509457 535000) nil ("
+" . -6966) 6967 (t 26560 32400 532283 891000) nil (nil rear-nonsticky nil 6965 . 6966) (nil fontified nil 6724 . 6966) (6724 . 6966) nil (6723 . 6726) (t 26560 32276 8594 234000) nil (" " . 4188) nil (4188 . 4189) nil ("
+
+" . 7536) nil ("(leaf neotree
+  :ensure t
+  :commands
+  (neotree-show neotree-hide neotree-dir neotree-find)
+  :custom (neo-theme . 'nerd2)
+  :bind
+  (\"<f9>\" . neotree-projectile-toggle)
+  :preface
+  (defun neotree-projectile-toggle ()
+    (interactive)
+    (let ((project-dir
+           (ignore-errors
+         ;;; Pick one: projectile or find-file-in-project
+             (projectile-project-root)
+             ))
+          (file-name (buffer-file-name))
+          (neo-smart-open t))
+      (if (and (fboundp 'neo-global--window-exists-p)
+               (neo-global--window-exists-p))
+          (neotree-hide)
+        (progn
+          (neotree-show)
+          (if project-dir
+              (neotree-dir project-dir))
+          (if file-name
+              (neotree-find file-name)))))
+    )
+  )" . 7537) (nil fontified t 8253 . 8313) (nil fontified t 8251 . 8253) (nil fontified t 8186 . 8251) (nil fontified t 8184 . 8186) (nil fontified t 8147 . 8184) (nil fontified t 8142 . 8147) (nil fontified t 8022 . 8142) (nil fontified t 8019 . 8022) (nil fontified t 8017 . 8019) (nil fontified t 8015 . 8017) (nil fontified t 7882 . 8015) (nil fontified t 7837 . 7882) (nil fontified t 7833 . 7837) (nil fontified t 7823 . 7833) (nil fontified t 7810 . 7823) (nil fontified t 7783 . 7810) (nil fontified t 7780 . 7783) (nil fontified t 7773 . 7780) (nil fontified t 7762 . 7773) (nil fontified t 7753 . 7762) (nil fontified t 7728 . 7753) (nil fontified t 7727 . 7728) (nil fontified t 7722 . 7727) (nil fontified t 7718 . 7722) (nil fontified t 7710 . 7718) (nil fontified t 7708 . 7710) (nil fontified t 7678 . 7708) (nil fontified t 7677 . 7678) (nil fontified t 7676 . 7677) (nil fontified t 7675 . 7676) (nil fontified t 7674 . 7675) (nil fontified t 7673 . 7674) (nil fontified t 7672 . 7673) (nil fontified t 7669 . 7672) (nil fontified t 7668 . 7669) (nil fontified t 7663 . 7668) (nil fontified t 7639 . 7663) (nil fontified t 7632 . 7639) (nil fontified t 7574 . 7632) (nil fontified t 7565 . 7574) (nil fontified t 7560 . 7565) (nil fontified t 7553 . 7560) (nil fontified t 7542 . 7553) (nil fontified t 7538 . 7542) (nil fontified t 7537 . 7538) (nil rear-nonsticky nil 8315 . 8316) nil (7673 . 7677) nil ("C-o" . 7673) nil (apply 3 2371 2434 undo--wrap-and-run-primitive-undo 2371 2434 ((";; " . 2371) 7679)) nil (apply -3 2371 2437 undo--wrap-and-run-primitive-undo 2371 2437 ((2371 . 2374) 2433)) nil (7673 . 7676) nil ("<" . -7673) ("f" . -7674) ("9" . -7675) (">" . -7676) 7677 nil (nil rear-nonsticky nil 8315 . 8316) (nil fontified nil 7537 . 8316) (7537 . 8316) nil (7536 . 7538) (t 26560 31706 900421 734000) nil (" " . 4188) nil (4188 . 4189) (t 26560 31706 900421 734000) nil ("=" . -7530) 7531 nil ("-" . -7494) 7495 nil ("+" . -7460) 7461 (t 26560 31698 257446 93000) nil (apply 30 3843 4187 undo--wrap-and-run-primitive-undo 3843 4187 ((";; " . -4147) (";; " . -4124) (";; " . -4112) (";; " . -4096) (";; " . -4074) (";; " . -4021) (";; " . -3980) (";; " . -3903) (";; " . -3863) (";; " . -3843) 4217)) nil ("
+" . -3841) ("
+" . -3842) ("
+" . -3843) 3844 nil ("(leaf *modeline-settings
   :config
   ;; doom-modeline
   ;; doom を利用した mode-line
@@ -31,7 +155,7 @@
     ((neotree-mode imenu-list-minor-mode minimap-mode) . hide-mode-line-mode)
     )
   )
-" . 3844) ((marker . 7530) . -877) ((marker . 4187) . -877) 4721 nil ("e" . -3843) ((marker . 3841) . -1) ((marker . 3841) . -1) ((marker . 3841) . -1) ((marker . 7530) . -1) 3844 nil (3843 . 3844) (t 26560 31570 920053 387000) nil (apply -30 4723 5098 undo--wrap-and-run-primitive-undo 4723 5098 ((5054 . 5057) (5028 . 5031) (5013 . 5016) (4994 . 4997) (4969 . 4972) (4913 . 4916) (4869 . 4872) (4789 . 4792) (4746 . 4749) (4723 . 4726) 5067)) nil (nil rear-nonsticky nil 4719 . 4720) (nil fontified nil 3844 . 4720) (3844 . 4720) nil (3842 . 3846) (t 26560 31114 162095 835000) nil ("
+" . 3844) 4721 nil ("e" . -3843) 3844 nil (3843 . 3844) (t 26560 31570 920053 387000) nil (apply -30 4723 5098 undo--wrap-and-run-primitive-undo 4723 5098 ((5054 . 5057) (5028 . 5031) (5013 . 5016) (4994 . 4997) (4969 . 4972) (4913 . 4916) (4869 . 4872) (4789 . 4792) (4746 . 4749) (4723 . 4726) 5067)) nil (nil rear-nonsticky nil 4719 . 4720) (nil fontified nil 3844 . 4720) (3844 . 4720) nil (3842 . 3846) (t 26560 31114 162095 835000) nil ("
 " . 7347) (";; Git" . 7347) nil (7347 . 7353) nil (7346 . 7347) nil ("e" . -7346) 7347 nil (7346 . 7347) nil (7333 . 7346) nil (7332 . 7333) nil (nil rear-nonsticky nil 7523 . 7524) (nil fontified nil 7333 . 7524) (7333 . 7524) nil (7332 . 7334) (t 26560 30915 719562 35000) nil ("
 " . -4369) 4370 (t 26560 30913 106848 14000) nil (nil rear-nonsticky nil 4306 . 4307) (nil fontified nil 4273 . 4307) (4273 . 4307) nil (4270 . 4273) nil (4269 . 4270) nil (nil rear-nonsticky nil 4218 . 4219) (nil fontified nil 4191 . 4219) (4191 . 4219) nil (4188 . 4191) nil ("
 " . -4188) 4189 (t 26560 30817 388427 926000) nil ("

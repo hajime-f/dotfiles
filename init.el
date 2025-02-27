@@ -241,23 +241,23 @@
 ;;   ;; disable inline previews
 ;;   (delq 'company-preview-if-just-one-frontend company-frontends))
 
+;; companyの起動時に出るboxの設定
+(leaf company-box
+  :ensure t
+  :after (company all-the-icons)
+  :hook ((company-mode-hook . company-box-mode))
+  :custom
+  (company-box-icons-alist . 'company-box-icons-all-the-icons)
+  (company-box-doc-enable . nil))
+
 ;; Undohist
 (leaf undohist
-  :defvar undohist-initialize
-  :ensure t
-  :init
-  (let ((custom--inhibit-theme-enable nil))
-    (unless (memq 'use-package custom-known-themes)
-      (deftheme use-package)
-      (enable-theme 'use-package)
-      (setq custom-enabled-themes (remq 'use-package custom-enabled-themes)))
-    (custom-theme-set-variables 'use-package
-				'(undohist-ignored-files
-				  `(,(rx "/.git/COMMIT_EDITMSG" eot))
-				  nil nil "Customized with use-package undohist")))
-  :require t
-  :config
-  (undohist-initialize))
+  :doc "Persistent undo history for GNU Emacs."
+  :req "cl-lib-1.0"
+  :tag "convenience"
+  :url "https://github.com/emacsorphanage/undohist"
+  :added "2025-02-28"
+  :ensure t)
 
 ;; magit
 (leaf magit

@@ -6,669 +6,157 @@
 # Your branch is up to date with 'origin/master'.
 #
 # Changes to be committed:
-#	deleted:    auto-save-list/.saves-36689-bali.local~
-#	renamed:    auto-save-list/.saves-4984-bali.local~ -> auto-save-list/.saves-53001-bali.local~
-#	new file:   backups/!Users!hajime-f!Development!dotfiles!.git!COMMIT_EDITMSG~
-#	new file:   backups/!Users!hajime-f!Development!stocktrading!.git!COMMIT_EDITMSG~
-#	deleted:    eln-cache/29_1-00984f28/copilot-balancer-f02d33d8-817d6fa4.eln
-#	deleted:    eln-cache/29_1-00984f28/copilot-e03a7ddb-cdffa054.eln
-#	deleted:    eln-cache/29_1-00984f28/doom-modeline-baab0367-eca2760d.eln
-#	deleted:    eln-cache/29_1-00984f28/doom-modeline-core-99f9e418-5955cf1f.eln
-#	deleted:    eln-cache/29_1-00984f28/doom-modeline-env-0fd6fd2f-9bc5d102.eln
-#	deleted:    eln-cache/29_1-00984f28/doom-modeline-segments-07558e73-8a3bac05.eln
-#	deleted:    eln-cache/29_1-00984f28/editorconfig-4b4afee0-ed4c00bb.eln
-#	deleted:    eln-cache/29_1-00984f28/editorconfig-core-bb721347-e0557684.eln
-#	deleted:    eln-cache/29_1-00984f28/editorconfig-core-handle-ea874275-3bad5429.eln
-#	deleted:    eln-cache/29_1-00984f28/editorconfig-fnmatch-bf92d612-9742825b.eln
-#	deleted:    eln-cache/29_1-00984f28/f-97595af7-57bd0257.eln
-#	renamed:    eln-cache/29_1-00984f28/git-commit-fb37bfd3-eb7acac5.eln -> eln-cache/29_1-00984f28/git-commit-6b68fc30-eb7acac5.eln
-#	new file:   eln-cache/29_1-00984f28/init-93a9b01d-f47880a4.eln
-#	deleted:    eln-cache/29_1-00984f28/leaf-convert-ecdea69e-9c8dcad2.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-actionscript-539d2cea-ec361be0.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-ada-3f53514f-a5a034b9.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-angular-3338bb28-de7f1971.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-ansible-f506fab5-9397b49c.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-asm-a71f53ea-38bb7b41.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-astro-35ec6b92-6421fee8.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-autotools-30cb6fd7-906af938.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-bash-4eb7bfa1-6914808a.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-bufls-8edab0b9-52033225.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-c3-1aa54676-eeb60c32.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-clangd-0241163a-be5505f2.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-clojure-1fd88bb9-191d0b95.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-cmake-f1079e41-f4a83d78.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-cobol-12c34e3a-b4c8b8da.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-completion-90915c46-389c7080.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-copilot-9c134d16-e78384d3.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-csharp-9393fdca-927c1082.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-css-2f7c43bc-d5fed66b.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-cucumber-8c83e6e8-fe43bf53.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-cypher-292c8c48-df2fc393.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-earthly-40daf76e-dfb3f2e3.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-elixir-784fe260-21daaf41.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-elm-d383754d-35caef1f.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-erlang-fc17a00a-b13245d7.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-eslint-44410d15-e8753135.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-fennel-48e3f563-a312488c.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-fortran-37804bb3-b83e2a8c.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-fsharp-64562d89-7e4b3070.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-gdscript-61cd39ec-633e353f.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-go-2ac84050-54907c83.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-golangci-lint-4517bd93-62a3a580.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-graphql-75b8359a-244c2857.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-groovy-0279ef68-b0a0d6d5.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-haxe-5fb0d4a5-780542dd.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-html-362277c7-5a6d7e78.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-icons-6e2f1b22-2978bbdb.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-javascript-ca43263e-37e097b5.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-json-5e64bff6-50785e3e.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-kotlin-ac20d254-d6556a4a.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-kubernetes-helm-4d88d5f9-48fbe3e4.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-lisp-55f32cd7-3348ae80.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-lua-69a1d6c0-1136bf73.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-magik-8c9dce26-ebea28d6.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-matlab-20e00c0b-2fb5319d.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-meson-b98041fc-a6d220fb.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-mode-377e9ee5-1866981d.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-move-3b8010e4-90a56264.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-nextflow-dab70aea-0f500e44.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-nginx-063f5f01-9d5dd2f2.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-nim-8327eca0-48a9e5fa.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-nix-b8ee11aa-7e120aa6.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-ocaml-9c70a180-b91a9347.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-openscad-00da0545-23d4a5e7.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-php-cde14d18-c1ad61b6.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-protocol-96e9d89b-ab516d5e.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-purescript-8fc6ed2f-c6a6d42d.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-pwsh-51ec2617-accfa4b3.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-pyls-5ed28e30-30e229e0.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-pylsp-144a7e78-95502f7d.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-racket-450acd20-e3254f20.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-rf-4136852f-c28a449b.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-rubocop-be5960eb-7844bd02.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-ruby-lsp-d1d11488-b587a02b.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-ruby-syntax-tree-e6c220a9-68ce9c31.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-rust-7b481574-fe068264.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-semantic-tokens-e8848e10-ca9d9cae.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-semgrep-4a200ee2-bed72309.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-solargraph-33a314ed-208e436f.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-solidity-9b27f685-3824160e.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-sorbet-c8d9d59f-4b5d0eaa.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-sql-15867e80-9174ff31.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-sqls-66ab9ef1-db29568d.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-steep-83f8364f-58aab5a6.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-terraform-45dcab60-455273bd.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-toml-270c9bcd-e0aac849.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-trunk-5cea3d15-70444c77.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-ts-query-07d130bb-15079482.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-typeprof-c63133c9-ea494e67.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-typespec-e79e5b53-3da7cc6c.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-v-6b4ea9bc-1e7fc3a2.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-verilog-a33112d1-cdfc246c.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-vhdl-885cb050-063246b3.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-volar-b1595717-f013a20c.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-wgsl-f3c80046-1803da5c.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-xml-44050679-22e377dd.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-yaml-d9b88916-d6714977.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-yang-5bf8e5b7-f83ae63f.eln
-#	deleted:    eln-cache/29_1-00984f28/lsp-zig-0165a196-7ce54ef6.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-de8d10cf-ae182edc.eln -> eln-cache/29_1-00984f28/magit-2d6aebc3-3e5707d0.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-apply-1d95b4c5-c4c32a4e.eln -> eln-cache/29_1-00984f28/magit-apply-048a06b5-c4c32a4e.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-autorevert-a47f1580-2b70395c.eln -> eln-cache/29_1-00984f28/magit-autorevert-0685662d-2b70395c.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-base-2db1bbac-bd48b7ec.eln -> eln-cache/29_1-00984f28/magit-base-0c53d8b1-59206651.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-bisect-433385e9-2b506ed3.eln -> eln-cache/29_1-00984f28/magit-bisect-88c0aaf9-2b506ed3.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-blame-6c0e7ed3-7aadbec7.eln -> eln-cache/29_1-00984f28/magit-blame-81b9c468-7aadbec7.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-bookmark-af30cbdd-ec03abbe.eln -> eln-cache/29_1-00984f28/magit-bookmark-f567051e-ec03abbe.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-branch-aeaa4d47-8d7b6d90.eln -> eln-cache/29_1-00984f28/magit-branch-9c2510c2-09f8ff6b.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-clone-9aa47681-c8b2415f.eln -> eln-cache/29_1-00984f28/magit-clone-45ccd7ef-c8b2415f.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-commit-c8ff92c6-30d949d1.eln -> eln-cache/29_1-00984f28/magit-commit-14ec9fb2-30d949d1.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-diff-855500a2-cc124077.eln -> eln-cache/29_1-00984f28/magit-diff-7e91c719-d305461f.eln
-#	deleted:    eln-cache/29_1-00984f28/magit-ediff-2109cbd2-442434a9.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-extras-0367e460-1b0682f7.eln -> eln-cache/29_1-00984f28/magit-extras-e8fa9ce1-1b0682f7.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-fetch-56a86eb2-8dc9b9f5.eln -> eln-cache/29_1-00984f28/magit-fetch-e4d1d134-8dc9b9f5.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-files-82e3c44c-6b6655da.eln -> eln-cache/29_1-00984f28/magit-files-8cce04ea-6b6655da.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-git-f1c9c660-3efc761c.eln -> eln-cache/29_1-00984f28/magit-git-9050c905-3efc761c.eln
-#	deleted:    eln-cache/29_1-00984f28/magit-gitignore-4569ab1e-b769c2a4.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-log-40ff3336-4326fc0a.eln -> eln-cache/29_1-00984f28/magit-log-f1af1a47-4326fc0a.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-margin-db00a582-942752a1.eln -> eln-cache/29_1-00984f28/magit-margin-78eb057c-942752a1.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-merge-94f358e0-f9b18702.eln -> eln-cache/29_1-00984f28/magit-merge-aa16dff0-f9b18702.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-mode-404b6a8f-db2e61cc.eln -> eln-cache/29_1-00984f28/magit-mode-a9d0a575-db2e61cc.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-notes-c0dfbdae-ea592258.eln -> eln-cache/29_1-00984f28/magit-notes-ce99caf1-ea592258.eln
-#	deleted:    eln-cache/29_1-00984f28/magit-patch-7372cea4-cacfe110.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-process-2fd63c40-2f6afeab.eln -> eln-cache/29_1-00984f28/magit-process-4508704b-2f6afeab.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-pull-28237555-493b08be.eln -> eln-cache/29_1-00984f28/magit-pull-f721196d-493b08be.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-push-3c1a389c-d0d396fd.eln -> eln-cache/29_1-00984f28/magit-push-371c92ba-d0d396fd.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-reflog-446f0e02-80e9e54a.eln -> eln-cache/29_1-00984f28/magit-reflog-f2b04c85-80e9e54a.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-refs-1a54e2a7-2d19f7b7.eln -> eln-cache/29_1-00984f28/magit-refs-b475c91f-2d19f7b7.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-remote-42e6e2ae-cd39b3d5.eln -> eln-cache/29_1-00984f28/magit-remote-02f8d88b-cd39b3d5.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-repos-12b418dc-b663519e.eln -> eln-cache/29_1-00984f28/magit-repos-3fa264c3-b663519e.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-reset-8218abe2-641c5b0a.eln -> eln-cache/29_1-00984f28/magit-reset-2fe8c887-641c5b0a.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-sequence-ccc37a28-8924c987.eln -> eln-cache/29_1-00984f28/magit-sequence-1aa3cd28-8924c987.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-stash-7a176aa9-8a13dae2.eln -> eln-cache/29_1-00984f28/magit-stash-27d65a1c-8a13dae2.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-status-f92d0a46-6f287236.eln -> eln-cache/29_1-00984f28/magit-status-6e3bdbc7-6f287236.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-submodule-3c9fb1d6-f86c1db2.eln -> eln-cache/29_1-00984f28/magit-submodule-074daf9b-f86c1db2.eln
-#	deleted:    eln-cache/29_1-00984f28/magit-subtree-6154adea-67721cc6.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-tag-81ccd461-e02f6c1a.eln -> eln-cache/29_1-00984f28/magit-tag-80516700-e02f6c1a.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-transient-0a2a8f4f-0b795b23.eln -> eln-cache/29_1-00984f28/magit-transient-fbcd5919-0b795b23.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-wip-3bd756d0-6a3417da.eln -> eln-cache/29_1-00984f28/magit-wip-20173332-6a3417da.eln
-#	renamed:    eln-cache/29_1-00984f28/magit-worktree-7f9f8959-0bd75cff.eln -> eln-cache/29_1-00984f28/magit-worktree-d61060e0-0bd75cff.eln
-#	deleted:    eln-cache/29_1-00984f28/markdown-mode-75f72932-efefb419.eln
-#	deleted:    eln-cache/29_1-00984f28/nerd-icons-67f29f2c-55a3ffce.eln
-#	deleted:    eln-cache/29_1-00984f28/s-672aeeb0-965beb42.eln
-#	deleted:    eln-cache/29_1-00984f28/shrink-path-bbb43b91-74a89b2f.eln
-#	deleted:    eln-cache/29_1-00984f28/smartparens-python-36c2bdde-5f31c493.eln
-#	deleted:    eln-cache/29_1-00984f28/spinner-cd759243-043a22dc.eln
-#	deleted:    eln-cache/29_1-00984f28/use-package-bind-key-4f3608f0-2e19d38b.eln
-#	deleted:    eln-cache/29_1-00984f28/use-package-core-884c9bc6-d201c51b.eln
-#	deleted:    eln-cache/29_1-00984f28/use-package-delight-efd0d9c5-ac4c549c.eln
-#	deleted:    eln-cache/29_1-00984f28/use-package-diminish-fc9733a3-31e1c445.eln
-#	deleted:    eln-cache/29_1-00984f28/use-package-ensure-63d1585a-a64ffa62.eln
+#	modified:   auto-save-list/.saves-53001-bali.local~
+#	new file:   auto-save-list/.saves-73320-bali.local~
+#	new file:   backups/!Users!hajime-f!.zshrc~
+#	modified:   backups/!Users!hajime-f!Development!dotfiles!.git!COMMIT_EDITMSG~
+#	new file:   backups/!Users!hajime-f!Development!hajime-f.github.io!.git!COMMIT_EDITMSG~
+#	new file:   backups/!Users!hajime-f!Development!stocktrading!.env~
+#	modified:   backups/!Users!hajime-f!Development!stocktrading!.git!COMMIT_EDITMSG~
+#	modified:   custom.el
+#	new file:   eln-cache/29_1-00984f28/beacon-a7d73021-6fa8ad3f.eln
+#	new file:   eln-cache/29_1-00984f28/copilot-balancer-f02d33d8-817d6fa4.eln
+#	new file:   eln-cache/29_1-00984f28/copilot-e03a7ddb-cdffa054.eln
+#	new file:   eln-cache/29_1-00984f28/doom-modeline-baab0367-eca2760d.eln
+#	new file:   eln-cache/29_1-00984f28/doom-modeline-core-99f9e418-5955cf1f.eln
+#	new file:   eln-cache/29_1-00984f28/doom-modeline-env-0fd6fd2f-9bc5d102.eln
+#	new file:   eln-cache/29_1-00984f28/doom-modeline-segments-07558e73-8a3bac05.eln
+#	new file:   eln-cache/29_1-00984f28/editorconfig-4b4afee0-ed4c00bb.eln
+#	new file:   eln-cache/29_1-00984f28/editorconfig-core-bb721347-e0557684.eln
+#	new file:   eln-cache/29_1-00984f28/editorconfig-core-handle-ea874275-3bad5429.eln
+#	new file:   eln-cache/29_1-00984f28/editorconfig-fnmatch-bf92d612-9742825b.eln
+#	new file:   eln-cache/29_1-00984f28/f-97595af7-57bd0257.eln
+#	new file:   eln-cache/29_1-00984f28/git-gutter-bd7765a4-f7db1bc0.eln
+#	new file:   eln-cache/29_1-00984f28/init-93a9b01d-96b5ce40.eln
+#	deleted:    eln-cache/29_1-00984f28/init-93a9b01d-f47880a4.eln
+#	new file:   eln-cache/29_1-00984f28/leaf-convert-ecdea69e-9c8dcad2.eln
+#	new file:   eln-cache/29_1-00984f28/nerd-icons-67f29f2c-55a3ffce.eln
+#	new file:   eln-cache/29_1-00984f28/pixel-fill-83d963be-fd97e6d0.eln
+#	new file:   eln-cache/29_1-00984f28/request-043480bf-c610ec45.eln
+#	new file:   eln-cache/29_1-00984f28/s-672aeeb0-965beb42.eln
+#	new file:   eln-cache/29_1-00984f28/shrink-path-bbb43b91-74a89b2f.eln
+#	new file:   eln-cache/29_1-00984f28/smartparens-html-d1b923ca-f96d7805.eln
+#	new file:   eln-cache/29_1-00984f28/smartparens-javascript-4a7e6dd0-60475631.eln
+#	new file:   eln-cache/29_1-00984f28/smartparens-python-36c2bdde-5f31c493.eln
+#	new file:   eln-cache/29_1-00984f28/subr--trampoline-64656c6574652d726567696f6e_delete_region_0.eln
+#	new file:   eln-cache/29_1-00984f28/subr--trampoline-6d616b652d696e6469726563742d627566666572_make_indirect_buffer_0.eln
+#	new file:   eln-cache/29_1-00984f28/subr--trampoline-6d657373616765_message_0.eln
+#	new file:   eln-cache/29_1-00984f28/volatile-highlights-6f305123-c62b0752.eln
+#	modified:   elpa/archives/gnu/archive-contents
 #	modified:   elpa/archives/melpa/archive-contents
-#	modified:   elpa/company-20250223.352/company.elc
-#	deleted:    elpa/copilot-20250223.139/copilot-autoloads.el
-#	deleted:    elpa/copilot-20250223.139/copilot-balancer.el
-#	deleted:    elpa/copilot-20250223.139/copilot-balancer.elc
-#	deleted:    elpa/copilot-20250223.139/copilot-pkg.el
-#	deleted:    elpa/copilot-20250223.139/copilot.el
-#	deleted:    elpa/copilot-20250223.139/copilot.elc
-#	deleted:    elpa/doom-modeline-20241225.206/doom-modeline-autoloads.el
-#	deleted:    elpa/doom-modeline-20241225.206/doom-modeline-core.el
-#	deleted:    elpa/doom-modeline-20241225.206/doom-modeline-core.elc
-#	deleted:    elpa/doom-modeline-20241225.206/doom-modeline-env.el
-#	deleted:    elpa/doom-modeline-20241225.206/doom-modeline-env.elc
-#	deleted:    elpa/doom-modeline-20241225.206/doom-modeline-pkg.el
-#	deleted:    elpa/doom-modeline-20241225.206/doom-modeline-segments.el
-#	deleted:    elpa/doom-modeline-20241225.206/doom-modeline-segments.elc
-#	deleted:    elpa/doom-modeline-20241225.206/doom-modeline.el
-#	deleted:    elpa/doom-modeline-20241225.206/doom-modeline.elc
-#	deleted:    elpa/editorconfig-20250219.1528/dir
-#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-autoloads.el
-#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-conf-mode.el
-#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-conf-mode.elc
-#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-core-handle.el
-#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-core-handle.elc
-#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-core.el
-#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-core.elc
-#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-fnmatch.el
-#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-fnmatch.elc
-#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-pkg.el
-#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-tools.el
-#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-tools.elc
-#	deleted:    elpa/editorconfig-20250219.1528/editorconfig.el
-#	deleted:    elpa/editorconfig-20250219.1528/editorconfig.elc
-#	deleted:    elpa/editorconfig-20250219.1528/editorconfig.info
-#	deleted:    elpa/f-20241003.1131/f-autoloads.el
-#	deleted:    elpa/f-20241003.1131/f-pkg.el
-#	deleted:    elpa/f-20241003.1131/f-shortdoc.el
-#	deleted:    elpa/f-20241003.1131/f.el
-#	deleted:    elpa/f-20241003.1131/f.elc
-#	modified:   elpa/flycheck-20250226.1541/flycheck-ert.elc
-#	deleted:    elpa/git-gutter-20241212.1415/git-gutter-autoloads.el
-#	deleted:    elpa/git-gutter-20241212.1415/git-gutter-pkg.el
-#	deleted:    elpa/git-gutter-20241212.1415/git-gutter.el
-#	deleted:    elpa/git-gutter-20241212.1415/git-gutter.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-actionscript.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-actionscript.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-ada.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-ada.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-angular.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-angular.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-ansible.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-ansible.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-asm.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-asm.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-astro.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-astro.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-autotools.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-autotools.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-awk.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-awk.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-bash.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-bash.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-beancount.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-beancount.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-bufls.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-bufls.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-c3.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-c3.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-camel.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-camel.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-clangd.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-clangd.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-clojure.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-clojure.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-cmake.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-cmake.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-cobol.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-cobol.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-completion.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-completion.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-copilot.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-copilot.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-credo.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-credo.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-crystal.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-crystal.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-csharp.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-csharp.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-css.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-css.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-cucumber.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-cucumber.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-cypher.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-cypher.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-d.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-d.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-dhall.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-dhall.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-diagnostics.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-diagnostics.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-dired.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-dired.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-dockerfile.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-dockerfile.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-dot.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-dot.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-earthly.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-earthly.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-elixir.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-elixir.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-elm.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-elm.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-emmet.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-emmet.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-erlang.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-erlang.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-eslint.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-eslint.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-fennel.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-fennel.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-fortran.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-fortran.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-fsharp.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-fsharp.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-futhark.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-futhark.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-gdscript.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-gdscript.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-gleam.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-gleam.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-glsl.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-glsl.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-go.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-go.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-golangci-lint.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-golangci-lint.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-graphql.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-graphql.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-groovy.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-groovy.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-hack.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-hack.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-haxe.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-haxe.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-headerline.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-headerline.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-html.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-html.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-hy.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-hy.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-icons.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-icons.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-ido.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-ido.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-idris.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-idris.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-iedit.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-iedit.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-inline-completion.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-inline-completion.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-javascript.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-javascript.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-jq.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-jq.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-json.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-json.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-jsonnet.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-jsonnet.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-kotlin.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-kotlin.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-kubernetes-helm.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-kubernetes-helm.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-lens.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-lens.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-lisp.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-lisp.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-lua.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-lua.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-magik.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-magik.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-markdown.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-markdown.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-marksman.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-marksman.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-matlab.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-matlab.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-mdx.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-mdx.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-meson.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-meson.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-mint.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-mint.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-mode-autoloads.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-mode-pkg.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-mode.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-mode.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-modeline.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-modeline.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-mojo.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-mojo.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-move.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-move.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-nextflow.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-nextflow.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-nginx.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-nginx.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-nim.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-nim.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-nix.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-nix.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-nushell.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-nushell.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-ocaml.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-ocaml.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-openscad.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-openscad.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-perl.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-perl.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-perlnavigator.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-perlnavigator.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-php.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-php.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-pls.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-pls.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-prolog.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-prolog.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-protocol.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-protocol.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-purescript.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-purescript.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-pwsh.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-pwsh.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-pyls.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-pyls.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-pylsp.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-pylsp.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-qml.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-qml.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-r.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-r.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-racket.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-racket.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-remark.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-remark.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-rf.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-rf.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-roc.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-roc.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-roslyn.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-roslyn.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-rpm-spec.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-rpm-spec.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-rubocop.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-rubocop.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-ruby-lsp.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-ruby-lsp.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-ruby-syntax-tree.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-ruby-syntax-tree.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-ruff.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-ruff.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-rust.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-rust.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-semantic-tokens.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-semantic-tokens.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-semgrep.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-semgrep.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-sml.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-sml.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-solargraph.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-solargraph.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-solidity.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-solidity.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-sorbet.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-sorbet.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-sql.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-sql.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-sqls.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-sqls.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-steep.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-steep.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-svelte.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-svelte.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-terraform.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-terraform.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-tex.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-tex.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-tilt.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-tilt.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-toml.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-toml.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-trunk.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-trunk.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-ts-query.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-ts-query.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-ttcn3.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-ttcn3.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-typeprof.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-typeprof.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-typespec.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-typespec.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-v.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-v.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-vala.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-vala.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-verilog.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-verilog.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-vetur.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-vetur.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-vhdl.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-vhdl.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-vimscript.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-vimscript.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-volar.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-volar.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-wgsl.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-wgsl.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-xml.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-xml.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-yaml.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-yaml.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-yang.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-yang.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-zig.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp-zig.elc
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp.el
-#	deleted:    elpa/lsp-mode-20250224.2344/lsp.elc
-#	renamed:    elpa/magit-20250221.105/.dir-locals.el -> elpa/magit-20250225.837/.dir-locals.el
-#	renamed:    elpa/magit-20250221.105/AUTHORS.md -> elpa/magit-20250225.837/AUTHORS.md
-#	renamed:    elpa/magit-20250221.105/LICENSE -> elpa/magit-20250225.837/LICENSE
-#	renamed:    elpa/magit-20250221.105/dir -> elpa/magit-20250225.837/dir
-#	renamed:    elpa/magit-20250221.105/git-commit.el -> elpa/magit-20250225.837/git-commit.el
-#	renamed:    elpa/magit-20250221.105/git-commit.elc -> elpa/magit-20250225.837/git-commit.elc
-#	renamed:    elpa/magit-20250221.105/git-rebase.el -> elpa/magit-20250225.837/git-rebase.el
-#	renamed:    elpa/magit-20250221.105/git-rebase.elc -> elpa/magit-20250225.837/git-rebase.elc
-#	renamed:    elpa/magit-20250221.105/magit-apply.el -> elpa/magit-20250225.837/magit-apply.el
-#	renamed:    elpa/magit-20250221.105/magit-apply.elc -> elpa/magit-20250225.837/magit-apply.elc
-#	renamed:    elpa/magit-20250221.105/magit-autoloads.el -> elpa/magit-20250225.837/magit-autoloads.el
-#	renamed:    elpa/magit-20250221.105/magit-autorevert.el -> elpa/magit-20250225.837/magit-autorevert.el
-#	renamed:    elpa/magit-20250221.105/magit-autorevert.elc -> elpa/magit-20250225.837/magit-autorevert.elc
-#	renamed:    elpa/magit-20250221.105/magit-base.el -> elpa/magit-20250225.837/magit-base.el
-#	renamed:    elpa/magit-20250221.105/magit-base.elc -> elpa/magit-20250225.837/magit-base.elc
-#	renamed:    elpa/magit-20250221.105/magit-bisect.el -> elpa/magit-20250225.837/magit-bisect.el
-#	renamed:    elpa/magit-20250221.105/magit-bisect.elc -> elpa/magit-20250225.837/magit-bisect.elc
-#	renamed:    elpa/magit-20250221.105/magit-blame.el -> elpa/magit-20250225.837/magit-blame.el
-#	renamed:    elpa/magit-20250221.105/magit-blame.elc -> elpa/magit-20250225.837/magit-blame.elc
-#	renamed:    elpa/magit-20250221.105/magit-bookmark.el -> elpa/magit-20250225.837/magit-bookmark.el
-#	renamed:    elpa/magit-20250221.105/magit-bookmark.elc -> elpa/magit-20250225.837/magit-bookmark.elc
-#	renamed:    elpa/magit-20250221.105/magit-branch.el -> elpa/magit-20250225.837/magit-branch.el
-#	renamed:    elpa/magit-20250221.105/magit-branch.elc -> elpa/magit-20250225.837/magit-branch.elc
-#	renamed:    elpa/magit-20250221.105/magit-bundle.el -> elpa/magit-20250225.837/magit-bundle.el
-#	renamed:    elpa/magit-20250221.105/magit-bundle.elc -> elpa/magit-20250225.837/magit-bundle.elc
-#	renamed:    elpa/magit-20250221.105/magit-clone.el -> elpa/magit-20250225.837/magit-clone.el
-#	renamed:    elpa/magit-20250221.105/magit-clone.elc -> elpa/magit-20250225.837/magit-clone.elc
-#	renamed:    elpa/magit-20250221.105/magit-commit.el -> elpa/magit-20250225.837/magit-commit.el
-#	renamed:    elpa/magit-20250221.105/magit-commit.elc -> elpa/magit-20250225.837/magit-commit.elc
-#	renamed:    elpa/magit-20250221.105/magit-core.el -> elpa/magit-20250225.837/magit-core.el
-#	renamed:    elpa/magit-20250221.105/magit-core.elc -> elpa/magit-20250225.837/magit-core.elc
-#	renamed:    elpa/magit-20250221.105/magit-diff.el -> elpa/magit-20250225.837/magit-diff.el
-#	renamed:    elpa/magit-20250221.105/magit-diff.elc -> elpa/magit-20250225.837/magit-diff.elc
-#	renamed:    elpa/magit-20250221.105/magit-ediff.el -> elpa/magit-20250225.837/magit-ediff.el
-#	renamed:    elpa/magit-20250221.105/magit-ediff.elc -> elpa/magit-20250225.837/magit-ediff.elc
-#	renamed:    elpa/magit-20250221.105/magit-extras.el -> elpa/magit-20250225.837/magit-extras.el
-#	renamed:    elpa/magit-20250221.105/magit-extras.elc -> elpa/magit-20250225.837/magit-extras.elc
-#	renamed:    elpa/magit-20250221.105/magit-fetch.el -> elpa/magit-20250225.837/magit-fetch.el
-#	renamed:    elpa/magit-20250221.105/magit-fetch.elc -> elpa/magit-20250225.837/magit-fetch.elc
-#	renamed:    elpa/magit-20250221.105/magit-files.el -> elpa/magit-20250225.837/magit-files.el
-#	renamed:    elpa/magit-20250221.105/magit-files.elc -> elpa/magit-20250225.837/magit-files.elc
-#	renamed:    elpa/magit-20250221.105/magit-git.el -> elpa/magit-20250225.837/magit-git.el
-#	renamed:    elpa/magit-20250221.105/magit-git.elc -> elpa/magit-20250225.837/magit-git.elc
-#	renamed:    elpa/magit-20250221.105/magit-gitignore.el -> elpa/magit-20250225.837/magit-gitignore.el
-#	renamed:    elpa/magit-20250221.105/magit-gitignore.elc -> elpa/magit-20250225.837/magit-gitignore.elc
-#	renamed:    elpa/magit-20250221.105/magit-log.el -> elpa/magit-20250225.837/magit-log.el
-#	renamed:    elpa/magit-20250221.105/magit-log.elc -> elpa/magit-20250225.837/magit-log.elc
-#	renamed:    elpa/magit-20250221.105/magit-margin.el -> elpa/magit-20250225.837/magit-margin.el
-#	renamed:    elpa/magit-20250221.105/magit-margin.elc -> elpa/magit-20250225.837/magit-margin.elc
-#	renamed:    elpa/magit-20250221.105/magit-merge.el -> elpa/magit-20250225.837/magit-merge.el
-#	renamed:    elpa/magit-20250221.105/magit-merge.elc -> elpa/magit-20250225.837/magit-merge.elc
-#	renamed:    elpa/magit-20250221.105/magit-mode.el -> elpa/magit-20250225.837/magit-mode.el
-#	renamed:    elpa/magit-20250221.105/magit-mode.elc -> elpa/magit-20250225.837/magit-mode.elc
-#	renamed:    elpa/magit-20250221.105/magit-notes.el -> elpa/magit-20250225.837/magit-notes.el
-#	renamed:    elpa/magit-20250221.105/magit-notes.elc -> elpa/magit-20250225.837/magit-notes.elc
-#	renamed:    elpa/magit-20250221.105/magit-patch.el -> elpa/magit-20250225.837/magit-patch.el
-#	renamed:    elpa/magit-20250221.105/magit-patch.elc -> elpa/magit-20250225.837/magit-patch.elc
-#	renamed:    elpa/magit-20250221.105/magit-pkg.el -> elpa/magit-20250225.837/magit-pkg.el
-#	renamed:    elpa/magit-20250221.105/magit-process.el -> elpa/magit-20250225.837/magit-process.el
-#	renamed:    elpa/magit-20250221.105/magit-process.elc -> elpa/magit-20250225.837/magit-process.elc
-#	renamed:    elpa/magit-20250221.105/magit-pull.el -> elpa/magit-20250225.837/magit-pull.el
-#	renamed:    elpa/magit-20250221.105/magit-pull.elc -> elpa/magit-20250225.837/magit-pull.elc
-#	renamed:    elpa/magit-20250221.105/magit-push.el -> elpa/magit-20250225.837/magit-push.el
-#	renamed:    elpa/magit-20250221.105/magit-push.elc -> elpa/magit-20250225.837/magit-push.elc
-#	renamed:    elpa/magit-20250221.105/magit-reflog.el -> elpa/magit-20250225.837/magit-reflog.el
-#	renamed:    elpa/magit-20250221.105/magit-reflog.elc -> elpa/magit-20250225.837/magit-reflog.elc
-#	renamed:    elpa/magit-20250221.105/magit-refs.el -> elpa/magit-20250225.837/magit-refs.el
-#	renamed:    elpa/magit-20250221.105/magit-refs.elc -> elpa/magit-20250225.837/magit-refs.elc
-#	renamed:    elpa/magit-20250221.105/magit-remote.el -> elpa/magit-20250225.837/magit-remote.el
-#	renamed:    elpa/magit-20250221.105/magit-remote.elc -> elpa/magit-20250225.837/magit-remote.elc
-#	renamed:    elpa/magit-20250221.105/magit-repos.el -> elpa/magit-20250225.837/magit-repos.el
-#	renamed:    elpa/magit-20250221.105/magit-repos.elc -> elpa/magit-20250225.837/magit-repos.elc
-#	renamed:    elpa/magit-20250221.105/magit-reset.el -> elpa/magit-20250225.837/magit-reset.el
-#	renamed:    elpa/magit-20250221.105/magit-reset.elc -> elpa/magit-20250225.837/magit-reset.elc
-#	renamed:    elpa/magit-20250221.105/magit-sequence.el -> elpa/magit-20250225.837/magit-sequence.el
-#	renamed:    elpa/magit-20250221.105/magit-sequence.elc -> elpa/magit-20250225.837/magit-sequence.elc
-#	renamed:    elpa/magit-20250221.105/magit-sparse-checkout.el -> elpa/magit-20250225.837/magit-sparse-checkout.el
-#	renamed:    elpa/magit-20250221.105/magit-sparse-checkout.elc -> elpa/magit-20250225.837/magit-sparse-checkout.elc
-#	renamed:    elpa/magit-20250221.105/magit-stash.el -> elpa/magit-20250225.837/magit-stash.el
-#	renamed:    elpa/magit-20250221.105/magit-stash.elc -> elpa/magit-20250225.837/magit-stash.elc
-#	renamed:    elpa/magit-20250221.105/magit-status.el -> elpa/magit-20250225.837/magit-status.el
-#	renamed:    elpa/magit-20250221.105/magit-status.elc -> elpa/magit-20250225.837/magit-status.elc
-#	renamed:    elpa/magit-20250221.105/magit-submodule.el -> elpa/magit-20250225.837/magit-submodule.el
-#	renamed:    elpa/magit-20250221.105/magit-submodule.elc -> elpa/magit-20250225.837/magit-submodule.elc
-#	renamed:    elpa/magit-20250221.105/magit-subtree.el -> elpa/magit-20250225.837/magit-subtree.el
-#	renamed:    elpa/magit-20250221.105/magit-subtree.elc -> elpa/magit-20250225.837/magit-subtree.elc
-#	renamed:    elpa/magit-20250221.105/magit-tag.el -> elpa/magit-20250225.837/magit-tag.el
-#	renamed:    elpa/magit-20250221.105/magit-tag.elc -> elpa/magit-20250225.837/magit-tag.elc
-#	renamed:    elpa/magit-20250221.105/magit-transient.el -> elpa/magit-20250225.837/magit-transient.el
-#	renamed:    elpa/magit-20250221.105/magit-transient.elc -> elpa/magit-20250225.837/magit-transient.elc
-#	renamed:    elpa/magit-20250221.105/magit-wip.el -> elpa/magit-20250225.837/magit-wip.el
-#	renamed:    elpa/magit-20250221.105/magit-wip.elc -> elpa/magit-20250225.837/magit-wip.elc
-#	renamed:    elpa/magit-20250221.105/magit-worktree.el -> elpa/magit-20250225.837/magit-worktree.el
-#	renamed:    elpa/magit-20250221.105/magit-worktree.elc -> elpa/magit-20250225.837/magit-worktree.elc
-#	renamed:    elpa/magit-20250221.105/magit.el -> elpa/magit-20250225.837/magit.el
-#	renamed:    elpa/magit-20250221.105/magit.elc -> elpa/magit-20250225.837/magit.elc
-#	renamed:    elpa/magit-20250221.105/magit.info -> elpa/magit-20250225.837/magit.info
-#	deleted:    elpa/markdown-mode-20250226.231/markdown-mode-autoloads.el
-#	deleted:    elpa/markdown-mode-20250226.231/markdown-mode-pkg.el
-#	deleted:    elpa/markdown-mode-20250226.231/markdown-mode.el
-#	deleted:    elpa/markdown-mode-20250226.231/markdown-mode.elc
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-codicon.el
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-codicon.elc
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-devicon.el
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-devicon.elc
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-faicon.el
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-faicon.elc
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-flicon.el
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-flicon.elc
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-ipsicon.el
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-ipsicon.elc
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-mdicon.el
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-mdicon.elc
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-octicon.el
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-octicon.elc
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-pomicon.el
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-pomicon.elc
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-powerline.el
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-powerline.elc
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-sucicon.el
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-sucicon.elc
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-wicon.el
-#	deleted:    elpa/nerd-icons-20250222.1319/data/nerd-icons-data-wicon.elc
-#	deleted:    elpa/nerd-icons-20250222.1319/nerd-icons-autoloads.el
-#	deleted:    elpa/nerd-icons-20250222.1319/nerd-icons-data.el
-#	deleted:    elpa/nerd-icons-20250222.1319/nerd-icons-data.elc
-#	deleted:    elpa/nerd-icons-20250222.1319/nerd-icons-faces.el
-#	deleted:    elpa/nerd-icons-20250222.1319/nerd-icons-faces.elc
-#	deleted:    elpa/nerd-icons-20250222.1319/nerd-icons-pkg.el
-#	deleted:    elpa/nerd-icons-20250222.1319/nerd-icons.el
-#	deleted:    elpa/nerd-icons-20250222.1319/nerd-icons.elc
-#	deleted:    elpa/s-20220902.1511/s-autoloads.el
-#	deleted:    elpa/s-20220902.1511/s-pkg.el
-#	deleted:    elpa/s-20220902.1511/s.el
-#	deleted:    elpa/s-20220902.1511/s.elc
-#	modified:   elpa/seq-2.24/tests/seq-tests.elc
-#	deleted:    elpa/shrink-path-20190208.1335/shrink-path-autoloads.el
-#	deleted:    elpa/shrink-path-20190208.1335/shrink-path-pkg.el
-#	deleted:    elpa/shrink-path-20190208.1335/shrink-path.el
-#	deleted:    elpa/shrink-path-20190208.1335/shrink-path.elc
-#	deleted:    elpa/spinner-1.7.4/README-elpa
-#	deleted:    elpa/spinner-1.7.4/README.org
-#	deleted:    elpa/spinner-1.7.4/all-spinners.gif
-#	deleted:    elpa/spinner-1.7.4/some-spinners.gif
-#	deleted:    elpa/spinner-1.7.4/spinner-autoloads.el
-#	deleted:    elpa/spinner-1.7.4/spinner-pkg.el
-#	deleted:    elpa/spinner-1.7.4/spinner.el
-#	deleted:    elpa/spinner-1.7.4/spinner.elc
-#	modified:   elpa/transient-20250222.1912/transient.elc
-#	deleted:    elpa/use-package-2.4.6/dir
-#	deleted:    elpa/use-package-2.4.6/doclicense.texi
-#	deleted:    elpa/use-package-2.4.6/docstyle.texi
-#	deleted:    elpa/use-package-2.4.6/emacsver.texi
-#	deleted:    elpa/use-package-2.4.6/use-package-autoloads.el
-#	deleted:    elpa/use-package-2.4.6/use-package-bind-key.el
-#	deleted:    elpa/use-package-2.4.6/use-package-bind-key.elc
-#	deleted:    elpa/use-package-2.4.6/use-package-core.el
-#	deleted:    elpa/use-package-2.4.6/use-package-core.elc
-#	deleted:    elpa/use-package-2.4.6/use-package-delight.el
-#	deleted:    elpa/use-package-2.4.6/use-package-delight.elc
-#	deleted:    elpa/use-package-2.4.6/use-package-diminish.el
-#	deleted:    elpa/use-package-2.4.6/use-package-diminish.elc
-#	deleted:    elpa/use-package-2.4.6/use-package-ensure-system-package.el
-#	deleted:    elpa/use-package-2.4.6/use-package-ensure-system-package.elc
-#	deleted:    elpa/use-package-2.4.6/use-package-ensure.el
-#	deleted:    elpa/use-package-2.4.6/use-package-ensure.elc
-#	deleted:    elpa/use-package-2.4.6/use-package-jump.el
-#	deleted:    elpa/use-package-2.4.6/use-package-jump.elc
-#	deleted:    elpa/use-package-2.4.6/use-package-lint.el
-#	deleted:    elpa/use-package-2.4.6/use-package-lint.elc
-#	deleted:    elpa/use-package-2.4.6/use-package-pkg.el
-#	deleted:    elpa/use-package-2.4.6/use-package.el
-#	deleted:    elpa/use-package-2.4.6/use-package.elc
-#	deleted:    elpa/use-package-2.4.6/use-package.info
-#	deleted:    elpa/use-package-2.4.6/use-package.texi
+#	new file:   elpa/beacon-20220730.100/beacon-autoloads.el
+#	new file:   elpa/beacon-20220730.100/beacon-pkg.el
+#	new file:   elpa/beacon-20220730.100/beacon.el
+#	new file:   elpa/beacon-20220730.100/beacon.elc
+#	new file:   elpa/copilot-20250223.139/copilot-autoloads.el
+#	new file:   elpa/copilot-20250223.139/copilot-balancer.el
+#	new file:   elpa/copilot-20250223.139/copilot-balancer.elc
+#	new file:   elpa/copilot-20250223.139/copilot-pkg.el
+#	new file:   elpa/copilot-20250223.139/copilot.el
+#	new file:   elpa/copilot-20250223.139/copilot.elc
+#	new file:   elpa/doom-modeline-20241225.206/doom-modeline-autoloads.el
+#	new file:   elpa/doom-modeline-20241225.206/doom-modeline-core.el
+#	new file:   elpa/doom-modeline-20241225.206/doom-modeline-core.elc
+#	new file:   elpa/doom-modeline-20241225.206/doom-modeline-env.el
+#	new file:   elpa/doom-modeline-20241225.206/doom-modeline-env.elc
+#	new file:   elpa/doom-modeline-20241225.206/doom-modeline-pkg.el
+#	new file:   elpa/doom-modeline-20241225.206/doom-modeline-segments.el
+#	new file:   elpa/doom-modeline-20241225.206/doom-modeline-segments.elc
+#	new file:   elpa/doom-modeline-20241225.206/doom-modeline.el
+#	new file:   elpa/doom-modeline-20241225.206/doom-modeline.elc
+#	new file:   elpa/editorconfig-20250219.1528/dir
+#	new file:   elpa/editorconfig-20250219.1528/editorconfig-autoloads.el
+#	new file:   elpa/editorconfig-20250219.1528/editorconfig-conf-mode.el
+#	new file:   elpa/editorconfig-20250219.1528/editorconfig-conf-mode.elc
+#	new file:   elpa/editorconfig-20250219.1528/editorconfig-core-handle.el
+#	new file:   elpa/editorconfig-20250219.1528/editorconfig-core-handle.elc
+#	new file:   elpa/editorconfig-20250219.1528/editorconfig-core.el
+#	new file:   elpa/editorconfig-20250219.1528/editorconfig-core.elc
+#	new file:   elpa/editorconfig-20250219.1528/editorconfig-fnmatch.el
+#	new file:   elpa/editorconfig-20250219.1528/editorconfig-fnmatch.elc
+#	new file:   elpa/editorconfig-20250219.1528/editorconfig-pkg.el
+#	new file:   elpa/editorconfig-20250219.1528/editorconfig-tools.el
+#	new file:   elpa/editorconfig-20250219.1528/editorconfig-tools.elc
+#	new file:   elpa/editorconfig-20250219.1528/editorconfig.el
+#	new file:   elpa/editorconfig-20250219.1528/editorconfig.elc
+#	new file:   elpa/editorconfig-20250219.1528/editorconfig.info
+#	new file:   elpa/f-20241003.1131/f-autoloads.el
+#	new file:   elpa/f-20241003.1131/f-pkg.el
+#	new file:   elpa/f-20241003.1131/f-shortdoc.el
+#	new file:   elpa/f-20241003.1131/f.el
+#	new file:   elpa/f-20241003.1131/f.elc
+#	new file:   elpa/git-gutter-20241212.1415/git-gutter-autoloads.el
+#	new file:   elpa/git-gutter-20241212.1415/git-gutter-pkg.el
+#	new file:   elpa/git-gutter-20241212.1415/git-gutter.el
+#	new file:   elpa/git-gutter-20241212.1415/git-gutter.elc
+#	new file:   elpa/google-20140416.1748/google-autoloads.el
+#	new file:   elpa/google-20140416.1748/google-pkg.el
+#	new file:   elpa/google-20140416.1748/google.el
+#	new file:   elpa/google-20140416.1748/google.elc
+#	new file:   elpa/gpt-commit-20230716.331/gpt-commit-autoloads.el
+#	new file:   elpa/gpt-commit-20230716.331/gpt-commit-pkg.el
+#	new file:   elpa/gpt-commit-20230716.331/gpt-commit.el
+#	new file:   elpa/gpt-commit-20230716.331/gpt-commit.elc
+#	new file:   elpa/hide-mode-line-20240828.2322/hide-mode-line-autoloads.el
+#	new file:   elpa/hide-mode-line-20240828.2322/hide-mode-line-pkg.el
+#	new file:   elpa/hide-mode-line-20240828.2322/hide-mode-line.el
+#	new file:   elpa/hide-mode-line-20240828.2322/hide-mode-line.elc
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-codicon.el
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-codicon.elc
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-devicon.el
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-devicon.elc
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-faicon.el
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-faicon.elc
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-flicon.el
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-flicon.elc
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-ipsicon.el
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-ipsicon.elc
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-mdicon.el
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-mdicon.elc
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-octicon.el
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-octicon.elc
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-pomicon.el
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-pomicon.elc
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-powerline.el
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-powerline.elc
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-sucicon.el
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-sucicon.elc
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-wicon.el
+#	new file:   elpa/nerd-icons-20250222.1319/data/nerd-icons-data-wicon.elc
+#	new file:   elpa/nerd-icons-20250222.1319/nerd-icons-autoloads.el
+#	new file:   elpa/nerd-icons-20250222.1319/nerd-icons-data.el
+#	new file:   elpa/nerd-icons-20250222.1319/nerd-icons-data.elc
+#	new file:   elpa/nerd-icons-20250222.1319/nerd-icons-faces.el
+#	new file:   elpa/nerd-icons-20250222.1319/nerd-icons-faces.elc
+#	new file:   elpa/nerd-icons-20250222.1319/nerd-icons-pkg.el
+#	new file:   elpa/nerd-icons-20250222.1319/nerd-icons.el
+#	new file:   elpa/nerd-icons-20250222.1319/nerd-icons.elc
+#	new file:   elpa/request-20250219.2213/request-autoloads.el
+#	new file:   elpa/request-20250219.2213/request-pkg.el
+#	new file:   elpa/request-20250219.2213/request.el
+#	new file:   elpa/request-20250219.2213/request.elc
+#	new file:   elpa/s-20220902.1511/s-autoloads.el
+#	new file:   elpa/s-20220902.1511/s-pkg.el
+#	new file:   elpa/s-20220902.1511/s.el
+#	new file:   elpa/s-20220902.1511/s.elc
+#	new file:   elpa/shrink-path-20190208.1335/shrink-path-autoloads.el
+#	new file:   elpa/shrink-path-20190208.1335/shrink-path-pkg.el
+#	new file:   elpa/shrink-path-20190208.1335/shrink-path.el
+#	new file:   elpa/shrink-path-20190208.1335/shrink-path.elc
+#	new file:   elpa/volatile-highlights-20240913.2206/volatile-highlights-autoloads.el
+#	new file:   elpa/volatile-highlights-20240913.2206/volatile-highlights-pkg.el
+#	new file:   elpa/volatile-highlights-20240913.2206/volatile-highlights.el
+#	new file:   elpa/volatile-highlights-20240913.2206/volatile-highlights.elc
+#	modified:   init.el
+#	modified:   init.elc
 #	modified:   places
-#	new file:   undohist/!Users!hajime-f!.emacs.d!init.el
-#	new file:   undohist/!Users!hajime-f!Development!dotfiles!custom.el
-#	new file:   undohist/!Users!hajime-f!Development!stocktrading!library.py
-#	new file:   undohist/!Users!hajime-f!Development!stocktrading!requirements.txt
-#	new file:   undohist/!Users!hajime-f!Development!stocktrading!stock.py
-#	new file:   undohist/!Users!hajime-f!Development!stocktrading!test.py
+#	modified:   undohist/!Users!hajime-f!.emacs.d!init.el
+#	new file:   undohist/!Users!hajime-f!.zshrc
+#	modified:   undohist/!Users!hajime-f!Development!dotfiles!custom.el
+#	modified:   undohist/!Users!hajime-f!Development!dotfiles!init.el
+#	new file:   undohist/!Users!hajime-f!Development!hajime-f.github.io!index.html
+#	new file:   undohist/!Users!hajime-f!Development!stocktrading!.env
+#	new file:   undohist/!Users!hajime-f!Development!stocktrading!README.md
+#	modified:   undohist/!Users!hajime-f!Development!stocktrading!library.py
+#	new file:   undohist/!Users!hajime-f!Development!stocktrading!stocktrading.py
 #
