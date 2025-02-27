@@ -1,0 +1,19 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Your branch is up to date with 'origin/master'.
+#
+# Changes to be committed:
+#	deleted:    eln-cache/29_1-00984f28/init-93a9b01d-a2307d7d.eln
+#	modified:   init.el
+#	modified:   init.elc
+#	modified:   places
+#	modified:   transient/history.el
+#	modified:   undohist/!Users!hajime-f!Development!dotfiles!init.el
+#
+# Untracked files:
+#	backups/!Users!hajime-f!Development!dotfiles!.git!COMMIT_EDITMSG~
+#	eln-cache/29_1-00984f28/init-93a9b01d-f47880a4.eln
+#
