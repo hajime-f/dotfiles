@@ -1,9 +1,13 @@
 ;;; init.el --- My init.el  -*- lexical-binding: t; -*-
 
+;;; Commentary:
+
+;;; Code:
 
 ;;; 
 ;;; パッケージ管理に関する設定
 ;;; 
+
 
 (eval-and-compile
   (when (or load-file-name byte-compile-current-file)
@@ -24,13 +28,11 @@
   (leaf leaf-keywords
     :ensure t
     :init
-    ;; optional packages if you want to use :hydra, :el-get, :blackout,,,
     (leaf hydra :ensure t)
     (leaf el-get :ensure t)
     (leaf blackout :ensure t)
 
     :config
-    ;; initialize leaf-keywords.el
     (leaf-keywords-init)))
 
 (leaf leaf
@@ -118,31 +120,43 @@
                )
               default-frame-alist))
 
-;; メニューバー、ツールバー、スクロールバーを表示しない
+;; メニューバーとツールバーを表示しない
 (menu-bar-mode 0)
 (tool-bar-mode 0)
-(scroll-bar-mode 0)
 
 ;; テーマ（doom-dark+）の適用
 (leaf doom-themes
-  :init
-  (let ((custom--inhibit-theme-enable nil))
-    (unless (memq 'use-package custom-known-themes)
-      (deftheme use-package)
-      (enable-theme 'use-package)
-      (setq custom-enabled-themes (remq 'use-package custom-enabled-themes)))
-    (custom-theme-set-variables 'use-package
-				'(doom-themes-enable-italic t nil nil "Customized with use-package doom-themes")
-				'(doom-themes-enable-bold t nil nil "Customized with use-package doom-themes")))
-  (apply #'face-spec-set
-	 (backquote
-	  (doom-modeline-bar
-	   ((t
-	     (:background "#6272a4"))))))
-  :require t
+  :doc "An opinionated pack of modern color-themes."
+  :req "emacs-25.1" "cl-lib-0.5"
+  :tag "faces" "themes" "emacs>=25.1"
+  :url "https://github.com/doomemacs/themes"
+  :added "2025-02-27"
+  :emacs>= 25.1
+  :ensure t
   :config
   (load-theme 'doom-dark+ t)
   (set-frame-parameter nil 'alpha 95))
+
+(leaf doom-modeline
+  :doc "A minimal and modern mode-line"
+  :req "emacs-25.1" "compat-29.1.4.5" "nerd-icons-0.1.0" "shrink-path-0.3.1"
+  :tag "mode-line" "faces" "emacs>=25.1"
+  :url "https://github.com/seagle0128/doom-modeline"
+  :added "2025-02-27"
+  :emacs>= 25.1
+  :ensure t
+  :global-minor-mode t
+  :after compat nerd-icons shrink-path)
+
+;; バッファを切り替えたときに一瞬カーソルがハイライトされる
+(leaf beacon
+  :ensure t
+  :global-minor-mode t)
+
+;; ヤンクした内容を一瞬ハイライトして、追加部分をわかりやすくしてくれる
+(leaf volatile-highlights
+  :ensure t
+  :global-minor-mode t)
 
 ;; フォントの設定
 (set-frame-font "Bizin Gothic 20")
@@ -251,6 +265,15 @@
   :bind
   (("C-q C-f" . magit-status)))
 
+;; Git Gutter
+(leaf git-gutter
+  :ensure t
+  :global-minor-mode global-git-gutter-mode
+  :custom
+  ((git-gutter:added-sign . "+")
+   (git-gutter:deleted-sign . "-")
+   (git-gutter:modified-sign . "=")))
+
 ;; Smartparens
 (leaf smartparens
   :ensure t
@@ -288,9 +311,8 @@
 ;; タブ
 (leaf tab-bar-mode
   :init
-  (defvar my:ctrl-o-map (make-sparse-keymap)
-    "My original keymap binded to C-o.")
-  (defalias 'my:ctrl-o-prefix my:ctrl-o-map)
+  ;; (defvar my:ctrl-o-map (make-sparse-keymap))
+  ;; (defalias 'my:ctrl-o-prefix my:ctrl-o-map)
   (define-key global-map (kbd "C-<up>") 'tab-bar-switch-to-prev-tab)
   (define-key global-map (kbd "C-<down>") 'tab-bar-switch-to-next-tab)
   (define-key global-map (kbd "C-t") 'tab-bar-new-tab)
@@ -318,11 +340,7 @@
 ;;   :added "2025-02-27"
 ;;   :emacs>= 27.2
 ;;   :ensure t
-;;   :bind  (copilot-completion-map ("C-f" . copilot-accept-completion))
-;;   :after editorconfig jsonrpc
-;;   :config
-;;   (setq copilot-node-executable "~/.nvm/versions/node/v17.9.1/bin/node"))
-
+;;   :bind  (copilot-completion-map ("C-f" . copilot-accept-completion)))
 
 ;; emojify
 (leaf emojify

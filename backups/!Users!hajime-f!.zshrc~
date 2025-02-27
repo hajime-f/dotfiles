@@ -1,0 +1,48 @@
+typeset -U path PATH
+path=(
+  /opt/homebrew/bin(N-/)
+  /opt/homebrew/sbin(N-/)
+  /opt/local/bin
+  /opt/local/sbin
+  /usr/bin
+  /usr/sbin
+  /usr/local/texlive/2023/bin/universal-darwin/
+  /bin
+  /sbin
+  /usr/local/bin(N-/)
+  /usr/local/sbin(N-/)
+  /Library/Apple/usr/bin
+)
+
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    autoload -Uz compinit && compinit
+fi
+
+PROMPT='[%n@%F{green}%\%m:%F{white}%\%1~]$ '
+
+alias h='ls -lLhG'
+alias ha='ls -lhaHLG'
+alias df='df -h'
+alias cd='pushd'
+alias p='popd'
+alias cp='cp -r'
+alias python='/opt/homebrew/bin/python3.13'
+alias python3='/opt/homebrew/bin/python3.13'
+alias vi='vim'
+# alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs'
+alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+
+setopt share_history
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt extended_glob
+setopt correct
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
