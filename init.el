@@ -148,6 +148,15 @@
   :global-minor-mode t
   :after compat nerd-icons shrink-path)
 
+;; all-the-icons
+(leaf all-the-icons
+  :ensure t
+  :after doom-modeline
+  :custom (all-the-icons-scale-factor . 0.9)
+  :config
+  (unless (member "all-the-icons" (font-family-list))
+    (all-the-icons-install-fonts t)))
+
 ;; バッファを切り替えたときに一瞬カーソルがハイライトされる
 (leaf beacon
   :ensure t
