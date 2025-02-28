@@ -15,3 +15,13 @@
 *.sx32fsl
 *.wx64fsl
 *.wx32fsl
+init.elc
+auto-save-list/
+backups/
+custom.el
+eln-cache/
+elpa/
+emojis/
+places
+transient/
+undohist/

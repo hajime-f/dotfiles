@@ -6,12 +6,535 @@
 # Your branch is up to date with 'origin/master'.
 #
 # Changes to be committed:
-#	renamed:    auto-save-list/.saves-80336-bali.local~ -> auto-save-list/.saves-87548-bali.local~
+#	new file:   auto-save-list/.saves-5326-bali.local~
+#	renamed:    auto-save-list/.saves-87548-bali.local~ -> auto-save-list/.saves-91420-bali.local~
 #	modified:   backups/!Users!hajime-f!Development!dotfiles!.git!COMMIT_EDITMSG~
-#	new file:   eln-cache/29_1-00984f28/init-93a9b01d-3fe72593.eln
-#	deleted:    eln-cache/29_1-00984f28/init-93a9b01d-83cb108c.eln
+#	new file:   backups/!Users!hajime-f!tmp.txt~
+#	deleted:    el-get/.loaddefs.el
+#	deleted:    el-get/.loaddefs.elc
+#	deleted:    el-get/.status.el
+#	deleted:    eln-cache/29.1-c0bb98c9/subr--trampoline-68616e646c652d7377697463682d6672616d65_handle_switch_frame_0.eln
+#	renamed:    eln-cache/29_1-00984f28/company-29a158f4-fe75e242.eln -> eln-cache/29_1-00984f28/company-220bc84b-9913ff95.eln
+#	renamed:    eln-cache/29_1-00984f28/company-bbdb-296d1f48-91c0dccf.eln -> eln-cache/29_1-00984f28/company-bbdb-31cce464-91c0dccf.eln
+#	renamed:    eln-cache/29_1-00984f28/company-capf-b09df40d-ac0020ee.eln -> eln-cache/29_1-00984f28/company-capf-34b7c153-2ee3e291.eln
+#	renamed:    eln-cache/29_1-00984f28/company-clang-fd6255aa-bc88454d.eln -> eln-cache/29_1-00984f28/company-clang-dea72fce-bc88454d.eln
+#	renamed:    eln-cache/29_1-00984f28/company-cmake-a2ba0024-a6ca4a59.eln -> eln-cache/29_1-00984f28/company-cmake-e543bc17-a6ca4a59.eln
+#	renamed:    eln-cache/29_1-00984f28/company-dabbrev-703fa288-965725b3.eln -> eln-cache/29_1-00984f28/company-dabbrev-8b8c7c35-965725b3.eln
+#	renamed:    eln-cache/29_1-00984f28/company-dabbrev-code-4adbb108-84f0a727.eln -> eln-cache/29_1-00984f28/company-dabbrev-code-e0cb33ab-84f0a727.eln
+#	renamed:    eln-cache/29_1-00984f28/company-etags-8ee835e9-b9e58efb.eln -> eln-cache/29_1-00984f28/company-etags-82134c83-b9e58efb.eln
+#	renamed:    eln-cache/29_1-00984f28/company-files-25a136f0-7605000f.eln -> eln-cache/29_1-00984f28/company-files-794d1dbd-7605000f.eln
+#	renamed:    eln-cache/29_1-00984f28/company-gtags-9602b86b-db3f0de4.eln -> eln-cache/29_1-00984f28/company-gtags-48c6d345-db3f0de4.eln
+#	renamed:    eln-cache/29_1-00984f28/company-keywords-03cc025f-0dafc33e.eln -> eln-cache/29_1-00984f28/company-keywords-97fede70-0dafc33e.eln
+#	renamed:    eln-cache/29_1-00984f28/company-oddmuse-d360c868-6731a06a.eln -> eln-cache/29_1-00984f28/company-oddmuse-30672bce-6731a06a.eln
+#	renamed:    eln-cache/29_1-00984f28/company-semantic-3943c5cd-13ae21a9.eln -> eln-cache/29_1-00984f28/company-semantic-d6a87acf-13ae21a9.eln
+#	renamed:    eln-cache/29_1-00984f28/company-template-2ae4ba09-18d25400.eln -> eln-cache/29_1-00984f28/company-template-80636ba7-18d25400.eln
+#	deleted:    eln-cache/29_1-00984f28/copilot-balancer-a0fdd718-817d6fa4.eln
+#	deleted:    eln-cache/29_1-00984f28/copilot-balancer-f02d33d8-817d6fa4.eln
+#	deleted:    eln-cache/29_1-00984f28/copilot-c77ea5b2-955884bb.eln
+#	deleted:    eln-cache/29_1-00984f28/copilot-e03a7ddb-cdffa054.eln
+#	deleted:    eln-cache/29_1-00984f28/editorconfig-4b4afee0-ed4c00bb.eln
+#	deleted:    eln-cache/29_1-00984f28/editorconfig-core-bb721347-e0557684.eln
+#	deleted:    eln-cache/29_1-00984f28/editorconfig-core-handle-ea874275-3bad5429.eln
+#	deleted:    eln-cache/29_1-00984f28/editorconfig-fnmatch-bf92d612-9742825b.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-apt-get-12397e81-c60f202f.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-autoloading-7bce8552-731537f0.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-brew-a1e9a566-0f22ed49.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-build-fd104049-9a22b3db.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-builtin-24638dc0-eec7f11c.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-bundle-7bb18143-00c3e626.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-byte-compile-7f7eba79-a695283d.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-bzr-722899f9-73345f4d.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-c1aa5446-23c115ba.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-core-28a10fd1-7e94671a.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-custom-b54583a4-d226d9e6.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-cvs-99b3445e-30c6bf43.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-darcs-3d594d95-a953dcee.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-dependencies-491fad2e-43c6df47.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-elpa-58fae7e7-86dd5212.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-emacsmirror-a684a001-9d1916d0.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-emacswiki-ae3feef4-93bc119d.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-fink-75356ea4-0d91cff4.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-fossil-3208d628-3a539dfe.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-git-048f0c3d-7e247c36.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-git-svn-18e7b378-3d878a9d.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-github-cc25c1a2-08f575e9.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-github-tar-336ef7a6-09f483e4.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-github-zip-b837daba-7c354113.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-go-0a765b8d-ea576130.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-hg-c2eaf84d-8fcc1d36.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-http-7ae31b8e-d19bc511.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-http-tar-36fa0eba-48c16f15.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-http-zip-8b448127-ec080aaf.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-list-packages-3598e01e-938f25a7.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-methods-50068352-e8de209f.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-notify-69079bd2-91d52c23.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-pacman-cf41c1d0-bba9152d.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-recipes-1f395604-75589fa1.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-status-4b4c9567-e8c5e04d.eln
+#	deleted:    eln-cache/29_1-00984f28/el-get-svn-b39147c6-a0e79775.eln
+#	renamed:    eln-cache/29_1-00984f28/git-commit-6b68fc30-eb7acac5.eln -> eln-cache/29_1-00984f28/git-commit-289a5570-eb7acac5.eln
+#	deleted:    eln-cache/29_1-00984f28/google-translate-backend-8b370b91-650edc36.eln
+#	deleted:    eln-cache/29_1-00984f28/google-translate-core-eac15181-11fb0905.eln
+#	deleted:    eln-cache/29_1-00984f28/google-translate-core-ui-6c3f1980-a46d9160.eln
+#	deleted:    eln-cache/29_1-00984f28/google-translate-default-ui-7fa3ce6c-c5f5c352.eln
+#	renamed:    eln-cache/29_1-00984f28/init-93a9b01d-3fe72593.eln -> eln-cache/29_1-00984f28/init-93a9b01d-1f29ada2.eln
+#	deleted:    eln-cache/29_1-00984f28/leaf-convert-ecdea69e-9c8dcad2.eln
+#	deleted:    eln-cache/29_1-00984f28/lsp-protocol-96e9d89b-ab516d5e3ha6Ak.eln.tmp
+#	deleted:    eln-cache/29_1-00984f28/lsp-protocol-96e9d89b-ab516d5eV1g2f6.eln.tmp
+#	renamed:    eln-cache/29_1-00984f28/magit-2d6aebc3-3e5707d0.eln -> eln-cache/29_1-00984f28/magit-2b518456-4ffc718f.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-apply-048a06b5-c4c32a4e.eln -> eln-cache/29_1-00984f28/magit-apply-4608b7e9-c4c32a4e.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-autorevert-0685662d-2b70395c.eln -> eln-cache/29_1-00984f28/magit-autorevert-8cc70023-2b70395c.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-base-0c53d8b1-59206651.eln -> eln-cache/29_1-00984f28/magit-base-0633f400-96bfa187.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-bisect-88c0aaf9-2b506ed3.eln -> eln-cache/29_1-00984f28/magit-bisect-dbd2d30b-2b506ed3.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-blame-81b9c468-7aadbec7.eln -> eln-cache/29_1-00984f28/magit-blame-45759a52-7aadbec7.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-bookmark-f567051e-ec03abbe.eln -> eln-cache/29_1-00984f28/magit-bookmark-c52e555a-ec03abbe.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-branch-9c2510c2-09f8ff6b.eln -> eln-cache/29_1-00984f28/magit-branch-15b67050-fbdc0289.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-clone-45ccd7ef-c8b2415f.eln -> eln-cache/29_1-00984f28/magit-clone-c3b48f81-73821692.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-commit-14ec9fb2-30d949d1.eln -> eln-cache/29_1-00984f28/magit-commit-7a61f8e0-30d949d1.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-diff-7e91c719-d305461f.eln -> eln-cache/29_1-00984f28/magit-diff-9b2f1198-377fb105.eln
+#	deleted:    eln-cache/29_1-00984f28/magit-extras-e8fa9ce1-1b0682f7.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-fetch-e4d1d134-8dc9b9f5.eln -> eln-cache/29_1-00984f28/magit-fetch-528cab81-8dc9b9f5.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-files-8cce04ea-6b6655da.eln -> eln-cache/29_1-00984f28/magit-files-9e2a96a8-6b6655da.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-git-9050c905-3efc761c.eln -> eln-cache/29_1-00984f28/magit-git-74f62b74-3efc761c.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-log-f1af1a47-4326fc0a.eln -> eln-cache/29_1-00984f28/magit-log-a38274a4-32ce4dbc.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-margin-78eb057c-942752a1.eln -> eln-cache/29_1-00984f28/magit-margin-bcb2ad3a-942752a1.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-merge-aa16dff0-f9b18702.eln -> eln-cache/29_1-00984f28/magit-merge-daee2cd0-f9b18702.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-mode-a9d0a575-db2e61cc.eln -> eln-cache/29_1-00984f28/magit-mode-8affbe0c-732e1451.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-notes-ce99caf1-ea592258.eln -> eln-cache/29_1-00984f28/magit-notes-3624766c-ea592258.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-process-4508704b-2f6afeab.eln -> eln-cache/29_1-00984f28/magit-process-52c82ba3-06da17e3.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-pull-f721196d-493b08be.eln -> eln-cache/29_1-00984f28/magit-pull-4feaf762-493b08be.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-push-371c92ba-d0d396fd.eln -> eln-cache/29_1-00984f28/magit-push-45a9d4a2-d0d396fd.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-reflog-f2b04c85-80e9e54a.eln -> eln-cache/29_1-00984f28/magit-reflog-6d861fe4-80e9e54a.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-refs-b475c91f-2d19f7b7.eln -> eln-cache/29_1-00984f28/magit-refs-687e23d1-2d19f7b7.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-remote-02f8d88b-cd39b3d5.eln -> eln-cache/29_1-00984f28/magit-remote-e6aa1bc2-8656feaf.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-repos-3fa264c3-b663519e.eln -> eln-cache/29_1-00984f28/magit-repos-f6fa6f2c-b663519e.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-reset-2fe8c887-641c5b0a.eln -> eln-cache/29_1-00984f28/magit-reset-360bb88a-641c5b0a.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-sequence-1aa3cd28-8924c987.eln -> eln-cache/29_1-00984f28/magit-sequence-7b36ffa1-8924c987.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-stash-27d65a1c-8a13dae2.eln -> eln-cache/29_1-00984f28/magit-stash-ce01cd0d-8a13dae2.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-status-6e3bdbc7-6f287236.eln -> eln-cache/29_1-00984f28/magit-status-71f1380a-e7b5fd86.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-submodule-074daf9b-f86c1db2.eln -> eln-cache/29_1-00984f28/magit-submodule-6f2bfcf2-f86c1db2.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-tag-80516700-e02f6c1a.eln -> eln-cache/29_1-00984f28/magit-tag-7371b41e-e02f6c1a.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-transient-fbcd5919-0b795b23.eln -> eln-cache/29_1-00984f28/magit-transient-51e8f5c6-0b795b23.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-wip-20173332-6a3417da.eln -> eln-cache/29_1-00984f28/magit-wip-6cf78ad2-6a3417da.eln
+#	renamed:    eln-cache/29_1-00984f28/magit-worktree-d61060e0-0bd75cff.eln -> eln-cache/29_1-00984f28/magit-worktree-d997e90e-0bd75cff.eln
+#	deleted:    eln-cache/29_1-00984f28/misearch-3d1286b0-5d8e9f2c.eln
+#	deleted:    eln-cache/29_1-00984f28/neotree-1bec5752-14384fcf.eln
+#	deleted:    eln-cache/29_1-00984f28/ob-emacs-lisp-0b97f15a-1d800b2a.eln
+#	deleted:    eln-cache/29_1-00984f28/org-faces-fdfdb79f-97682e2a.eln
+#	deleted:    eln-cache/29_1-00984f28/pixel-fill-83d963be-fd97e6d0.eln
+#	deleted:    eln-cache/29_1-00984f28/popup-f0470225-2152a802.eln
+#	deleted:    eln-cache/29_1-00984f28/request-043480bf-c610ec45.eln
+#	deleted:    eln-cache/29_1-00984f28/smartparens-html-d1b923ca-f96d7805.eln
+#	deleted:    eln-cache/29_1-00984f28/smartparens-javascript-4a7e6dd0-60475631.eln
+#	deleted:    eln-cache/29_1-00984f28/smartparens-python-36c2bdde-5f31c493.eln
+#	deleted:    eln-cache/29_1-00984f28/subr--trampoline-64657363726962652d6275666665722d62696e64696e6773_describe_buffer_bindings_0.eln
+#	deleted:    eln-cache/29_1-00984f28/subr--trampoline-6d657373616765_message_0.eln
+#	deleted:    eln-cache/29_1-00984f28/subr--trampoline-706f736e2d61742d706f696e74_posn_at_point_0.eln
+#	deleted:    eln-cache/29_1-00984f28/subr--trampoline-7265637572736976652d65646974_recursive_edit_0.eln
+#	deleted:    eln-cache/29_1-00984f28/subr--trampoline-72656e616d652d66696c65_rename_file_0.eln
+#	deleted:    eln-cache/29_1-00984f28/transient-58cf416f-fc1a8bf7.eln
+#	new file:   eln-cache/29_1-00984f28/transient-f2ed2ce8-09dbf247.eln
+#	deleted:    eln-cache/29_1-00984f28/tree-widget-8dccf6ba-fb03554c.eln
+#	modified:   elpa/archives/melpa/archive-contents
+#	renamed:    elpa/company-20250223.352/company-abbrev.el -> elpa/company-20250228.258/company-abbrev.el
+#	renamed:    elpa/company-20250223.352/company-abbrev.elc -> elpa/company-20250228.258/company-abbrev.elc
+#	renamed:    elpa/company-20250223.352/company-autoloads.el -> elpa/company-20250228.258/company-autoloads.el
+#	renamed:    elpa/company-20250223.352/company-bbdb.el -> elpa/company-20250228.258/company-bbdb.el
+#	renamed:    elpa/company-20250223.352/company-bbdb.elc -> elpa/company-20250228.258/company-bbdb.elc
+#	renamed:    elpa/company-20250223.352/company-capf.el -> elpa/company-20250228.258/company-capf.el
+#	renamed:    elpa/company-20250223.352/company-capf.elc -> elpa/company-20250228.258/company-capf.elc
+#	renamed:    elpa/company-20250223.352/company-clang.el -> elpa/company-20250228.258/company-clang.el
+#	renamed:    elpa/company-20250223.352/company-clang.elc -> elpa/company-20250228.258/company-clang.elc
+#	renamed:    elpa/company-20250223.352/company-cmake.el -> elpa/company-20250228.258/company-cmake.el
+#	renamed:    elpa/company-20250223.352/company-cmake.elc -> elpa/company-20250228.258/company-cmake.elc
+#	renamed:    elpa/company-20250223.352/company-css.el -> elpa/company-20250228.258/company-css.el
+#	renamed:    elpa/company-20250223.352/company-css.elc -> elpa/company-20250228.258/company-css.elc
+#	renamed:    elpa/company-20250223.352/company-dabbrev-code.el -> elpa/company-20250228.258/company-dabbrev-code.el
+#	renamed:    elpa/company-20250223.352/company-dabbrev-code.elc -> elpa/company-20250228.258/company-dabbrev-code.elc
+#	renamed:    elpa/company-20250223.352/company-dabbrev.el -> elpa/company-20250228.258/company-dabbrev.el
+#	renamed:    elpa/company-20250223.352/company-dabbrev.elc -> elpa/company-20250228.258/company-dabbrev.elc
+#	renamed:    elpa/company-20250223.352/company-etags.el -> elpa/company-20250228.258/company-etags.el
+#	renamed:    elpa/company-20250223.352/company-etags.elc -> elpa/company-20250228.258/company-etags.elc
+#	renamed:    elpa/company-20250223.352/company-files.el -> elpa/company-20250228.258/company-files.el
+#	renamed:    elpa/company-20250223.352/company-files.elc -> elpa/company-20250228.258/company-files.elc
+#	renamed:    elpa/company-20250223.352/company-gtags.el -> elpa/company-20250228.258/company-gtags.el
+#	renamed:    elpa/company-20250223.352/company-gtags.elc -> elpa/company-20250228.258/company-gtags.elc
+#	renamed:    elpa/company-20250223.352/company-ispell.el -> elpa/company-20250228.258/company-ispell.el
+#	renamed:    elpa/company-20250223.352/company-ispell.elc -> elpa/company-20250228.258/company-ispell.elc
+#	renamed:    elpa/company-20250223.352/company-keywords.el -> elpa/company-20250228.258/company-keywords.el
+#	renamed:    elpa/company-20250223.352/company-keywords.elc -> elpa/company-20250228.258/company-keywords.elc
+#	renamed:    elpa/company-20250223.352/company-nxml.el -> elpa/company-20250228.258/company-nxml.el
+#	renamed:    elpa/company-20250223.352/company-nxml.elc -> elpa/company-20250228.258/company-nxml.elc
+#	renamed:    elpa/company-20250223.352/company-oddmuse.el -> elpa/company-20250228.258/company-oddmuse.el
+#	renamed:    elpa/company-20250223.352/company-oddmuse.elc -> elpa/company-20250228.258/company-oddmuse.elc
+#	renamed:    elpa/company-20250223.352/company-pkg.el -> elpa/company-20250228.258/company-pkg.el
+#	renamed:    elpa/company-20250223.352/company-semantic.el -> elpa/company-20250228.258/company-semantic.el
+#	renamed:    elpa/company-20250223.352/company-semantic.elc -> elpa/company-20250228.258/company-semantic.elc
+#	renamed:    elpa/company-20250223.352/company-template.el -> elpa/company-20250228.258/company-template.el
+#	renamed:    elpa/company-20250223.352/company-template.elc -> elpa/company-20250228.258/company-template.elc
+#	renamed:    elpa/company-20250223.352/company-tempo.el -> elpa/company-20250228.258/company-tempo.el
+#	renamed:    elpa/company-20250223.352/company-tempo.elc -> elpa/company-20250228.258/company-tempo.elc
+#	renamed:    elpa/company-20250223.352/company-tng.el -> elpa/company-20250228.258/company-tng.el
+#	renamed:    elpa/company-20250223.352/company-tng.elc -> elpa/company-20250228.258/company-tng.elc
+#	renamed:    elpa/company-20250223.352/company-yasnippet.el -> elpa/company-20250228.258/company-yasnippet.el
+#	renamed:    elpa/company-20250223.352/company-yasnippet.elc -> elpa/company-20250228.258/company-yasnippet.elc
+#	renamed:    elpa/company-20250223.352/company.el -> elpa/company-20250228.258/company.el
+#	renamed:    elpa/company-20250223.352/company.elc -> elpa/company-20250228.258/company.elc
+#	renamed:    elpa/company-20250223.352/company.info -> elpa/company-20250228.258/company.info
+#	renamed:    elpa/company-20250223.352/dir -> elpa/company-20250228.258/dir
+#	renamed:    elpa/company-20250223.352/icons/LICENSE -> elpa/company-20250228.258/icons/LICENSE
+#	renamed:    elpa/company-20250223.352/icons/attribution.md -> elpa/company-20250228.258/icons/attribution.md
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/folder.svg -> elpa/company-20250228.258/icons/vscode-dark/folder.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/references.svg -> elpa/company-20250228.258/icons/vscode-dark/references.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-array.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-array.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-boolean.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-boolean.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-class.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-class.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-color.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-color.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-constant.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-constant.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-enumerator-member.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-enumerator-member.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-enumerator.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-enumerator.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-event.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-event.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-field.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-field.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-file.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-file.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-interface.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-interface.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-key.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-key.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-keyword.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-keyword.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-method.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-method.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-misc.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-misc.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-namespace.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-namespace.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-numeric.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-numeric.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-operator.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-operator.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-parameter.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-parameter.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-property.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-property.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-ruler.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-ruler.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-snippet.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-snippet.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-string.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-string.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-structure.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-structure.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-dark/symbol-variable.svg -> elpa/company-20250228.258/icons/vscode-dark/symbol-variable.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/folder.svg -> elpa/company-20250228.258/icons/vscode-light/folder.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/references.svg -> elpa/company-20250228.258/icons/vscode-light/references.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-array.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-array.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-boolean.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-boolean.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-class.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-class.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-color.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-color.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-constant.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-constant.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-enumerator-member.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-enumerator-member.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-enumerator.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-enumerator.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-event.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-event.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-field.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-field.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-file.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-file.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-interface.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-interface.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-key.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-key.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-keyword.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-keyword.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-method.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-method.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-misc.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-misc.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-namespace.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-namespace.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-numeric.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-numeric.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-operator.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-operator.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-parameter.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-parameter.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-property.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-property.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-ruler.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-ruler.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-snippet.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-snippet.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-string.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-string.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-structure.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-structure.svg
+#	renamed:    elpa/company-20250223.352/icons/vscode-light/symbol-variable.svg -> elpa/company-20250228.258/icons/vscode-light/symbol-variable.svg
+#	renamed:    elpa/company-20250223.352/images/small/echo-meta.png -> elpa/company-20250228.258/images/small/echo-meta.png
+#	renamed:    elpa/company-20250223.352/images/small/echo-qa.png -> elpa/company-20250228.258/images/small/echo-qa.png
+#	renamed:    elpa/company-20250223.352/images/small/echo-strip-qa.png -> elpa/company-20250228.258/images/small/echo-strip-qa.png
+#	renamed:    elpa/company-20250223.352/images/small/echo-strip.png -> elpa/company-20250228.258/images/small/echo-strip.png
+#	renamed:    elpa/company-20250223.352/images/small/echo.png -> elpa/company-20250228.258/images/small/echo.png
+#	renamed:    elpa/company-20250223.352/images/small/preview-dark.png -> elpa/company-20250228.258/images/small/preview-dark.png
+#	renamed:    elpa/company-20250223.352/images/small/preview-light.png -> elpa/company-20250228.258/images/small/preview-light.png
+#	renamed:    elpa/company-20250223.352/images/small/tooltip-annotations.png -> elpa/company-20250228.258/images/small/tooltip-annotations.png
+#	renamed:    elpa/company-20250223.352/images/small/tooltip-faces-light.png -> elpa/company-20250228.258/images/small/tooltip-faces-light.png
+#	renamed:    elpa/company-20250223.352/images/small/tooltip-filter.png -> elpa/company-20250228.258/images/small/tooltip-filter.png
+#	renamed:    elpa/company-20250223.352/images/small/tooltip-flip.png -> elpa/company-20250228.258/images/small/tooltip-flip.png
+#	renamed:    elpa/company-20250223.352/images/small/tooltip-icon-bg.png -> elpa/company-20250228.258/images/small/tooltip-icon-bg.png
+#	renamed:    elpa/company-20250223.352/images/small/tooltip-icon-face.png -> elpa/company-20250228.258/images/small/tooltip-icon-face.png
+#	renamed:    elpa/company-20250223.352/images/small/tooltip-icons-dot.png -> elpa/company-20250228.258/images/small/tooltip-icons-dot.png
+#	renamed:    elpa/company-20250223.352/images/small/tooltip-icons-text.png -> elpa/company-20250228.258/images/small/tooltip-icons-text.png
+#	renamed:    elpa/company-20250223.352/images/small/tooltip-icons-vscode.png -> elpa/company-20250228.258/images/small/tooltip-icons-vscode.png
+#	renamed:    elpa/company-20250223.352/images/small/tooltip-limit.png -> elpa/company-20250228.258/images/small/tooltip-limit.png
+#	renamed:    elpa/company-20250223.352/images/small/tooltip-margin.png -> elpa/company-20250228.258/images/small/tooltip-margin.png
+#	renamed:    elpa/company-20250223.352/images/small/tooltip-minimum-above.png -> elpa/company-20250228.258/images/small/tooltip-minimum-above.png
+#	renamed:    elpa/company-20250223.352/images/small/tooltip-minimum-below.png -> elpa/company-20250228.258/images/small/tooltip-minimum-below.png
+#	renamed:    elpa/company-20250223.352/images/small/tooltip-offset-display.png -> elpa/company-20250228.258/images/small/tooltip-offset-display.png
+#	renamed:    elpa/company-20250223.352/images/small/tooltip-qa-faces-light.png -> elpa/company-20250228.258/images/small/tooltip-qa-faces-light.png
+#	renamed:    elpa/company-20250223.352/images/small/tooltip-quick-access.png -> elpa/company-20250228.258/images/small/tooltip-quick-access.png
+#	renamed:    elpa/company-20250223.352/images/small/tooltip-search.png -> elpa/company-20250228.258/images/small/tooltip-search.png
+#	deleted:    elpa/copilot-20250223.139/copilot-autoloads.el
+#	deleted:    elpa/copilot-20250223.139/copilot-balancer.el
+#	deleted:    elpa/copilot-20250223.139/copilot-balancer.elc
+#	deleted:    elpa/copilot-20250223.139/copilot-pkg.el
+#	deleted:    elpa/copilot-20250223.139/copilot.el
+#	deleted:    elpa/copilot-20250223.139/copilot.elc
+#	deleted:    elpa/editorconfig-20250219.1528/dir
+#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-autoloads.el
+#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-conf-mode.el
+#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-conf-mode.elc
+#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-core-handle.el
+#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-core-handle.elc
+#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-core.el
+#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-core.elc
+#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-fnmatch.el
+#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-fnmatch.elc
+#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-pkg.el
+#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-tools.el
+#	deleted:    elpa/editorconfig-20250219.1528/editorconfig-tools.elc
+#	deleted:    elpa/editorconfig-20250219.1528/editorconfig.el
+#	deleted:    elpa/editorconfig-20250219.1528/editorconfig.elc
+#	deleted:    elpa/editorconfig-20250219.1528/editorconfig.info
+#	deleted:    elpa/el-get-20240408.837/dir
+#	deleted:    elpa/el-get-20240408.837/el-get-autoloading.el
+#	deleted:    elpa/el-get-20240408.837/el-get-autoloading.elc
+#	deleted:    elpa/el-get-20240408.837/el-get-autoloads.el
+#	deleted:    elpa/el-get-20240408.837/el-get-build.el
+#	deleted:    elpa/el-get-20240408.837/el-get-build.elc
+#	deleted:    elpa/el-get-20240408.837/el-get-bundle.el
+#	deleted:    elpa/el-get-20240408.837/el-get-bundle.elc
+#	deleted:    elpa/el-get-20240408.837/el-get-byte-compile.el
+#	deleted:    elpa/el-get-20240408.837/el-get-byte-compile.elc
+#	deleted:    elpa/el-get-20240408.837/el-get-check.el
+#	deleted:    elpa/el-get-20240408.837/el-get-check.elc
+#	deleted:    elpa/el-get-20240408.837/el-get-core.el
+#	deleted:    elpa/el-get-20240408.837/el-get-core.elc
+#	deleted:    elpa/el-get-20240408.837/el-get-custom.el
+#	deleted:    elpa/el-get-20240408.837/el-get-custom.elc
+#	deleted:    elpa/el-get-20240408.837/el-get-dependencies.el
+#	deleted:    elpa/el-get-20240408.837/el-get-dependencies.elc
+#	deleted:    elpa/el-get-20240408.837/el-get-install.el
+#	deleted:    elpa/el-get-20240408.837/el-get-list-packages.el
+#	deleted:    elpa/el-get-20240408.837/el-get-list-packages.elc
+#	deleted:    elpa/el-get-20240408.837/el-get-methods.el
+#	deleted:    elpa/el-get-20240408.837/el-get-methods.elc
+#	deleted:    elpa/el-get-20240408.837/el-get-notify.el
+#	deleted:    elpa/el-get-20240408.837/el-get-notify.elc
+#	deleted:    elpa/el-get-20240408.837/el-get-pkg.el
+#	deleted:    elpa/el-get-20240408.837/el-get-recipes.el
+#	deleted:    elpa/el-get-20240408.837/el-get-recipes.elc
+#	deleted:    elpa/el-get-20240408.837/el-get-status.el
+#	deleted:    elpa/el-get-20240408.837/el-get-status.elc
+#	deleted:    elpa/el-get-20240408.837/el-get.el
+#	deleted:    elpa/el-get-20240408.837/el-get.elc
+#	deleted:    elpa/el-get-20240408.837/el-get.info
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-apt-get.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-apt-get.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-brew.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-brew.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-builtin.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-builtin.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-bzr.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-bzr.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-cvs.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-cvs.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-darcs.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-darcs.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-elpa.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-elpa.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-emacsmirror.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-emacsmirror.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-emacswiki.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-emacswiki.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-fink.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-fink.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-fossil.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-fossil.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-git-svn.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-git-svn.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-git.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-git.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-github-tar.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-github-tar.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-github-zip.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-github-zip.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-github.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-github.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-go.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-go.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-hg.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-hg.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-http-tar.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-http-tar.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-http-zip.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-http-zip.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-http.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-http.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-pacman.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-pacman.elc
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-svn.el
+#	deleted:    elpa/el-get-20240408.837/methods/el-get-svn.elc
+#	deleted:    elpa/el-get-20240408.837/recipes/el-get.rcp
+#	modified:   elpa/flycheck-20250226.1541/flycheck-ert.elc
+#	deleted:    elpa/google-20140416.1748/google-autoloads.el
+#	deleted:    elpa/google-20140416.1748/google-pkg.el
+#	deleted:    elpa/google-20140416.1748/google.el
+#	deleted:    elpa/google-20140416.1748/google.elc
+#	deleted:    elpa/google-translate-20250115.609/google-translate-autoloads.el
+#	deleted:    elpa/google-translate-20250115.609/google-translate-backend.el
+#	deleted:    elpa/google-translate-20250115.609/google-translate-backend.elc
+#	deleted:    elpa/google-translate-20250115.609/google-translate-core-ui.el
+#	deleted:    elpa/google-translate-20250115.609/google-translate-core-ui.elc
+#	deleted:    elpa/google-translate-20250115.609/google-translate-core.el
+#	deleted:    elpa/google-translate-20250115.609/google-translate-core.elc
+#	deleted:    elpa/google-translate-20250115.609/google-translate-default-ui.el
+#	deleted:    elpa/google-translate-20250115.609/google-translate-default-ui.elc
+#	deleted:    elpa/google-translate-20250115.609/google-translate-pkg.el
+#	deleted:    elpa/google-translate-20250115.609/google-translate-smooth-ui.el
+#	deleted:    elpa/google-translate-20250115.609/google-translate-smooth-ui.elc
+#	deleted:    elpa/google-translate-20250115.609/google-translate.el
+#	deleted:    elpa/google-translate-20250115.609/google-translate.elc
+#	deleted:    elpa/gpt-commit-20230716.331/gpt-commit-autoloads.el
+#	deleted:    elpa/gpt-commit-20230716.331/gpt-commit-pkg.el
+#	deleted:    elpa/gpt-commit-20230716.331/gpt-commit.el
+#	deleted:    elpa/gpt-commit-20230716.331/gpt-commit.elc
+#	deleted:    elpa/hide-mode-line-20240828.2322/hide-mode-line-autoloads.el
+#	deleted:    elpa/hide-mode-line-20240828.2322/hide-mode-line-pkg.el
+#	deleted:    elpa/hide-mode-line-20240828.2322/hide-mode-line.el
+#	deleted:    elpa/hide-mode-line-20240828.2322/hide-mode-line.elc
+#	renamed:    elpa/magit-20250225.837/.dir-locals.el -> elpa/magit-20250227.2140/.dir-locals.el
+#	renamed:    elpa/magit-20250225.837/AUTHORS.md -> elpa/magit-20250227.2140/AUTHORS.md
+#	renamed:    elpa/magit-20250225.837/LICENSE -> elpa/magit-20250227.2140/LICENSE
+#	renamed:    elpa/magit-20250225.837/dir -> elpa/magit-20250227.2140/dir
+#	renamed:    elpa/magit-20250225.837/git-commit.el -> elpa/magit-20250227.2140/git-commit.el
+#	renamed:    elpa/magit-20250225.837/git-commit.elc -> elpa/magit-20250227.2140/git-commit.elc
+#	renamed:    elpa/magit-20250225.837/git-rebase.el -> elpa/magit-20250227.2140/git-rebase.el
+#	renamed:    elpa/magit-20250225.837/git-rebase.elc -> elpa/magit-20250227.2140/git-rebase.elc
+#	renamed:    elpa/magit-20250225.837/magit-apply.el -> elpa/magit-20250227.2140/magit-apply.el
+#	renamed:    elpa/magit-20250225.837/magit-apply.elc -> elpa/magit-20250227.2140/magit-apply.elc
+#	renamed:    elpa/magit-20250225.837/magit-autoloads.el -> elpa/magit-20250227.2140/magit-autoloads.el
+#	renamed:    elpa/magit-20250225.837/magit-autorevert.el -> elpa/magit-20250227.2140/magit-autorevert.el
+#	renamed:    elpa/magit-20250225.837/magit-autorevert.elc -> elpa/magit-20250227.2140/magit-autorevert.elc
+#	renamed:    elpa/magit-20250225.837/magit-base.el -> elpa/magit-20250227.2140/magit-base.el
+#	renamed:    elpa/magit-20250225.837/magit-base.elc -> elpa/magit-20250227.2140/magit-base.elc
+#	renamed:    elpa/magit-20250225.837/magit-bisect.el -> elpa/magit-20250227.2140/magit-bisect.el
+#	renamed:    elpa/magit-20250225.837/magit-bisect.elc -> elpa/magit-20250227.2140/magit-bisect.elc
+#	renamed:    elpa/magit-20250225.837/magit-blame.el -> elpa/magit-20250227.2140/magit-blame.el
+#	renamed:    elpa/magit-20250225.837/magit-blame.elc -> elpa/magit-20250227.2140/magit-blame.elc
+#	renamed:    elpa/magit-20250225.837/magit-bookmark.el -> elpa/magit-20250227.2140/magit-bookmark.el
+#	renamed:    elpa/magit-20250225.837/magit-bookmark.elc -> elpa/magit-20250227.2140/magit-bookmark.elc
+#	renamed:    elpa/magit-20250225.837/magit-branch.el -> elpa/magit-20250227.2140/magit-branch.el
+#	renamed:    elpa/magit-20250225.837/magit-branch.elc -> elpa/magit-20250227.2140/magit-branch.elc
+#	renamed:    elpa/magit-20250225.837/magit-bundle.el -> elpa/magit-20250227.2140/magit-bundle.el
+#	renamed:    elpa/magit-20250225.837/magit-bundle.elc -> elpa/magit-20250227.2140/magit-bundle.elc
+#	renamed:    elpa/magit-20250225.837/magit-clone.el -> elpa/magit-20250227.2140/magit-clone.el
+#	renamed:    elpa/magit-20250225.837/magit-clone.elc -> elpa/magit-20250227.2140/magit-clone.elc
+#	renamed:    elpa/magit-20250225.837/magit-commit.el -> elpa/magit-20250227.2140/magit-commit.el
+#	renamed:    elpa/magit-20250225.837/magit-commit.elc -> elpa/magit-20250227.2140/magit-commit.elc
+#	renamed:    elpa/magit-20250225.837/magit-core.el -> elpa/magit-20250227.2140/magit-core.el
+#	renamed:    elpa/magit-20250225.837/magit-core.elc -> elpa/magit-20250227.2140/magit-core.elc
+#	renamed:    elpa/magit-20250225.837/magit-diff.el -> elpa/magit-20250227.2140/magit-diff.el
+#	renamed:    elpa/magit-20250225.837/magit-diff.elc -> elpa/magit-20250227.2140/magit-diff.elc
+#	renamed:    elpa/magit-20250225.837/magit-ediff.el -> elpa/magit-20250227.2140/magit-ediff.el
+#	renamed:    elpa/magit-20250225.837/magit-ediff.elc -> elpa/magit-20250227.2140/magit-ediff.elc
+#	renamed:    elpa/magit-20250225.837/magit-extras.el -> elpa/magit-20250227.2140/magit-extras.el
+#	renamed:    elpa/magit-20250225.837/magit-extras.elc -> elpa/magit-20250227.2140/magit-extras.elc
+#	renamed:    elpa/magit-20250225.837/magit-fetch.el -> elpa/magit-20250227.2140/magit-fetch.el
+#	renamed:    elpa/magit-20250225.837/magit-fetch.elc -> elpa/magit-20250227.2140/magit-fetch.elc
+#	renamed:    elpa/magit-20250225.837/magit-files.el -> elpa/magit-20250227.2140/magit-files.el
+#	renamed:    elpa/magit-20250225.837/magit-files.elc -> elpa/magit-20250227.2140/magit-files.elc
+#	renamed:    elpa/magit-20250225.837/magit-git.el -> elpa/magit-20250227.2140/magit-git.el
+#	renamed:    elpa/magit-20250225.837/magit-git.elc -> elpa/magit-20250227.2140/magit-git.elc
+#	renamed:    elpa/magit-20250225.837/magit-gitignore.el -> elpa/magit-20250227.2140/magit-gitignore.el
+#	renamed:    elpa/magit-20250225.837/magit-gitignore.elc -> elpa/magit-20250227.2140/magit-gitignore.elc
+#	renamed:    elpa/magit-20250225.837/magit-log.el -> elpa/magit-20250227.2140/magit-log.el
+#	renamed:    elpa/magit-20250225.837/magit-log.elc -> elpa/magit-20250227.2140/magit-log.elc
+#	renamed:    elpa/magit-20250225.837/magit-margin.el -> elpa/magit-20250227.2140/magit-margin.el
+#	renamed:    elpa/magit-20250225.837/magit-margin.elc -> elpa/magit-20250227.2140/magit-margin.elc
+#	renamed:    elpa/magit-20250225.837/magit-merge.el -> elpa/magit-20250227.2140/magit-merge.el
+#	renamed:    elpa/magit-20250225.837/magit-merge.elc -> elpa/magit-20250227.2140/magit-merge.elc
+#	renamed:    elpa/magit-20250225.837/magit-mode.el -> elpa/magit-20250227.2140/magit-mode.el
+#	renamed:    elpa/magit-20250225.837/magit-mode.elc -> elpa/magit-20250227.2140/magit-mode.elc
+#	renamed:    elpa/magit-20250225.837/magit-notes.el -> elpa/magit-20250227.2140/magit-notes.el
+#	renamed:    elpa/magit-20250225.837/magit-notes.elc -> elpa/magit-20250227.2140/magit-notes.elc
+#	renamed:    elpa/magit-20250225.837/magit-patch.el -> elpa/magit-20250227.2140/magit-patch.el
+#	renamed:    elpa/magit-20250225.837/magit-patch.elc -> elpa/magit-20250227.2140/magit-patch.elc
+#	renamed:    elpa/magit-20250225.837/magit-pkg.el -> elpa/magit-20250227.2140/magit-pkg.el
+#	renamed:    elpa/magit-20250225.837/magit-process.el -> elpa/magit-20250227.2140/magit-process.el
+#	renamed:    elpa/magit-20250225.837/magit-process.elc -> elpa/magit-20250227.2140/magit-process.elc
+#	renamed:    elpa/magit-20250225.837/magit-pull.el -> elpa/magit-20250227.2140/magit-pull.el
+#	renamed:    elpa/magit-20250225.837/magit-pull.elc -> elpa/magit-20250227.2140/magit-pull.elc
+#	renamed:    elpa/magit-20250225.837/magit-push.el -> elpa/magit-20250227.2140/magit-push.el
+#	renamed:    elpa/magit-20250225.837/magit-push.elc -> elpa/magit-20250227.2140/magit-push.elc
+#	renamed:    elpa/magit-20250225.837/magit-reflog.el -> elpa/magit-20250227.2140/magit-reflog.el
+#	renamed:    elpa/magit-20250225.837/magit-reflog.elc -> elpa/magit-20250227.2140/magit-reflog.elc
+#	renamed:    elpa/magit-20250225.837/magit-refs.el -> elpa/magit-20250227.2140/magit-refs.el
+#	renamed:    elpa/magit-20250225.837/magit-refs.elc -> elpa/magit-20250227.2140/magit-refs.elc
+#	renamed:    elpa/magit-20250225.837/magit-remote.el -> elpa/magit-20250227.2140/magit-remote.el
+#	renamed:    elpa/magit-20250225.837/magit-remote.elc -> elpa/magit-20250227.2140/magit-remote.elc
+#	renamed:    elpa/magit-20250225.837/magit-repos.el -> elpa/magit-20250227.2140/magit-repos.el
+#	renamed:    elpa/magit-20250225.837/magit-repos.elc -> elpa/magit-20250227.2140/magit-repos.elc
+#	renamed:    elpa/magit-20250225.837/magit-reset.el -> elpa/magit-20250227.2140/magit-reset.el
+#	renamed:    elpa/magit-20250225.837/magit-reset.elc -> elpa/magit-20250227.2140/magit-reset.elc
+#	renamed:    elpa/magit-20250225.837/magit-sequence.el -> elpa/magit-20250227.2140/magit-sequence.el
+#	renamed:    elpa/magit-20250225.837/magit-sequence.elc -> elpa/magit-20250227.2140/magit-sequence.elc
+#	renamed:    elpa/magit-20250225.837/magit-sparse-checkout.el -> elpa/magit-20250227.2140/magit-sparse-checkout.el
+#	renamed:    elpa/magit-20250225.837/magit-sparse-checkout.elc -> elpa/magit-20250227.2140/magit-sparse-checkout.elc
+#	renamed:    elpa/magit-20250225.837/magit-stash.el -> elpa/magit-20250227.2140/magit-stash.el
+#	renamed:    elpa/magit-20250225.837/magit-stash.elc -> elpa/magit-20250227.2140/magit-stash.elc
+#	renamed:    elpa/magit-20250225.837/magit-status.el -> elpa/magit-20250227.2140/magit-status.el
+#	renamed:    elpa/magit-20250225.837/magit-status.elc -> elpa/magit-20250227.2140/magit-status.elc
+#	renamed:    elpa/magit-20250225.837/magit-submodule.el -> elpa/magit-20250227.2140/magit-submodule.el
+#	renamed:    elpa/magit-20250225.837/magit-submodule.elc -> elpa/magit-20250227.2140/magit-submodule.elc
+#	renamed:    elpa/magit-20250225.837/magit-subtree.el -> elpa/magit-20250227.2140/magit-subtree.el
+#	renamed:    elpa/magit-20250225.837/magit-subtree.elc -> elpa/magit-20250227.2140/magit-subtree.elc
+#	renamed:    elpa/magit-20250225.837/magit-tag.el -> elpa/magit-20250227.2140/magit-tag.el
+#	renamed:    elpa/magit-20250225.837/magit-tag.elc -> elpa/magit-20250227.2140/magit-tag.elc
+#	renamed:    elpa/magit-20250225.837/magit-transient.el -> elpa/magit-20250227.2140/magit-transient.el
+#	renamed:    elpa/magit-20250225.837/magit-transient.elc -> elpa/magit-20250227.2140/magit-transient.elc
+#	renamed:    elpa/magit-20250225.837/magit-wip.el -> elpa/magit-20250227.2140/magit-wip.el
+#	renamed:    elpa/magit-20250225.837/magit-wip.elc -> elpa/magit-20250227.2140/magit-wip.elc
+#	renamed:    elpa/magit-20250225.837/magit-worktree.el -> elpa/magit-20250227.2140/magit-worktree.el
+#	renamed:    elpa/magit-20250225.837/magit-worktree.elc -> elpa/magit-20250227.2140/magit-worktree.elc
+#	renamed:    elpa/magit-20250225.837/magit.el -> elpa/magit-20250227.2140/magit.el
+#	renamed:    elpa/magit-20250225.837/magit.elc -> elpa/magit-20250227.2140/magit.elc
+#	renamed:    elpa/magit-20250225.837/magit.info -> elpa/magit-20250227.2140/magit.info
+#	deleted:    elpa/minimap-1.4/minimap-autoloads.el
+#	deleted:    elpa/minimap-1.4/minimap-pkg.el
+#	deleted:    elpa/minimap-1.4/minimap.el
+#	deleted:    elpa/minimap-1.4/minimap.elc
+#	deleted:    elpa/neotree-20240721.233/icons/close.xpm
+#	deleted:    elpa/neotree-20240721.233/icons/leaf.xpm
+#	deleted:    elpa/neotree-20240721.233/icons/open.xpm
+#	deleted:    elpa/neotree-20240721.233/neotree-autoloads.el
+#	deleted:    elpa/neotree-20240721.233/neotree-pkg.el
+#	deleted:    elpa/neotree-20240721.233/neotree.el
+#	deleted:    elpa/neotree-20240721.233/neotree.elc
+#	deleted:    elpa/nyan-mode-20220408.2334/img/nyan-frame-1.xpm
+#	deleted:    elpa/nyan-mode-20220408.2334/img/nyan-frame-2.xpm
+#	deleted:    elpa/nyan-mode-20220408.2334/img/nyan-frame-3.xpm
+#	deleted:    elpa/nyan-mode-20220408.2334/img/nyan-frame-4.xpm
+#	deleted:    elpa/nyan-mode-20220408.2334/img/nyan-frame-5.xpm
+#	deleted:    elpa/nyan-mode-20220408.2334/img/nyan-frame-6.xpm
+#	deleted:    elpa/nyan-mode-20220408.2334/img/nyan.xpm
+#	deleted:    elpa/nyan-mode-20220408.2334/img/outerspace.xpm
+#	deleted:    elpa/nyan-mode-20220408.2334/img/rainbow.xpm
+#	deleted:    elpa/nyan-mode-20220408.2334/mus/nyanlooped.mp3
+#	deleted:    elpa/nyan-mode-20220408.2334/nyan-mode-autoloads.el
+#	deleted:    elpa/nyan-mode-20220408.2334/nyan-mode-pkg.el
+#	deleted:    elpa/nyan-mode-20220408.2334/nyan-mode.el
+#	deleted:    elpa/nyan-mode-20220408.2334/nyan-mode.elc
+#	deleted:    elpa/popup-20250101.843/popup-autoloads.el
+#	deleted:    elpa/popup-20250101.843/popup-pkg.el
+#	deleted:    elpa/popup-20250101.843/popup.el
+#	deleted:    elpa/popup-20250101.843/popup.elc
+#	deleted:    elpa/request-20250219.2213/request-autoloads.el
+#	deleted:    elpa/request-20250219.2213/request-pkg.el
+#	deleted:    elpa/request-20250219.2213/request.el
+#	deleted:    elpa/request-20250219.2213/request.elc
+#	modified:   elpa/seq-2.24/tests/seq-tests.elc
+#	renamed:    elpa/transient-20250222.1912/dir -> elpa/transient-20250227.2138/dir
+#	renamed:    elpa/transient-20250222.1912/gpl.info -> elpa/transient-20250227.2138/gpl.info
+#	renamed:    elpa/transient-20250222.1912/transient-autoloads.el -> elpa/transient-20250227.2138/transient-autoloads.el
+#	renamed:    elpa/transient-20250222.1912/transient-pkg.el -> elpa/transient-20250227.2138/transient-pkg.el
+#	renamed:    elpa/transient-20250222.1912/transient.el -> elpa/transient-20250227.2138/transient.el
+#	renamed:    elpa/transient-20250222.1912/transient.elc -> elpa/transient-20250227.2138/transient.elc
+#	renamed:    elpa/transient-20250222.1912/transient.info -> elpa/transient-20250227.2138/transient.info
+#	modified:   elpa/volatile-highlights-20240913.2206/volatile-highlights.elc
 #	modified:   init.el
-#	modified:   init.elc
 #	modified:   places
 #	modified:   undohist/!Users!hajime-f!Development!dotfiles!init.el
+#	new file:   undohist/!Users!hajime-f!tmp.txt
+#
+# Untracked files:
+#	eln-cache/29_1-00984f28/subr--trampoline-7265637572736976652d65646974_recursive_edit_0.eln
 #
