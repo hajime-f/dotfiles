@@ -1,6 +1,359 @@
 
-((digest . "6f5edb511e9cb457949f16c380c9cfd9") (undo-list nil ("(leaf undohist
-  :defvar undohist-initialize
+((digest . "83cb108c594dad66d65706065d3b4f9a") (undo-list nil ("
+
+
+
+" . 3842) ((marker) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) nil ("(leaf doom-modeline
+  :ensure t
+  :hook (after-init-hook . doom-modeline-mode)
+  :custom
+  (doom-modeline-icon . t)
+  (doom-modeline-major-mode-icon . nil)
+  (doom-modeline-minor-modes . nil)
+  :config
+  (line-number-mode 0)
+  (column-number-mode 0)
+  (doom-modeline-def-modeline 'main
+    '(bar window-number matches buffer-info remote-host buffer-position parrot selection-info)
+    '(misc-info persp-name lsp github debug minor-modes input-method major-mode process vcs checker))
+  :init
+  (leaf nyan-mode
+	:ensure t
+	:config
+	(nyan-mode 1)
+	(nyan-start-animation)))" . 3844) ((marker . 3842) . -569) (nil fontified t 4372 . 4388) (nil fontified t 4365 . 4372) (nil fontified t 4361 . 4365) (nil fontified t 4354 . 4361) (nil fontified t 4342 . 4354) (nil fontified t 4338 . 4342) (nil fontified t 4334 . 4338) (nil fontified t 4329 . 4334) (nil fontified t 4327 . 4329) (nil fontified t 4129 . 4327) (nil fontified t 4124 . 4129) (nil fontified t 4123 . 4124) (nil fontified t 4097 . 4123) (nil fontified t 4045 . 4097) (nil fontified t 4038 . 4045) (nil fontified t 3932 . 4038) (nil fontified t 3925 . 3932) (nil fontified t 3883 . 3925) (nil fontified t 3878 . 3883) (nil fontified t 3873 . 3878) (nil fontified t 3866 . 3873) (nil fontified t 3849 . 3866) (nil fontified t 3845 . 3849) (nil fontified t 3844 . 3845) (nil rear-nonsticky nil 4412 . 4413) nil (apply 9 4416 4496 undo--wrap-and-run-primitive-undo 4416 4496 ((";; " . 4416) (";; " . 4439) (";; " . 4454) 4412)) nil (4327 . 4412) nil ("  :init
+  (leaf nyan-mode
+	:ensure t
+	:config
+	(nyan-mode 1)
+	(nyan-start-animation))" . 4327) (t 26560 40674 842078 719000) nil (4327 . 4412) (t 26560 40644 166177 564000) nil ("  :init
+  (leaf nyan-mode
+	:ensure t
+	:config
+	(nyan-mode 1)
+	(nyan-start-animation))" . 4327) 4412 (t 26560 40629 651406 507000) nil (apply -9 4416 4505 undo--wrap-and-run-primitive-undo 4416 4505 ((4454 . 4457) (4439 . 4442) (4416 . 4419) 4495)) nil (nil rear-nonsticky nil 4412 . 4413) (nil fontified nil 3844 . 4413) (3844 . 4413) nil (3842 . 3846) (t 26560 39897 972925 525000) nil ("
+
+
+
+
+" . 3842) nil ("(use-package doom-modeline
+  :ensure t
+  :hook
+  (after-init . doom-modeline-mode)
+  :commands
+  (doom-modeline-def-modeline doom-modeline-def-segment)
+  :init
+  (defun remove-padding-zero (num)
+    (if (string= (substring num 0 1) \"0\")
+        (substring num 1)
+      num))
+
+  (doom-modeline-def-segment buffer-size
+    \"Display current buffer size\"
+    (format-mode-line \" %IB\"))
+
+  (doom-modeline-def-segment projectile-project-name
+    \"Display Projectile project name\"
+    (if (and (boundp 'projectile-mode) projectile-mode)
+        (propertize (format \" Project: %s\"
+                            (projectile-default-project-name (projectile-project-root)))
+                    'face '(:foreground \"#8cd0d3\" :weight bold))
+      \"\"))
+
+  (doom-modeline-def-segment linum-colnum
+    \"Display current linum/colnum\"
+    (propertize (format \" Ln %s/%s, Col %s\"
+                        (format-mode-line \"%l\")
+                        (line-number-at-pos (point-max))
+                        (format-mode-line \"%c\"))
+                'face '(:foreground \"#8cd0d3\" :weight bold)))
+
+  (doom-modeline-def-segment datetime
+    \"Display datetime on modeline\"
+    (let* ((system-time-locale \"C\")
+           (dow (format \"%s\" (format-time-string \"%a\")))
+           (month (format \"%s\" (remove-padding-zero (format-time-string \"%m\")) ))
+           (day (format \"%s\" (remove-padding-zero (format-time-string \"%d\"))))
+           (hour (format \"%s\" (remove-padding-zero (format-time-string \"%I\"))))
+           (minute (format-time-string \"%M\"))
+           (am-pm (format-time-string \"%p\")))
+      (propertize
+       (concat
+        \" \"
+        hour
+        \":\"
+        minute
+        am-pm
+        \"  \"
+        )
+       'help-echo \"Show calendar\"
+       'mouse-face '(:box 1)
+       'local-map (make-mode-line-mouse-map
+                   'mouse-1 (lambda () (interactive) (calendar))))))
+
+  (doom-modeline-def-segment python-venv
+    \"Display current python venv name\"
+    (if (eq major-mode 'python-mode)
+        (let ((venv-name (if (or (not (boundp 'pyvenv-virtual-env-name))
+                                 (eq pyvenv-virtual-env-name nil))
+                             \"GLOBAL\"
+                           pyvenv-virtual-env-name)))
+          (propertize (format \" [%s]\" venv-name) 'face '(:foreground \"#f0dfaf\" :weight bold)))
+      \"\"))
+
+  (with-eval-after-load 'evil
+    (doom-modeline-def-segment evil-state-seg
+      \"Display current Evil State.\"
+      (propertize (format \" <%s>\" (upcase (substring (symbol-name evil-state) 0 1)))
+                  'face '(:weight bold)))
+    (doom-modeline-def-modeline 'simple
+      '(bar evil-state-seg matches remote-host buffer-info  pdf-pages linum-colnum)
+      '(projectile-project-name python-venv vcs checker fancy-battery datetime)))
+
+  (doom-modeline-def-modeline 'verbose
+    '(bar matches remote-host buffer-info-simple buffer-size)
+    '(major-mode minor-modes buffer-encoding))
+
+  (defun setup-initial-doom-modeline ()
+    (doom-modeline-set-modeline 'simple t))
+  (add-hook 'doom-modeline-mode-hook #'setup-initial-doom-modeline)
+
+  (defvar doom-modeline-simple-p t)
+  (defun switch-modeline ()
+    (interactive)
+    (if doom-modeline-simple-p
+        (doom-modeline-set-modeline 'verbose)
+      (doom-modeline-set-modeline 'simple))
+    (force-mode-line-update)
+    (setq doom-modeline-simple-p (not doom-modeline-simple-p)))
+  (bind-key \"C-l C-m\" 'switch-modeline)
+  :config
+  (setq doom-modeline-minor-modes t)
+  (setq doom-modeline-major-mode-color-icon t)
+  (setq doom-modeline-checker-simple-format nil))
+" . 3845) (nil fontified t 7314 . 7354) (nil fontified t 7310 . 7314) (nil fontified t 7277 . 7310) (nil fontified t 7273 . 7277) (nil fontified t 7269 . 7273) (nil fontified t 7262 . 7269) (nil fontified t 7241 . 7262) (nil fontified t 7232 . 7241) (nil fontified t 7231 . 7232) (nil fontified t 7223 . 7231) (nil fontified t 7165 . 7223) (nil fontified t 7161 . 7165) (nil fontified t 7013 . 7161) (nil fontified t 7011 . 7013) (nil fontified t 7004 . 7011) (nil fontified t 6993 . 7004) (nil fontified t 6984 . 6993) (nil fontified t 6969 . 6984) (nil fontified t 6968 . 6969) (nil fontified t 6963 . 6968) (nil fontified t 6956 . 6963) (nil fontified t 6934 . 6956) (nil fontified t 6933 . 6934) (nil fontified t 6927 . 6933) (nil fontified t 6807 . 6927) (nil fontified t 6780 . 6807) (nil fontified t 6779 . 6780) (nil fontified t 6774 . 6779) (nil fontified t 6714 . 6774) (nil fontified t 6660 . 6714) (nil fontified t 6652 . 6660) (nil fontified t 6651 . 6652) (nil fontified t 6625 . 6651) (nil fontified t 6454 . 6625) (nil fontified t 6447 . 6454) (nil fontified t 6446 . 6447) (nil fontified t 6420 . 6446) (nil fontified t 6406 . 6420) (nil fontified t 6399 . 6406) (nil fontified t 6321 . 6399) (nil fontified t 6314 . 6321) (nil fontified t 6287 . 6314) (nil fontified t 6258 . 6287) (nil fontified t 6251 . 6258) (nil fontified t 6237 . 6251) (nil fontified t 6236 . 6237) (nil fontified t 6211 . 6236) (nil fontified t 6199 . 6211) (nil fontified t 6179 . 6199) (nil fontified t 6172 . 6179) (nil fontified t 6170 . 6172) (nil fontified t 6155 . 6170) (nil fontified t 6148 . 6155) (nil fontified t 6147 . 6148) (nil fontified t 6138 . 6147) (nil fontified t 6137 . 6138) (nil fontified t 6126 . 6137) (nil fontified t 6106 . 6126) (nil fontified t 6099 . 6106) (nil fontified t 6014 . 6099) (nil fontified t 6006 . 6014) (nil fontified t 5869 . 6006) (nil fontified t 5867 . 5869) (nil fontified t 5865 . 5867) (nil fontified t 5863 . 5865) (nil fontified t 5849 . 5863) (nil fontified t 5846 . 5849) (nil fontified t 5807 . 5846) (nil fontified t 5805 . 5807) (nil fontified t 5799 . 5805) (nil fontified t 5765 . 5799) (nil fontified t 5760 . 5765) (nil fontified t 5749 . 5760) (nil fontified t 5748 . 5749) (nil fontified t 5723 . 5748) (nil fontified t 5701 . 5723) (nil fontified t 5690 . 5701) (nil fontified t 5685 . 5690) (nil fontified t 5679 . 5685) (nil fontified t 5602 . 5679) (nil fontified t 5598 . 5602) (nil fontified t 5576 . 5598) (nil fontified t 5561 . 5576) (nil fontified t 5532 . 5561) (nil fontified t 5528 . 5532) (nil fontified t 5497 . 5528) (nil fontified t 5490 . 5497) (nil fontified t 5487 . 5490) (nil fontified t 5465 . 5487) (nil fontified t 5462 . 5465) (nil fontified t 5417 . 5462) (nil fontified t 5413 . 5417) (nil fontified t 5372 . 5413) (nil fontified t 5368 . 5372) (nil fontified t 5324 . 5368) (nil fontified t 5320 . 5324) (nil fontified t 5278 . 5320) (nil fontified t 5274 . 5278) (nil fontified t 5244 . 5274) (nil fontified t 5240 . 5244) (nil fontified t 5214 . 5240) (nil fontified t 5198 . 5214) (nil fontified t 5194 . 5198) (nil fontified t 5164 . 5194) (nil fontified t 5160 . 5164) (nil fontified t 5118 . 5160) (nil fontified t 5114 . 5118) (nil fontified t 5084 . 5114) (nil fontified t 5080 . 5084) (nil fontified t 5059 . 5080) (nil fontified t 5055 . 5059) (nil fontified t 5029 . 5055) (nil fontified t 5026 . 5029) (nil fontified t 5004 . 5026) (nil fontified t 5000 . 5004) (nil fontified t 4994 . 5000) (nil fontified t 4964 . 4994) (nil fontified t 4959 . 4964) (nil fontified t 4951 . 4959) (nil fontified t 4950 . 4951) (nil fontified t 4925 . 4950) (nil fontified t 4912 . 4925) (nil fontified t 4905 . 4912) (nil fontified t 4904 . 4905) (nil fontified t 4895 . 4904) (nil fontified t 4894 . 4895) (nil fontified t 4883 . 4894) (nil fontified t 4856 . 4883) (nil fontified t 4852 . 4856) (nil fontified t 4751 . 4852) (nil fontified t 4747 . 4751) (nil fontified t 4704 . 4747) (nil fontified t 4685 . 4704) (nil fontified t 4660 . 4685) (nil fontified t 4630 . 4660) (nil fontified t 4625 . 4630) (nil fontified t 4613 . 4625) (nil fontified t 4612 . 4613) (nil fontified t 4587 . 4612) (nil fontified t 4580 . 4587) (nil fontified t 4578 . 4580) (nil fontified t 4564 . 4578) (nil fontified t 4557 . 4564) (nil fontified t 4556 . 4557) (nil fontified t 4547 . 4556) (nil fontified t 4546 . 4547) (nil fontified t 4535 . 4546) (nil fontified t 4417 . 4535) (nil fontified t 4403 . 4417) (nil fontified t 4331 . 4403) (nil fontified t 4328 . 4331) (nil fontified t 4326 . 4328) (nil fontified t 4324 . 4326) (nil fontified t 4318 . 4324) (nil fontified t 4285 . 4318) (nil fontified t 4280 . 4285) (nil fontified t 4257 . 4280) (nil fontified t 4256 . 4257) (nil fontified t 4231 . 4256) (nil fontified t 4224 . 4231) (nil fontified t 4218 . 4224) (nil fontified t 4195 . 4218) (nil fontified t 4166 . 4195) (nil fontified t 4161 . 4166) (nil fontified t 4150 . 4161) (nil fontified t 4149 . 4150) (nil fontified t 4124 . 4149) (nil fontified t 4080 . 4124) (nil fontified t 4077 . 4080) (nil fontified t 4047 . 4077) (nil fontified t 4045 . 4047) (nil fontified t 4033 . 4045) (nil fontified t 4014 . 4033) (nil fontified t 4013 . 4014) (nil fontified t 4008 . 4013) (nil fontified t 4004 . 4008) (nil fontified t 3999 . 4004) (nil fontified t 3997 . 3999) (nil fontified t 3995 . 3997) (nil fontified t 3970 . 3995) (nil fontified t 3969 . 3970) (nil fontified t 3943 . 3969) (nil fontified t 3939 . 3943) (nil fontified t 3930 . 3939) (nil fontified t 3891 . 3930) (nil fontified t 3886 . 3891) (nil fontified t 3881 . 3886) (nil fontified t 3874 . 3881) (nil fontified t 3857 . 3874) (nil fontified t 3846 . 3857) (nil fontified t 3845 . 3846) (nil rear-nonsticky nil 7403 . 7404) nil (apply 9 7407 7488 undo--wrap-and-run-primitive-undo 7407 7488 ((";; " . 7407) (";; " . 7430) (";; " . 7445) 3997)) nil (apply -9 7407 7497 undo--wrap-and-run-primitive-undo 7407 7497 ((7445 . 7448) (7430 . 7433) (7407 . 7410) 7487)) nil (nil rear-nonsticky nil 7403 . 7404) (nil fontified nil 3845 . 7404) (3845 . 7404) nil (3842 . 3847) (t 26560 39636 842548 502000) nil ("(setq doom-modeline-support-imenu t)" . 3923) (nil fontified t 3958 . 3959) nil ("
+" . 3959) nil (3959 . 3960) nil (nil fontified nil 3958 . 3959) (nil fontified nil 3928 . 3958) (nil fontified nil 3924 . 3928) (nil fontified nil 3923 . 3924) (3923 . 3959) nil ("
+" . 3843) ("(setq doom-modeline-support-imenu t)" . 3843) (t 26560 39622 383415 878000) nil (nil rear-nonsticky nil 3878 . 3879) (nil fontified nil 3843 . 3879) (3843 . 3879) nil (3842 . 3843) (t 26560 39548 937984 656000) nil (3895 . 3899) nil (3894 . 3895) (t 26560 39531 344936 830000) nil ("-" . -3894) 3895 nil ("hook" . -3895) 3899 (t 26560 39489 871893 638000) nil ("  ;; :custom ((doom-modeline-height . 25)
+  ;;          (doom-modeline-bar-width . 5)
+  ;;          (doom-modeline-icon . t)
+  ;;          (doom-modeline-buffer-file-name-style 'truncate-upto-project)
+  ;;          (doom-modeline-persp-name . t)
+  ;;          (doom-modeline-enable-word-count . nil)
+  ;;          (doom-modeline-github . t))
+" . 3875) 4217 (t 26560 39352 524981 815000) nil ("q" . 4746) nil (4746 . 4747) (t 26560 39352 524981 815000) nil ("
+  
+" . 4263) (4264 . 4266) ("  
+" . 4265) (4265 . 4267) ("  " . 4266) nil (":config
+    (doom-modeline-def-modeline
+     'main
+     '(bar window-number matches buffer-info remote-host buffer-position parrot selection-info)
+     '(misc-info persp-name lsp github debug minor-modes input-method major-mode process vcs checker))" . 4264) (nil fontified t 4321 . 4411) (nil fontified t 4320 . 4321) (nil fontified t 4319 . 4320) (nil fontified t 4315 . 4319) (nil fontified t 4309 . 4315) (nil fontified t 4308 . 4309) (nil fontified t 4304 . 4308) (nil fontified t 4276 . 4304) (nil fontified t 4274 . 4276) (nil fontified t 4272 . 4274) (nil fontified t 4271 . 4272) (nil fontified t 4264 . 4271) (nil rear-nonsticky nil 4512 . 4513) nil ("  " . 4264) nil (4276 . 4278) nil (4308 . 4309) nil (4318 . 4319) nil (4413 . 4414) nil (4510 . 4511) (t 26560 39319 430627 423000) nil ("
+" . -4510) 4511 nil (" " . -4413) 4414 nil (" " . -4318) 4320 nil (" " . -4308) 4311 nil ("  " . -4276) 4283 nil (4264 . 4266) 4271 nil (nil rear-nonsticky nil 4512 . 4513) (nil fontified nil 4264 . 4513) (4264 . 4513) nil (4266 . 4268) ("  " . 4265) (4265 . 4268) ("  " . 4264) (4263 . 4267) (t 26560 39239 497940 725000) nil (apply 6 4217 4265 undo--wrap-and-run-primitive-undo 4217 4265 (("
+  " . 4263) (";; " . 4219) 4266)) nil (apply -6 4217 4271 undo--wrap-and-run-primitive-undo 4217 4271 ((4219 . 4222) (4263 . 4266))) nil (apply -21 3875 4265 undo--wrap-and-run-primitive-undo 3875 4265 ((4177 . 4180) (4123 . 4126) (4078 . 4081) (4002 . 4005) (3963 . 3966) (3919 . 3922) (3877 . 3880) 4196)) nil (apply 3 3991 4106 undo--wrap-and-run-primitive-undo 3991 4106 ((";; " . 4002) 4160)) nil (apply 3 4109 4199 undo--wrap-and-run-primitive-undo 4109 4199 ((";; " . 4120) 3912)) nil (apply -3 4109 4202 undo--wrap-and-run-primitive-undo 4109 4202 ((4120 . 4123) 4160)) nil (apply -3 3991 4109 undo--wrap-and-run-primitive-undo 3991 4109 ((4002 . 4005) 4064)) nil (";; (leaf *doom-emacs-theme
+;;   :config
+;;   (leaf doom-themes
+;;     :ensure t
+;;     :defun doom-modeline-def-modeline
+;;     :custom ((doom-themes-enable-italic . t)
+;;              (doom-themes-enable-bold . t))
+;;     :config
+;;     (load-theme 'doom-dark+ t)
+;;     )
+;;   (leaf doom-modeline
+;;     :ensure t
+;;     :custom ((doom-modeline-buffer-file-name-style . 'truncate-with-project)
+;;              (doom-modeline-icon . t)
+;;              (doom-modeline-major-mode-icon . nil)
+;;              (doom-modeline-minor-modes . nil))
+;;     :hook (after-init-hook . doom-modeline-mode)
+;;     ;; :config
+;;     ;; (doom-modeline-def-modeline
+;;     ;;  'main
+;;     ;;  '(bar window-number matches buffer-info remote-host buffer-position parrot selection-info)
+;;     ;;  '(misc-info persp-name lsp github debug minor-modes input-method major-mode process vcs checker))
+;;     )
+;; )
+
+
+
+
+
+" . 3527) 4424 (t 26560 39103 800903 21000) nil (5142 . 5155) nil (5141 . 5142) (t 26560 39092 900614 460000) nil ("
+" . -5141) 5142 nil (";; (leaf doom-modeline
+;;   :ensure t
+;;   :init
+;;   (let ((custom--inhibit-theme-enable nil))
+;;     (unless (memq 'use-package custom-known-themes)
+;;       (deftheme use-package)
+;;       (enable-theme 'use-package)
+;;       (setq custom-enabled-themes (remq 'use-package custom-enabled-themes))))
+;;   (doom-modeline-mode 1)
+;;   :require t)
+" . 5142) 5489 (t 26560 39085 776218 465000) nil (5140 . 5141) nil (nil rear-nonsticky nil 5139 . 5140) (nil fontified nil 5139 . 5140) (nil fontified nil 5100 . 5139) (nil fontified nil 5095 . 5100) (nil fontified nil 5093 . 5095) (nil fontified nil 5091 . 5093) (nil fontified nil 5065 . 5091) (nil fontified nil 5054 . 5065) (nil fontified nil 5014 . 5054) (nil fontified nil 5003 . 5014) (nil fontified nil 4972 . 5003) (nil fontified nil 4961 . 4972) (nil fontified nil 4899 . 4961) (nil fontified nil 4888 . 4899) (nil fontified nil 4863 . 4888) (nil fontified nil 4852 . 4863) (nil fontified nil 4822 . 4852) (nil fontified nil 4811 . 4822) (nil fontified nil 4781 . 4811) (nil fontified nil 4774 . 4781) (nil fontified nil 4772 . 4774) (nil fontified nil 4769 . 4772) (nil fontified nil 4762 . 4769) (nil fontified nil 4760 . 4762) (nil fontified nil 4745 . 4760) (nil fontified nil 4741 . 4745) (nil fontified nil 4740 . 4741) (4740 . 5140) nil (4739 . 4740) nil ("
+" . -5301) ("
+" . -5302) 5303 nil ("(leaf doom-modeline
+  :ensure t
+  :custom ((doom-modeline-height . 25)
+           (doom-modeline-bar-width . 5)
+           (doom-modeline-icon . t)
+           (doom-modeline-buffer-file-name-style 'truncate-upto-project)
+           (doom-modeline-persp-name . t)
+           (doom-modeline-enable-word-count . nil)
+           (doom-modeline-github . t))
+  :hook (after-init-hook . doom-modeline-mode))" . 5303) 5703 (t 26560 39064 870513 167000) nil ("
+  " . 5702) 5705 (t 26560 39060 502222 556000) nil ("  ;; :doc \"A minimal and modern mode-line\"
+  ;; :req \"emacs-25.1\" \"compat-29.1.4.5\" \"nerd-icons-0.1.0\" \"shrink-path-0.3.1\"
+  ;; :tag \"mode-line\" \"faces\" \"emacs>=25.1\"
+  ;; :url \"https://github.com/seagle0128/doom-modeline\"
+  ;; :added \"2025-02-27\"
+  ;; :emacs>= 25.1
+" . 5323) 5590 (t 26560 39055 717223 596000) nil ("
+  " . 5921) 5924 nil (5884 . 5895) ("  " . 5884) 5912 nil (5833 . 5844) ("  " . 5833) 5874 nil (5791 . 5802) ("  " . 5791) 5823 nil (5718 . 5729) ("  " . 5718) 5753 nil (5682 . 5693) ("  " . 5682) 5708 nil (5641 . 5652) ("  " . 5641) 5672 nil ("
+  " . 5613) 5616 nil ("  ;; :init (doom-modeline-mode 1)
+  ;; :global-minor-mode t
+  ;; :after compat nerd-icons shrink-path
+" . 5922) 6024 (t 26560 38999 422042 8000) nil (4735 . 4736) nil ("5" . -4735) 4736 (t 26560 38971 721980 190000) nil (apply -18 5323 5602 undo--wrap-and-run-primitive-undo 5323 5602 ((5573 . 5576) (5548 . 5551) (5492 . 5495) (5448 . 5451) (5368 . 5371) (5325 . 5328) 5572)) nil (apply -9 5904 6010 undo--wrap-and-run-primitive-undo 5904 6010 ((5966 . 5969) (5940 . 5943) (5906 . 5909) 5997)) nil (apply 33 4424 4739 undo--wrap-and-run-primitive-undo 4424 4739 ((";; " . -4700) (";; " . -4671) (";; " . -4661) (";; " . -4649) (";; " . -4633) (";; " . -4611) (";; " . -4566) (";; " . -4528) (";; " . -4495) (";; " . -4442) (";; " . -4424) 4772)) nil (apply -72 3527 4420 undo--wrap-and-run-primitive-undo 3527 4420 ((4414 . 4417) (4405 . 4408) (4296 . 4299) (4194 . 4197) (4177 . 4180) (4139 . 4142) (4121 . 4124) (4069 . 4072) (4018 . 4021) (3964 . 3967) (3923 . 3926) (3843 . 3846) (3826 . 3829) (3801 . 3804) (3792 . 3795) (3758 . 3761) (3743 . 3746) (3696 . 3699) (3648 . 3651) (3607 . 3610) (3590 . 3593) (3567 . 3570) (3554 . 3557) (3527 . 3530) 4347)) nil (apply 51 3527 4085 undo--wrap-and-run-primitive-undo 3527 4085 ((";; " . 3527) (";; " . 3554) (";; " . 3567) (";; " . 3590) (";; " . 3607) (";; " . 3648) (";; " . 3696) (";; " . 3743) (";; " . 3758) (";; " . 3792) (";; " . 3801) (";; " . 3826) (";; " . 3843) (";; " . 3923) (";; " . 3964) (";; " . 4018) (";; " . 4069) 4121)) nil (apply -51 3527 4136 undo--wrap-and-run-primitive-undo 3527 4136 ((4069 . 4072) (4018 . 4021) (3964 . 3967) (3923 . 3926) (3843 . 3846) (3826 . 3829) (3801 . 3804) (3792 . 3795) (3758 . 3761) (3743 . 3746) (3696 . 3699) (3648 . 3651) (3607 . 3610) (3590 . 3593) (3567 . 3570) (3554 . 3557) (3527 . 3530) 4070)) nil (apply 66 5264 5962 undo--wrap-and-run-primitive-undo 5264 5962 ((";; " . -5958) (";; " . -5919) (";; " . -5896) (";; " . -5865) (";; " . -5818) (";; " . -5814) (";; " . -5785) (";; " . -5743) (";; " . -5710) (";; " . -5646) (";; " . -5619) (";; " . -5587) (";; " . -5557) (";; " . -5545) (";; " . -5533) (";; " . -5517) (";; " . -5495) (";; " . -5442) (";; " . -5401) (";; " . -5324) (";; " . -5284) (";; " . -5264) 6028)) nil (5862 . 5867) nil (5861 . 5862) nil ("
+" . -5861) ("
+" . -5862) 5863 nil (nil fontified nil 5861 . 5862) (nil fontified nil 5835 . 5861) (nil fontified nil 5830 . 5835) (nil fontified nil 5790 . 5830) (nil fontified nil 5785 . 5790) (nil fontified nil 5754 . 5785) (nil fontified nil 5749 . 5754) (nil fontified nil 5748 . 5749) (nil fontified nil 5738 . 5748) (nil fontified nil 5687 . 5738) (nil fontified nil 5682 . 5687) (nil fontified nil 5657 . 5682) (nil fontified nil 5652 . 5657) (nil fontified nil 5622 . 5652) (nil fontified nil 5617 . 5622) (nil fontified nil 5589 . 5617) (nil fontified nil 5584 . 5589) (5584 . 5862) nil (5583 . 5585) nil (";;   (doom-modeline-height . 25)
+;;   (doom-modeline-bar-width . 5)
+;;   (doom-modeline-icon . t)
+;;   (doom-modeline-buffer-file-name-style 'truncate-upto-project)
+;;   (doom-modeline-persp-name . t)
+;;   (doom-modeline-enable-word-count . nil)
+;;   (doom-modeline-github . t)
+" . 5583) (nil fontified t 5588 . 5616) (nil fontified t 5621 . 5651) (nil fontified t 5656 . 5681) (nil fontified t 5747 . 5748) (nil fontified t 5753 . 5784) (nil fontified t 5789 . 5829) (nil fontified t 5860 . 5861) nil (nil fontified nil 5860 . 5861) (nil fontified nil 5834 . 5860) (nil fontified nil 5829 . 5834) (nil fontified nil 5789 . 5829) (nil fontified nil 5784 . 5789) (nil fontified nil 5753 . 5784) (nil fontified nil 5748 . 5753) (nil fontified nil 5747 . 5748) (nil fontified nil 5737 . 5747) (nil fontified nil 5686 . 5737) (nil fontified nil 5681 . 5686) (nil fontified nil 5656 . 5681) (nil fontified nil 5651 . 5656) (nil fontified nil 5621 . 5651) (nil fontified nil 5616 . 5621) (nil fontified nil 5588 . 5616) (nil fontified nil 5583 . 5588) (5583 . 5861) nil (5582 . 5584) ("(" . -5582) (5581 . 5583) nil (";;   (doom-modeline-height . 25)
+;;   (doom-modeline-bar-width . 5)
+;;   (doom-modeline-icon . t)
+;;   (doom-modeline-buffer-file-name-style 'truncate-upto-project)
+;;   (doom-modeline-persp-name . t)
+;;   (doom-modeline-enable-word-count . nil)
+;;   (doom-modeline-github . t)
+" . 5582) 5860 nil (nil rear-nonsticky nil 5859 . 5860) (nil fontified nil 5833 . 5860) (nil fontified nil 5828 . 5833) (nil fontified nil 5788 . 5828) (nil fontified nil 5783 . 5788) (nil fontified nil 5752 . 5783) (nil fontified nil 5747 . 5752) (nil fontified nil 5746 . 5747) (nil fontified nil 5736 . 5746) (nil fontified nil 5685 . 5736) (nil fontified nil 5680 . 5685) (nil fontified nil 5655 . 5680) (nil fontified nil 5650 . 5655) (nil fontified nil 5620 . 5650) (nil fontified nil 5615 . 5620) (nil fontified nil 5587 . 5615) (nil fontified nil 5582 . 5587) (nil fontified nil 5574 . 5582) (nil fontified nil 5569 . 5574) (5569 . 5860) nil (";;   :custom
+;;   (doom-modeline-height . 25)
+;;   (doom-modeline-bar-width . 5)
+;;   (doom-modeline-icon . t)
+;;   (doom-modeline-buffer-file-name-style 'truncate-upto-project)
+;;   (doom-modeline-persp-name . t)
+;;   (doom-modeline-enable-word-count . nil)
+;;   (doom-modeline-github . t)
+" . 5721) 6012 (t 26560 38837 311488 206000) nil (5572 . 5574) nil (5569 . 5570) nil (";" . 5569) (" " . 5569) (" " . 5569) (" " . 5569) (" " . 5569) nil (apply -3 5569 5621 undo--wrap-and-run-primitive-undo 5569 5621 ((5573 . 5576) 5617)) nil (nil rear-nonsticky nil 5617 . 5618) (nil fontified nil 5578 . 5618) (nil fontified nil 5573 . 5578) (nil fontified nil 5569 . 5573) (5569 . 5618) (t 26560 38722 979376 474000) nil (apply -20 4070 4345 undo--wrap-and-run-primitive-undo 4070 4345 ((4237 . 4240) (4138 . 4141) (4124 . 4127) (4089 . 4092) (4074 . 4077) (4323 . 4328))) nil ("
+" . 4325) ("  " . -4325) (4325 . 4327) ("  ;; Hide mode line" . 4325) nil ("  (leaf hide-mode-line
+    :ensure t neotree minimap imenu-list
+    :hook ((neotree-mode imenu-list-minor-mode minimap-mode) . hide-mode-line-mode))" . 4345) 4493 (t 26560 38665 363284 270000) nil ("
+" . 3765) ("    " . -3765) (3765 . 3769) ("    ;; (doom-themes-org-config)" . 3765) nil ("
+" . 3765) ("    " . -3765) (3765 . 3769) ("    ;; (doom-themes-neotree-config)" . 3765) nil ("
+" . 3734) ("    " . -3734) (3734 . 3738) ("    ;; (load-theme 'doom-tomorrow-night t)" . 3734) (t 26560 38634 84612 245000) nil (apply 3 3777 3808 undo--wrap-and-run-primitive-undo 3777 3808 ((";; " . 3781) 3847)) nil (apply -3 3811 3847 undo--wrap-and-run-primitive-undo 3811 3847 ((3815 . 3818) 3811)) nil (apply 3 3811 3844 undo--wrap-and-run-primitive-undo 3811 3844 ((";; " . -3815) 3847)) nil (apply -3 3777 3811 undo--wrap-and-run-primitive-undo 3777 3811 ((3781 . 3784) 3808)) nil (apply 3 3777 3808 undo--wrap-and-run-primitive-undo 3777 3808 ((";; " . -3781) 3811)) nil (apply -3 3734 3811 undo--wrap-and-run-primitive-undo 3734 3811 ((3738 . 3741) 3774)) nil (apply 3 3734 3774 undo--wrap-and-run-primitive-undo 3734 3774 ((";; " . -3738) 3777)) nil (apply -3 3777 3811 undo--wrap-and-run-primitive-undo 3777 3811 ((3781 . 3784) 3807)) nil (3799 . 3804) nil ("dracula" . -3799) 3806 (t 26560 38488 959708 510000) nil (apply -60 5525 6231 undo--wrap-and-run-primitive-undo 5525 6231 ((6223 . 6226) (6191 . 6194) (6146 . 6149) (6110 . 6113) (6043 . 6046) (6013 . 6016) (5978 . 5981) (5945 . 5948) (5932 . 5935) (5890 . 5893) (5864 . 5867) (5830 . 5833) (5815 . 5818) (5796 . 5799) (5771 . 5774) (5715 . 5718) (5671 . 5674) (5591 . 5594) (5548 . 5551) (5525 . 5528) 6170)) nil (apply -33 4613 4962 undo--wrap-and-run-primitive-undo 4613 4962 ((4919 . 4922) (4887 . 4890) (4874 . 4877) (4859 . 4862) (4840 . 4843) (4815 . 4818) (4767 . 4770) (4726 . 4729) (4690 . 4693) (4634 . 4637) (4613 . 4616) 4928)) nil (nil rear-nonsticky nil 4606 . 4607) (nil fontified nil 3527 . 4607) (3527 . 4607) nil (3526 . 3532) (t 26560 38361 682513 207000) nil (apply 60 4406 5051 undo--wrap-and-run-primitive-undo 4406 5051 ((";; " . -5047) (";; " . -5018) (";; " . -4976) (";; " . -4943) (";; " . -4879) (";; " . -4852) (";; " . -4820) (";; " . -4790) (";; " . -4780) (";; " . -4741) (";; " . -4718) (";; " . -4687) (";; " . -4675) (";; " . -4659) (";; " . -4637) (";; " . -4584) (";; " . -4543) (";; " . -4466) (";; " . -4426) (";; " . -4406) 5111)) nil (apply -30 3843 4191 undo--wrap-and-run-primitive-undo 3843 4191 ((4173 . 4176) (4145 . 4148) (4063 . 4066) (4026 . 4029) (3994 . 3997) (3939 . 3942) (3892 . 3895) (3881 . 3884) (3866 . 3869) (3843 . 3846) 4160)) nil ("
+" . -4119) 4120 nil ("    (custom-theme-set-variables 'use-package
+				;; '(doom-modeline-height 25 nil nil \"Customized with use-package doom-modeline\")
+				;; '(doom-modeline-bar-width 5 nil nil \"Customized with use-package doom-modeline\")
+				;; '(doom-modeline-icon t nil nil \"Customized with use-package doom-modeline\")
+				;; '(doom-modeline-buffer-file-name-style 'truncate-upto-project nil nil \"Customized with use-package doom-modeline\")
+				;; '(doom-modeline-persp-name t nil nil \"Customized with use-package doom-modeline\")
+				;; '(doom-modeline-enable-word-count nil nil nil \"Customized with use-package doom-modeline\")
+				;; '(doom-modeline-github t nil nil \"Customized with use-package doom-modeline\")
+                                )" . 4120) 4849 (t 26560 38230 966364 16000) nil (apply -9 4165 4544 undo--wrap-and-run-primitive-undo 4165 4544 ((4343 . 4346) (4255 . 4258) (4169 . 4172) 4413)) nil (apply -36 4722 4842 undo--wrap-and-run-primitive-undo 4722 4842 ((4726 . 4729) (4803 . 4836))) nil (apply -6 4535 4806 undo--wrap-and-run-primitive-undo 4535 4806 ((4628 . 4631) (4539 . 4542) 4716)) nil (apply -3 4413 4535 undo--wrap-and-run-primitive-undo 4413 4535 ((4417 . 4420) 4531)) nil ("
+" . -3842) ("
+" . -3843) 3844 nil (apply 54 3845 4838 undo--wrap-and-run-primitive-undo 3845 4838 ((";; " . -4824) (";; " . -4799) (";; " . -4715) (";; " . -4620) (";; " . -4534) (";; " . -4415) (";; " . -4335) (";; " . -4250) (";; " . -4167) (";; " . -4122) (";; " . -4044) (";; " . -4010) (";; " . -3981) (";; " . -3929) (";; " . -3885) (";; " . -3877) (";; " . -3865) (";; " . -3845) 4892)) nil (apply -60 5108 5814 undo--wrap-and-run-primitive-undo 5108 5814 ((5806 . 5809) (5774 . 5777) (5729 . 5732) (5693 . 5696) (5626 . 5629) (5596 . 5599) (5561 . 5564) (5528 . 5531) (5515 . 5518) (5473 . 5476) (5447 . 5450) (5413 . 5416) (5398 . 5401) (5379 . 5382) (5354 . 5357) (5298 . 5301) (5254 . 5257) (5174 . 5177) (5131 . 5134) (5108 . 5111) 5753)) nil (nil rear-nonsticky nil 5418 . 5419) (nil fontified nil 5391 . 5419) (5391 . 5419) nil (5388 . 5391) nil (" " . -5388) (" " . -5389) 5390 (t 26560 37957 82780 594000) nil (5487 . 5489) nil (5518 . 5520) nil (5543 . 5545) nil (5638 . 5640) nil (5676 . 5678) nil (5705 . 5707) (t 26560 37937 644372 642000) nil ("." . -5705) (" " . -5706) 5707 nil ("." . -5676) (" " . -5677) 5678 nil ("." . -5638) (" " . -5639) 5640 nil ("." . -5543) (" " . -5544) 5545 nil ("." . -5518) (" " . -5519) 5520 nil ("." . -5487) (" " . -5488) 5489 (t 26560 37871 144346 433000) nil ("setq " . 5466) nil ("setq " . 5501) nil ("setq " . 5538) nil ("setq " . 5570) nil ("setq " . 5639) nil ("setq " . 5677) nil ("setq " . 5724) (t 26560 37851 167646 854000) nil (5724 . 5729) nil (5677 . 5682) nil (5639 . 5644) nil (5570 . 5575) nil (5538 . 5543) nil (5501 . 5506) nil (5466 . 5471) (t 26560 37654 611350 276000) nil (5456 . 5462) nil ("init" . -5456) 5460 nil (nil fontified nil 5716 . 5717) (nil fontified nil 5689 . 5716) (nil fontified nil 5461 . 5689) (nil fontified nil 5460 . 5461) (nil fontified nil 5455 . 5460) (nil fontified nil 5453 . 5455) (5453 . 5717) nil (5454 . 5456) ("  " . 5453) (5452 . 5456) (t 26560 37623 943171 461000) nil ("
+" . -5388) 5389 nil ("  :init
+  (doom-modeline-height . 25)
+  (doom-modeline-bar-width . 5)
+  (doom-modeline-icon . t)
+  (doom-modeline-buffer-file-name-style 'truncate-upto-project)
+  (doom-modeline-persp-name . t)
+  (doom-modeline-enable-word-count . nil)
+  (doom-modeline-github . t)" . 5389) 5653 nil (nil rear-nonsticky nil 5652 . 5653) (nil fontified nil 5625 . 5653) (nil fontified nil 5397 . 5625) (nil fontified nil 5396 . 5397) (nil fontified nil 5391 . 5396) (nil fontified nil 5389 . 5391) (5389 . 5653) nil ("  :init
+  (doom-modeline-height . 25)
+  (doom-modeline-bar-width . 5)
+  (doom-modeline-icon . t)
+  (doom-modeline-buffer-file-name-style 'truncate-upto-project)
+  (doom-modeline-persp-name . t)
+  (doom-modeline-enable-word-count . nil)
+  (doom-modeline-github . t)" . 5391) (nil fontified t 5398 . 5399) (nil fontified t 5399 . 5627) (nil rear-nonsticky t 5654 . 5655) nil (nil rear-nonsticky nil 5654 . 5655) (nil fontified nil 5627 . 5655) (nil fontified nil 5399 . 5627) (nil fontified nil 5398 . 5399) (nil fontified nil 5393 . 5398) (nil fontified nil 5391 . 5393) (5391 . 5655) nil (5388 . 5391) nil ("
+" . -5450) 5451 nil ("  :init
+  (doom-modeline-height . 25)
+  (doom-modeline-bar-width . 5)
+  (doom-modeline-icon . t)
+  (doom-modeline-buffer-file-name-style 'truncate-upto-project)
+  (doom-modeline-persp-name . t)
+  (doom-modeline-enable-word-count . nil)
+  (doom-modeline-github . t)" . 5451) 5715 nil (5451 . 5715) nil ("  :init
+  (doom-modeline-height . 25)
+  (doom-modeline-bar-width . 5)
+  (doom-modeline-icon . t)
+  (doom-modeline-buffer-file-name-style 'truncate-upto-project)
+  (doom-modeline-persp-name . t)
+  (doom-modeline-enable-word-count . nil)
+  (doom-modeline-github . t)" . 5128) (nil fontified t 5135 . 5136) (nil fontified t 5136 . 5364) (nil rear-nonsticky t 5391 . 5392) nil ("
+" . 5394) (5392 . 5394) ("  " . 5393) (t 26560 37570 531308 100000) nil (5393 . 5395) ("  " . 5392) (5394 . 5395) nil (nil rear-nonsticky nil 5391 . 5392) (nil fontified nil 5364 . 5392) (nil fontified nil 5136 . 5364) (nil fontified nil 5135 . 5136) (nil fontified nil 5130 . 5135) (nil fontified nil 5128 . 5130) (5128 . 5392) nil ("  :init
+  (doom-modeline-height . 25)
+  (doom-modeline-bar-width . 5)
+  (doom-modeline-icon . t)
+  (doom-modeline-buffer-file-name-style 'truncate-upto-project)
+  (doom-modeline-persp-name . t)
+  (doom-modeline-enable-word-count . nil)
+  (doom-modeline-github . t)" . 5451) 5715 nil (5454 . 5458) nil ("custom" . -5454) 5460 nil (5450 . 5717) (t 26560 37496 725093 882000) nil ("
+  :custom
+  (doom-modeline-height . 25)
+  (doom-modeline-bar-width . 5)
+  (doom-modeline-icon . t)
+  (doom-modeline-buffer-file-name-style 'truncate-upto-project)
+  (doom-modeline-persp-name . t)
+  (doom-modeline-enable-word-count . nil)
+  (doom-modeline-github . t)" . 5450) 5717 (t 26560 37467 188880 3000) nil ("
+  " . 5717) 5720 (t 26560 37463 923519 368000) nil (" nil nil \"Customized with use-package doom-modeline\"" . 5716) 5768 nil (5713 . 5715) nil (nil rear-nonsticky nil 5766 . 5767) (nil fontified nil 5766 . 5767) (nil fontified nil 5723 . 5766) (nil fontified nil 5691 . 5723) (5691 . 5767) nil (5688 . 5691) nil (" nil nil \"Customized with use-package doom-modeline\"" . 5687) 5739 nil (5681 . 5683) nil (nil rear-nonsticky nil 5737 . 5738) (nil fontified nil 5737 . 5738) (nil fontified nil 5694 . 5737) (nil fontified nil 5649 . 5694) (5649 . 5738) nil (5646 . 5649) (t 26560 37424 998255 989000) nil (" nil nil \"Customized with use-package doom-modeline\"" . 5645) 5697 nil (5642 . 5644) nil (nil rear-nonsticky nil 5695 . 5696) (nil fontified nil 5695 . 5696) (nil fontified nil 5652 . 5695) (nil fontified nil 5616 . 5652) (5616 . 5696) nil (5613 . 5616) (t 26560 37406 346281 987000) nil (" " . -5612) 5613 nil ("nil " . -5613) 5617 nil ("nil" . -5617) 5620 nil (5590 . 5591) nil (". " . 5590) nil (5618 . 5621) nil (5614 . 5618) nil (5613 . 5614) (t 26560 37396 302542 933000) nil (" " . -5613) 5614 nil ("nil " . -5614) 5618 nil ("nil" . -5618) 5621 nil (5590 . 5592) nil ("'" . -5590) 5591 nil (" \"Customized with use-package doom-modeline\"" . 5620) 5664 nil (nil rear-nonsticky nil 5664 . 5665) (nil fontified nil 5664 . 5665) (nil fontified nil 5621 . 5664) (nil fontified nil 5552 . 5621) (5552 . 5665) nil (5549 . 5552) (t 26560 37362 323666 86000) nil (" nil nil \"Customized with use-package doom-modeline\"" . 5548) 5600 nil (5545 . 5547) nil (nil rear-nonsticky nil 5598 . 5599) (nil fontified nil 5598 . 5599) (nil fontified nil 5555 . 5598) (nil fontified nil 5525 . 5555) (5525 . 5599) nil (5522 . 5525) nil (" nil nil \"Customized with use-package doom-modeline\"" . 5521) 5573 nil (5518 . 5520) nil (nil rear-nonsticky nil 5571 . 5572) (nil fontified nil 5571 . 5572) (nil fontified nil 5528 . 5571) (nil fontified nil 5493 . 5528) (5493 . 5572) nil (5490 . 5493) (t 26560 37308 742015 349000) nil ("
+  " . 5490) nil ("(doom-modeline-bar-width 5" . 5493) (nil rear-nonsticky t 5518 . 5519) nil (")" . 5519) (5519 . 5520) (")" . 5519) (5519 . 5520) (5519 . 5522) (")" . 5520) (5520 . 5521) (")" . 5520) (5520 . 5521) nil (")" . 5520) (5520 . 5521) (")" . 5520) (5520 . 5521) ("
+  " . 5519) (")" . 5519) (5519 . 5520) (")" . 5519) (5519 . 5520) nil (5491 . 5523) ("  " . 5491) (5491 . 5493) (5491 . 5492) nil ("
+" . 5491) ("  " . -5491) (5491 . 5493) ("  (doom-modeline-bar-width 5
+  )" . 5491) nil (")" . 5519) (5519 . 5520) (")" . 5519) (5519 . 5520) (5519 . 5522) (")" . 5520) (5520 . 5521) (")" . 5520) (5520 . 5521) nil (")" . -5520) (5520 . 5521) (")" . -5520) (5520 . 5521) ("
+  " . -5519) (")" . -5519) (5519 . 5520) (")" . -5519) (5519 . 5520) nil (nil rear-nonsticky nil 5518 . 5519) (nil fontified nil 5493 . 5519) (5493 . 5519) nil (5490 . 5493) (t 26560 37308 742015 349000) nil (" nil nil" . 5489) 5497 nil (5484 . 5486) (t 26560 37144 453567 84000) nil (apply -54 3845 4893 undo--wrap-and-run-primitive-undo 3845 4893 ((4875 . 4878) (4847 . 4850) (4760 . 4763) (4662 . 4665) (4573 . 4576) (4451 . 4454) (4368 . 4371) (4280 . 4283) (4194 . 4197) (4146 . 4149) (4065 . 4068) (4028 . 4031) (3996 . 3999) (3941 . 3944) (3894 . 3897) (3883 . 3886) (3868 . 3871) (3845 . 3848) 4838)) nil ("
+" . -5442) (" " . -5443) (" " . -5444) 5445 nil (5442 . 5445) nil (" \"Customized with use-package doom-modeline\"" . 5441) 5485 nil (nil rear-nonsticky nil 5485 . 5486) (nil fontified nil 5485 . 5486) (nil fontified nil 5442 . 5485) (nil fontified nil 5409 . 5442) (5409 . 5486) nil (5407 . 5409) (" " . 5406) (5407 . 5408) nil (5406 . 5407) nil (5399 . 5406) (":cus" . -5399) 5403 nil (5399 . 5403) nil (5397 . 5399) nil (5398 . 5400) ("  " . 5397) (5396 . 5400) nil (apply 30 5054 5398 undo--wrap-and-run-primitive-undo 5054 5398 ((";; " . -5358) (";; " . -5335) (";; " . -5323) (";; " . -5307) (";; " . -5285) (";; " . -5232) (";; " . -5191) (";; " . -5114) (";; " . -5074) (";; " . -5054) 5428)) nil ("
+" . -4838) 4839 (t 26560 36951 879919 293000) nil (nil rear-nonsticky nil 5052 . 5053) (nil fontified nil 5050 . 5053) (nil fontified nil 5043 . 5050) (nil fontified nil 5041 . 5043) (nil fontified nil 5035 . 5041) (nil fontified nil 5027 . 5035) (nil fontified nil 5024 . 5027) (nil fontified nil 5012 . 5024) (nil fontified nil 5011 . 5012) (nil fontified nil 5005 . 5011) (nil fontified nil 5002 . 5005) (nil fontified nil 4952 . 5002) (nil fontified nil 4951 . 4952) (nil fontified nil 4947 . 4951) (nil fontified nil 4944 . 4947) (nil fontified nil 4931 . 4944) (nil fontified nil 4930 . 4931) (nil fontified nil 4924 . 4930) (nil fontified nil 4923 . 4924) (nil fontified nil 4919 . 4923) (nil fontified nil 4916 . 4919) (nil fontified nil 4904 . 4916) (nil fontified nil 4903 . 4904) (nil fontified nil 4899 . 4903) (nil fontified nil 4896 . 4899) (nil fontified nil 4864 . 4896) (nil fontified nil 4863 . 4864) (nil fontified nil 4859 . 4863) (nil fontified nil 4845 . 4859) (nil fontified nil 4841 . 4845) (nil fontified nil 4840 . 4841) (4840 . 5053) nil (4838 . 4840) nil (3845 . 4838) nil (3842 . 3845) nil (3842 . 3843) nil (apply -30 3843 4217 undo--wrap-and-run-primitive-undo 3843 4217 ((3843 . 3846) (3863 . 3866) (3903 . 3906) (3980 . 3983) (4021 . 4024) (4074 . 4077) (4096 . 4099) (4112 . 4115) (4124 . 4127) (4147 . 4150) 4187)) nil ("
+
+
+
+
+" . 4187) nil ("(leaf doom-modeline
+  :ensure t
+  :global-minor-mode t
+  :custom
+  (doom-modeline-bar-width . 4)
+  (doom-modeline-hud . t))" . 4190) (nil fontified t 4254 . 4287) (nil fontified t 4247 . 4254) (nil fontified t 4242 . 4247) (nil fontified t 4224 . 4242) (nil fontified t 4219 . 4224) (nil fontified t 4212 . 4219) (nil fontified t 4195 . 4212) (nil fontified t 4191 . 4195) (nil fontified t 4190 . 4191) (nil rear-nonsticky nil 4312 . 4313) nil ("
+  " . 4185) nil ("
+" . 4188) (4186 . 4188) ("  " . 4187) nil ("  :custom
+  (doom-modeline-bar-width . 4)
+  (doom-modeline-hud . t)" . 4186) (nil fontified t 4196 . 4228) (nil fontified t 4195 . 4196) (nil rear-nonsticky nil 4252 . 4253) nil (4253 . 4256) nil (4256 . 4382) nil (4254 . 4256) nil ("
+  " . 4195) nil ("(" . 4198) (4198 . 4199) ("()" . 4198) nil ("doom-modeline-height" . 4199) (nil rear-nonsticky nil 4218 . 4219) nil (" . 25" . 4219) nil (4222 . 4224) nil ("45" . 4222) nil ("1" . 4222) nil (4196 . 4226) ("  " . 4196) (4196 . 4198) (4196 . 4197) (t 26560 36884 947137 507000) nil ("
+
+
+" . 4255) nil ("
+" . 4257) nil ("(leaf nerd-icons
+  :doc \"Emacs Nerd Font Icons Library.\"
+  :req \"emacs-24.3\"
+  :tag \"lisp\" \"emacs>=24.3\"
+  :url \"https://github.com/rainstormstudio/nerd-icons.el\"
+  :added \"2025-02-28\"
+  :emacs>= 24.3
+  :ensure t)
+" . 4257) (4470 . 4471) nil (4470 . 4471) nil (4255 . 4256) nil ("
+" . -4255) 4256 nil ("
+" . -4470) 4471 nil ("
+" . -4470) (4257 . 4471) nil (4257 . 4258) nil (4255 . 4258) (t 26560 36884 947137 507000) nil ("
+" . 4196) ("  " . -4196) (4196 . 4198) ("  (doom-modeline-height . 145)" . 4196) (t 26560 36870 874388 716000) nil (4222 . 4223) (t 26560 36851 226706 433000) nil (4222 . 4224) nil ("2" . -4222) ("5" . -4223) 4224 (t 26560 36834 151993 879000) nil (4219 . 4224) nil (nil rear-nonsticky nil 4218 . 4219) (nil fontified nil 4199 . 4219) (4199 . 4219) nil (4198 . 4200) ("(" . -4198) (4198 . 4199) nil (4195 . 4198) (t 26560 36736 454961 462000) nil ("
+" . -4254) ("
+" . -4255) 4256 nil ("
+
+(leaf doom-modeline
+  :ensure t
+  :global-minor-mode t
+  :custom
+  (doom-modeline-bar-width . 4)
+  (doom-modeline-hud . t))
+" . 4256) 4382 (t 26560 36731 248694 724000) nil ("
+  " . 4253) 4256 nil (nil rear-nonsticky nil 4252 . 4253) (nil fontified nil 4195 . 4253) (nil fontified nil 4188 . 4195) (nil fontified nil 4186 . 4188) (4186 . 4253) nil (4187 . 4189) ("  " . 4186) (4188 . 4189) nil (4185 . 4188) nil (nil rear-nonsticky nil 4312 . 4313) (nil fontified nil 4190 . 4313) (4190 . 4313) nil (4187 . 4192) nil (apply 30 3843 4187 undo--wrap-and-run-primitive-undo 3843 4187 ((";; " . 4147) (";; " . 4124) (";; " . 4112) (";; " . 4096) (";; " . 4074) (";; " . 4021) (";; " . 3980) (";; " . 3903) (";; " . 3863) (";; " . 3843) 3842)) nil ("
+" . 3842) nil ("
+
+
+" . 3842) nil ("(leaf doom-modeline
   :ensure t
   :init
   (let ((custom--inhibit-theme-enable nil))
@@ -9,500 +362,97 @@
       (enable-theme 'use-package)
       (setq custom-enabled-themes (remq 'use-package custom-enabled-themes)))
     (custom-theme-set-variables 'use-package
-				'(undohist-ignored-files
-				  `(,(rx \"/.git/COMMIT_EDITMSG\" eot))
-				  nil nil \"Customized with use-package undohist\")))
-  :require t
-  :config
-  (undohist-initialize))
+				'(doom-modeline-height 25 nil nil \"Customized with use-package doom-modeline\")
+				'(doom-modeline-bar-width 5 nil nil \"Customized with use-package doom-modeline\")
+				'(doom-modeline-icon t nil nil \"Customized with use-package doom-modeline\")
+				'(doom-modeline-buffer-file-name-style 'truncate-upto-project nil nil \"Customized with use-package doom-modeline\")
+				'(doom-modeline-persp-name t nil nil \"Customized with use-package doom-modeline\")
+				'(doom-modeline-enable-word-count nil nil nil \"Customized with use-package doom-modeline\")
+				'(doom-modeline-github t nil nil \"Customized with use-package doom-modeline\")))
+  (doom-modeline-mode 1)
+  :require t)
+" . 3845) nil (3845 . 4838) nil (3842 . 3845) nil (3842 . 3843) nil (apply -30 3843 4217 undo--wrap-and-run-primitive-undo 3843 4217 ((3843 . 3846) (3863 . 3866) (3903 . 3906) (3980 . 3983) (4021 . 4024) (4074 . 4077) (4096 . 4099) (4112 . 4115) (4124 . 4127) (4147 . 4150) 4187)) nil (apply 30 3843 4187 undo--wrap-and-run-primitive-undo 3843 4187 ((";; " . 4147) (";; " . 4124) (";; " . 4112) (";; " . 4096) (";; " . 4074) (";; " . 4021) (";; " . 3980) (";; " . 3903) (";; " . 3863) (";; " . 3843) 3842)) nil ("
+" . 3842) nil ("
 
-" . 6980) ((marker . 6980) . -523) ((marker . 6980) . -523) ((marker . 6994) . -523) ((marker . 6980) . -15) ((marker . 6980) . -45) ((marker . 6980) . -57) ((marker . 6980) . -65) ((marker . 6980) . -109) ((marker . 6980) . -161) ((marker . 6980) . -190) ((marker . 6980) . -224) ((marker . 6980) . -302) ((marker . 6980) . -347) ((marker . 6980) . -376) ((marker . 6980) . -418) ((marker . 6980) . -474) ((marker . 6980) . -487) ((marker . 6980) . -497) ((marker . 6980) . -522) ((marker) . -523) ((marker . 6980) . -523) ((marker . 6980) . -1) ((marker . 6980) . -389) ((marker . 6980) . -390) ((marker . 6980) . -499) ((marker . 6980) . -500) ((marker) . -523) 7503 nil ("
-" . -7693) ((marker . 6994) . -1) 7694 nil ("
-" . -7693) (7503 . 7694) nil (7502 . 7505) (t 26560 33345 206549 758000) nil ("
-" . -10197) ((marker . 6980) . -1) ((marker . 9866) . -1) ((marker . 6980) . -1) ((marker . 9866) . -1) ((marker . 6994) . -1) 10198 nil (";; Google Translate
-(leaf google-translate
+
+" . 3842) nil ("(leaf doom-modeline
   :ensure t
-  :preface
-  (defvar google-translate-english-chars \"[:ascii:]’“”–\"
-    \"これらの文字が含まれているときは英語とみなす\")
-  (defun google-translate-enja-or-jaen (&optional string)
-    \"regionか、現在のセンテンスを言語自動判別でGoogle翻訳する。\"
-    (interactive)
-    (setq string
-          (cond ((stringp string) string)
-                (current-prefix-arg
-                 (read-string \"Google Translate: \"))
-                ((use-region-p)
-                 (buffer-substring (region-beginning) (region-end)))
-                (t
-                 (save-excursion
-                   (let (s)
-                     (forward-char 1)
-                     (backward-sentence)
-                     (setq s (point))
-                     (forward-sentence)
-                     (buffer-substring s (point)))))))
-    (let* ((asciip (string-match
-                    (format \"\\\\`[%s]+\\\\'\" google-translate-english-chars)
-                    string)))
-      (run-at-time 0.1 nil 'deactivate-mark)))
-  :config
-  (global-set-key (kbd \"C-c t\") 'google-translate-enja-or-jaen)
-  )
-" . 10198) ((marker . 9866) . -520) ((marker . 6980) . -1074) ((marker . 9866) . -993) ((marker . 6994) . -1074) 11272 nil ("
-" . -11191) ((marker . 6980) . -1) ((marker . 6980) . -1) ((marker . 6994) . -1) 11192 nil ("      (google-translate-translate
-       (if asciip \"en\" \"ja\")
-       (if asciip \"ja\" \"en\")
-       string)" . 11192) ((marker . 6994) . -106) ((marker . 6980) . -106) 11298 (t 26560 33286 990632 383000) nil ("
-" . -9967) ((marker . 6994) . -1) 9968 (t 26560 33284 180833 838000) nil ("
-" . -9968) ((marker . 6994) . -1) 9969 nil (9967 . 9969) nil ("
-" . -9967) ((marker . 6994) . -1) 9968 (t 26560 32991 329676 480000) nil ("q" . 11644) ((marker . 10130) . -1) ((marker . 10130) . -1) ((marker . 6980) . -1) ((marker . 6994) . -1) nil (11644 . 11645) (t 26560 32991 329676 480000) nil (";" . 10199) nil ("
-" . 10220) (";; Google Translate を使えるようにする" . 10220) nil ("
-" . -10199) 10200 nil (11411 . 11412) nil ("
-" . -11411) 11412 (t 26560 32983 840684 237000) nil (nil rear-nonsticky nil 11410 . 11411) (nil fontified nil 10200 . 11411) (10200 . 11411) nil (10198 . 10201) (t 26560 32731 335558 233000) nil ("
-" . -9968) 9969 nil (";;; copilot
-;; Github Copilot を使えるようにする
-(leaf copilot
-  :el-get (copilot
-           :type github
-           :pkgname \"zerolfx/copilot.el\"
-           )
-  :config
-  (leaf editorconfig
-    :ensure t
-    )
-  (leaf s
-    :ensure t
-    )
-  (leaf dash
-    :ensure t
-    )
-  (leaf jsonrpc
-    :ensure t
-    )
-  (with-eval-after-load 'copilot
-    (define-key global-map (kbd \"C-f\") 'copilot-accept-completion)
-    )
-  )
+  :init
+  (let ((custom--inhibit-theme-enable nil))
+    (unless (memq 'use-package custom-known-themes)
+      (deftheme use-package)
+      (enable-theme 'use-package)
+      (setq custom-enabled-themes (remq 'use-package custom-enabled-themes)))
+    (custom-theme-set-variables 'use-package
+				'(doom-modeline-height 25 nil nil \"Customized with use-package doom-modeline\")
+				'(doom-modeline-bar-width 5 nil nil \"Customized with use-package doom-modeline\")
+				'(doom-modeline-icon t nil nil \"Customized with use-package doom-modeline\")
+				'(doom-modeline-buffer-file-name-style 'truncate-upto-project nil nil \"Customized with use-package doom-modeline\")
+				'(doom-modeline-persp-name t nil nil \"Customized with use-package doom-modeline\")
+				'(doom-modeline-enable-word-count nil nil nil \"Customized with use-package doom-modeline\")
+				'(doom-modeline-github t nil nil \"Customized with use-package doom-modeline\")))
+  (doom-modeline-mode 1)
+  :require t)
+" . 3845) (t 26560 36585 507843 842000) nil (3845 . 4838) nil (3842 . 3845) nil (3842 . 3843) nil (apply -30 3843 4217 undo--wrap-and-run-primitive-undo 3843 4217 ((3843 . 3846) (3863 . 3866) (3903 . 3906) (3980 . 3983) (4021 . 4024) (4074 . 4077) (4096 . 4099) (4112 . 4115) (4124 . 4127) (4147 . 4150) 4187)) nil ("
 
-" . 9969) 10381 nil ("
-" . 10381) ("(leaf" . 10381) nil (10382 . 10386) nil ("e" . -10382) ("a" . -10383) ("f" . -10384) 10385 nil (10381 . 10385) nil (10380 . 10382) (t 26560 32646 112292 533000) nil ("-map" . 10329) (10319 . 10329) ("glob" . -10319) 10323 nil (10319 . 10323) nil ("copilot-" . -10319) 10327 nil ("completion" . -10327) 10337 (t 26560 32606 993789 466000) nil (10382 . 10386) ("    (define-key copilot-mode-map (kbd \"<tab>\") #'my/copilot-tab)" . 10382) nil (nil rear-nonsticky nil 10380 . 10381) (nil fontified nil 10307 . 10381) (10307 . 10381) nil (10302 . 10307) nil ("  (defun my/copilot-tab ()
-    (interactive)
-    (or (copilot-accept-completion)
-        (indent-for-tab-command)))
 
-" . 10270) 10387 nil (nil rear-nonsticky nil 10488 . 10489) (nil fontified nil 9969 . 10489) (9969 . 10489) nil (9967 . 9970) nil ("
-" . -6966) ("
-" . -6967) ("c" . -6968) ("o" . -6969) ("m" . -6970) 6971 nil (6968 . 6971) nil (6966 . 6968) (t 26560 32403 509457 535000) nil ("
-" . -6966) 6967 (t 26560 32400 532283 891000) nil (nil rear-nonsticky nil 6965 . 6966) (nil fontified nil 6724 . 6966) (6724 . 6966) nil (6723 . 6726) (t 26560 32276 8594 234000) nil (" " . 4188) nil (4188 . 4189) nil ("
-
-" . 7536) nil ("(leaf neotree
-  :ensure t
-  :commands
-  (neotree-show neotree-hide neotree-dir neotree-find)
-  :custom (neo-theme . 'nerd2)
-  :bind
-  (\"<f9>\" . neotree-projectile-toggle)
-  :preface
-  (defun neotree-projectile-toggle ()
-    (interactive)
-    (let ((project-dir
-           (ignore-errors
-         ;;; Pick one: projectile or find-file-in-project
-             (projectile-project-root)
-             ))
-          (file-name (buffer-file-name))
-          (neo-smart-open t))
-      (if (and (fboundp 'neo-global--window-exists-p)
-               (neo-global--window-exists-p))
-          (neotree-hide)
-        (progn
-          (neotree-show)
-          (if project-dir
-              (neotree-dir project-dir))
-          (if file-name
-              (neotree-find file-name)))))
-    )
-  )" . 7537) (nil fontified t 8253 . 8313) (nil fontified t 8251 . 8253) (nil fontified t 8186 . 8251) (nil fontified t 8184 . 8186) (nil fontified t 8147 . 8184) (nil fontified t 8142 . 8147) (nil fontified t 8022 . 8142) (nil fontified t 8019 . 8022) (nil fontified t 8017 . 8019) (nil fontified t 8015 . 8017) (nil fontified t 7882 . 8015) (nil fontified t 7837 . 7882) (nil fontified t 7833 . 7837) (nil fontified t 7823 . 7833) (nil fontified t 7810 . 7823) (nil fontified t 7783 . 7810) (nil fontified t 7780 . 7783) (nil fontified t 7773 . 7780) (nil fontified t 7762 . 7773) (nil fontified t 7753 . 7762) (nil fontified t 7728 . 7753) (nil fontified t 7727 . 7728) (nil fontified t 7722 . 7727) (nil fontified t 7718 . 7722) (nil fontified t 7710 . 7718) (nil fontified t 7708 . 7710) (nil fontified t 7678 . 7708) (nil fontified t 7677 . 7678) (nil fontified t 7676 . 7677) (nil fontified t 7675 . 7676) (nil fontified t 7674 . 7675) (nil fontified t 7673 . 7674) (nil fontified t 7672 . 7673) (nil fontified t 7669 . 7672) (nil fontified t 7668 . 7669) (nil fontified t 7663 . 7668) (nil fontified t 7639 . 7663) (nil fontified t 7632 . 7639) (nil fontified t 7574 . 7632) (nil fontified t 7565 . 7574) (nil fontified t 7560 . 7565) (nil fontified t 7553 . 7560) (nil fontified t 7542 . 7553) (nil fontified t 7538 . 7542) (nil fontified t 7537 . 7538) (nil rear-nonsticky nil 8315 . 8316) nil (7673 . 7677) nil ("C-o" . 7673) nil (apply 3 2371 2434 undo--wrap-and-run-primitive-undo 2371 2434 ((";; " . 2371) 7679)) nil (apply -3 2371 2437 undo--wrap-and-run-primitive-undo 2371 2437 ((2371 . 2374) 2433)) nil (7673 . 7676) nil ("<" . -7673) ("f" . -7674) ("9" . -7675) (">" . -7676) 7677 nil (nil rear-nonsticky nil 8315 . 8316) (nil fontified nil 7537 . 8316) (7537 . 8316) nil (7536 . 7538) (t 26560 31706 900421 734000) nil (" " . 4188) nil (4188 . 4189) (t 26560 31706 900421 734000) nil ("=" . -7530) 7531 nil ("-" . -7494) 7495 nil ("+" . -7460) 7461 (t 26560 31698 257446 93000) nil (apply 30 3843 4187 undo--wrap-and-run-primitive-undo 3843 4187 ((";; " . -4147) (";; " . -4124) (";; " . -4112) (";; " . -4096) (";; " . -4074) (";; " . -4021) (";; " . -3980) (";; " . -3903) (";; " . -3863) (";; " . -3843) 4217)) nil ("
-" . -3841) ("
+" . 4187) nil ("
+" . 4188) nil ("(leaf nerd-fonts
+  :tag \"out-of-MELPA\"
+  :added \"2025-02-28\"
+  :el-get {{user}}/nerd-fonts
+  :require t)
+" . 4189) (4293 . 4294) nil ("
+" . 4293) (4189 . 4294) nil ("(leaf nerd-icon
+  :tag \"out-of-MELPA\"
+  :added \"2025-02-28\"
+  :el-get {{user}}/nerd-icon
+  :require t)
+" . 4189) (4291 . 4292) nil ("
+" . 4291) (4189 . 4292) nil ("(leaf nerd
+  :tag \"out-of-MELPA\"
+  :added \"2025-02-28\"
+  :el-get {{user}}/nerd
+  :require t)
+" . 4189) (4281 . 4282) nil ("
+" . 4281) (4189 . 4282) nil ("(leaf nerd
+  :tag \"out-of-MELPA\"
+  :added \"2025-02-28\"
+  :el-get {{user}}/nerd
+  :require t)
+" . 4189) (4281 . 4282) nil ("
+" . -4281) (4189 . 4282) nil ("(leaf nerd-icon
+  :tag \"out-of-MELPA\"
+  :added \"2025-02-28\"
+  :el-get {{user}}/nerd-icon
+  :require t)
+" . 4189) (4291 . 4292) nil ("
+" . -4291) (4189 . 4292) nil ("(leaf nerd-fonts
+  :tag \"out-of-MELPA\"
+  :added \"2025-02-28\"
+  :el-get {{user}}/nerd-fonts
+  :require t)
+" . 4189) (4293 . 4294) nil ("
+" . -4293) (4189 . 4294) nil (4188 . 4189) nil (4187 . 4190) (t 26560 36284 930096 957000) nil (apply 30 3843 4187 undo--wrap-and-run-primitive-undo 3843 4187 ((";; " . -4147) (";; " . -4124) (";; " . -4112) (";; " . -4096) (";; " . -4074) (";; " . -4021) (";; " . -3980) (";; " . -3903) (";; " . -3863) (";; " . -3843) 4217)) nil ("
+" . -3842) 3843 nil ("
 " . -3842) ("
-" . -3843) 3844 nil ("(leaf *modeline-settings
-  :config
-  ;; doom-modeline
-  ;; doom を利用した mode-line
-  (leaf doom-modeline
-    :ensure t
-    :custom
-    (doom-modeline-buffer-file-name-style . 'truncate-with-project)
-    (doom-modeline-icon . t)
-    (doom-modeline-major-mode-icon . nil)
-    (doom-modeline-minor-modes . nil)
-    :hook (after-init-hook . doom-modeline-mode)
-    :config
-    (line-number-mode 0)
-    (column-number-mode 0)
-    (doom-modeline-def-modeline 'main
-      '(bar window-number matches buffer-info remote-host buffer-position parrot selection-info)
-      '(misc-info persp-name lsp github debug minor-modes input-method major-mode process vcs))
-    )
-  
-  ;; Hide mode line
-  ;; 特定のモードでモードラインを非表示にする
-  (leaf hide-mode-line
-    :ensure t
-    :after neotree minimap imenu-list
-    :hook
-    ((neotree-mode imenu-list-minor-mode minimap-mode) . hide-mode-line-mode)
-    )
-  )
-" . 3844) 4721 nil ("e" . -3843) 3844 nil (3843 . 3844) (t 26560 31570 920053 387000) nil (apply -30 4723 5098 undo--wrap-and-run-primitive-undo 4723 5098 ((5054 . 5057) (5028 . 5031) (5013 . 5016) (4994 . 4997) (4969 . 4972) (4913 . 4916) (4869 . 4872) (4789 . 4792) (4746 . 4749) (4723 . 4726) 5067)) nil (nil rear-nonsticky nil 4719 . 4720) (nil fontified nil 3844 . 4720) (3844 . 4720) nil (3842 . 3846) (t 26560 31114 162095 835000) nil ("
-" . 7347) (";; Git" . 7347) nil (7347 . 7353) nil (7346 . 7347) nil ("e" . -7346) 7347 nil (7346 . 7347) nil (7333 . 7346) nil (7332 . 7333) nil (nil rear-nonsticky nil 7523 . 7524) (nil fontified nil 7333 . 7524) (7333 . 7524) nil (7332 . 7334) (t 26560 30915 719562 35000) nil ("
-" . -4369) 4370 (t 26560 30913 106848 14000) nil (nil rear-nonsticky nil 4306 . 4307) (nil fontified nil 4273 . 4307) (4273 . 4307) nil (4270 . 4273) nil (4269 . 4270) nil (nil rear-nonsticky nil 4218 . 4219) (nil fontified nil 4191 . 4219) (4191 . 4219) nil (4188 . 4191) nil ("
-" . -4188) 4189 (t 26560 30817 388427 926000) nil ("
-
-" . 4239) nil ("(leaf beacon
+" . -3843) ("
+" . -3844) 3845 nil ("(leaf doom-modeline
   :ensure t
-  :global-minor-mode t)
-" . 4240) (nil fontified t 4245 . 4253) (nil fontified t 4262 . 4265) (nil rear-nonsticky t 4288 . 4289) nil (nil rear-nonsticky nil 4288 . 4289) (nil fontified nil 4287 . 4289) (nil fontified nil 4286 . 4287) (nil fontified nil 4285 . 4286) (nil fontified nil 4267 . 4285) (nil fontified nil 4265 . 4267) (nil fontified nil 4262 . 4265) (nil fontified nil 4255 . 4262) (nil fontified nil 4245 . 4255) (nil fontified nil 4241 . 4245) (nil fontified nil 4240 . 4241) (4240 . 4289) nil (4239 . 4241) (t 26560 30817 388427 926000) nil ("leaf" . 4237) (4236 . 4237) ("t" . 4244) (4245 . 4249) nil ("leaf" . 4245) (4244 . 4245) ("t" . 4236) (4237 . 4241) 4239 (t 26560 30817 388427 926000) nil ("
-
-" . 4303) nil ("(leaf volatile-highlights
-  :ensure t
-" . 4304) (nil fontified t 4309 . 4330) (nil rear-nonsticky t 4341 . 4342) nil (nil rear-nonsticky nil 4341 . 4342) (nil fontified nil 4339 . 4342) (nil fontified nil 4332 . 4339) (nil fontified nil 4309 . 4332) (nil fontified nil 4305 . 4309) (nil fontified nil 4304 . 4305) (4304 . 4342) nil (4303 . 4305) (t 26560 30817 388427 926000) nil (nil rear-nonsticky nil 4300 . 4301) (nil fontified nil 4240 . 4301) (4240 . 4301) nil (4238 . 4240) nil (nil rear-nonsticky nil 4237 . 4238) (nil fontified nil 4190 . 4238) (4190 . 4238) nil (4187 . 4192) (t 26560 30770 121029 502000) nil (4144 . 4146) (t 26560 30764 464386 651000) nil (4126 . 4144) (":global" . -4126) 4133 nil (4126 . 4133) nil (4123 . 4126) (t 26560 30634 440173 611000) nil ("
-  '(bar workspace-number window-number evil-state god-state ryo-modal xah-fly-keys matches buffer-info remote-host buffer-position parrot selection-info)
-  '(misc-info persp-name lsp github debug minor-modes input-method major-mode process vcs checker)" . 4162) 4415 (t 26560 30600 75100 515000) nil (")" . -4416) (")" . -4417) 4418 nil ("      " . -4319) (4319 . 4325) ("	" . 4319) (4317 . 4319) 4416 nil (nil rear-nonsticky nil 4415 . 4416) (nil fontified nil 4165 . 4416) (4165 . 4416) nil (4162 . 4165) (t 26560 30398 669194 940000) nil ("
-" . -4163) 4164 (t 26560 30394 936793 750000) nil ("
-" . -4163) (3843 . 4164) nil (3842 . 3845) (t 26560 29522 249723 154000) nil ("
-" . 839) ("    " . -839) (839 . 843) ("    ;; initialize leaf-keywords.el" . 839) nil ("
-" . 741) ("    " . -741) (741 . 745) ("    ;; optional packages if you want to use :hydra, :el-get, :blackout,,," . 741) (t 26560 29489 259689 549000) nil ("
-" . -3950) 3951 (t 26560 29471 457541 436000) nil ("
-" . -3636) ("
-" . -3637) 3638 nil (";; (leaf doom-themes
-;;   :init
-;;   (let ((custom--inhibit-theme-enable nil))
-;;     (unless (memq 'use-package custom-known-themes)
-;;       (deftheme use-package)
-;;       (enable-theme 'use-package)
-;;       (setq custom-enabled-themes (remq 'use-package custom-enabled-themes)))
-;;     (custom-theme-set-variables 'use-package
-;; 				'(doom-themes-enable-italic t nil nil \"Customized with use-package doom-themes\")
-;; 				'(doom-themes-enable-bold t nil nil \"Customized with use-package doom-themes\")))
-;;   (apply #'face-spec-set
-;; 	 (backquote
-;; 	  (doom-modeline-bar
-;; 	   ((t
-;; 	     (:background \"#6272a4\"))))))
-;;   :require t
-;;   :config
-;;   (load-theme 'doom-dark+ t)
-;;   (set-frame-parameter nil 'alpha 95))
-" . 3636) 4365 nil (apply 3 3614 3636 undo--wrap-and-run-primitive-undo 3614 3636 ((";; " . -3614) 3639)) nil (apply -60 3614 4369 undo--wrap-and-run-primitive-undo 3614 4369 ((4326 . 4329) (4294 . 4297) (4281 . 4284) (4265 . 4268) (4227 . 4230) (4216 . 4219) (4191 . 4194) (4175 . 4178) (4147 . 4150) (4059 . 4062) (3971 . 3974) (3923 . 3926) (3842 . 3845) (3805 . 3808) (3773 . 3776) (3718 . 3721) (3671 . 3674) (3660 . 3663) (3639 . 3642) (3614 . 3617) 4308)) nil ("  " . -4549) 4558 nil (nil rear-nonsticky nil 4624 . 4625) (nil fontified nil 4588 . 4625) (nil fontified nil 4559 . 4588) (nil fontified nil 4558 . 4559) (nil fontified nil 4551 . 4558) (nil fontified nil 4549 . 4551) (4549 . 4625) nil (4546 . 4549) nil ("
-" . -4547) (4310 . 4548) nil (4308 . 4312) (t 26560 26373 709877 169000) nil (apply -6 8245 8411 undo--wrap-and-run-primitive-undo 8245 8411 ((8296 . 8299) (8247 . 8250) 8336)) nil (8245 . 8336) (t 26560 26349 440989 815000) nil ("  (defvar my:ctrl-o-map (make-sparse-keymap))
-  (defalias 'my:ctrl-o-prefix my:ctrl-o-map)
-" . 8245) 8336 (t 26560 26344 610854 584000) nil (8245 . 8290) ("  " . 8245) (8245 . 8247) (8245 . 8246) nil (8245 . 8289) ("  " . 8245) (8245 . 8247) (8245 . 8246) nil (8240 . 8244) nil ("bind" . 8240) (t 26560 26328 710452 164000) nil (8240 . 8244) nil ("init" . -8240) 8244 nil ("
-" . 8245) ("  " . -8245) (8245 . 8247) ("  (defalias 'my:ctrl-o-prefix my:ctrl-o-map)" . 8245) nil ("
-" . 8245) ("  " . -8245) (8245 . 8247) ("  (defvar my:ctrl-o-map (make-sparse-keymap))" . 8245) (t 26560 26314 805287 973000) nil ("
-    \"My original keymap binded to C-o.\"" . 8289) 8329 (t 26560 24393 599251 202000) nil ("
-" . -9720) ("
-" . -9721) ("
-" . -9722) ("
-" . -9723) 9724 nil ("(require 'package)
-(add-to-list 'package-archives '(\"melpa\" . \"https://melpa.org/packages/\") t)
-(package-initialize)
-(package-install 'google-gemini)
-(add-to-list 'load-path \"~/.emacs.d/lisp/\")
-(require 'gemini-code-completion)
-" . 9724) 9952 (t 26560 24336 162475 775000) nil ("
-
-(package-initialize)
-(add-to-list 'load-path \"~/.emacs.d/lisp/\")
-(require 'gemini-code-completion)
-" . 9952) 10053 nil ("
-" . 9874) nil ("
-" . 9874) ("Add the following to your Emacs configuration to load the package:" . 9874) nil ("
-" . 9874) nil ("
-" . 9874) ("Download gemini-code-completion.el from GitHub and place it in your ~/.emacs.d/lisp/ directory." . 9874) nil ("
-" . 9841) ("Install the dependent package, google-gemini:" . 9841) nil (nil rear-nonsticky nil 10161 . 10162) (nil fontified nil 9724 . 10162) (9724 . 10162) nil (9722 . 9726) (t 26560 24262 93752 70000) nil ("gemini-" . -9785) 9792 nil ("code-" . -9792) 9797 nil ("completion." . -9797) 9808 nil ("el/" . -9808) 9811 nil (9769 . 9770) nil ("/" . -9769) 9770 nil ("Users/" . -9770) 9776 nil ("hajime-" . -9776) 9783 nil ("f" . -9783) 9784 (t 26560 24241 644827 959000) nil (9724 . 9742) ("package-ini" . -9724) 9735 nil (9724 . 9735) (9723 . 9725) ("(" . -9723) (9723 . 9724) nil (9724 . 9842) nil (9722 . 9724) nil (9720 . 9722) (t 26560 24201 998407 93000) nil ("
-" . -9720) ("
-" . -9721) 9722 nil ("
-" . -9722) ("
-" . -9723) 9724 nil ("(add-to-list 'load-path \"/Users/hajime-f/.emacs.d/lisp/gemini-code-completion.el/\")
-(require 'gemini-code-completion)
-" . 9724) 9842 (t 26560 24109 594897 4000) nil (9779 . 9805) nil (9774 . 9779) ("lisp" . -9774) 9778 nil (9774 . 9778) nil (9765 . 9774) (".em" . -9765) 9768 nil (9765 . 9768) nil (9756 . 9765) nil (9750 . 9756) ("Us" . -9750) 9752 nil (9750 . 9752) nil (9749 . 9750) nil ("~/.emacs.d/lisp/gemini-code-completion.el/" . 9749) 9791 (t 26560 24051 408072 256000) nil (9765 . 9791) ("g" . -9765) 9766 nil (9765 . 9766) (t 26560 23864 810046 578000) nil ("
-" . 9724) ("(add-to-list 'load-path \"~/.emacs.d/elpa/google-gemini/\")" . 9724) nil ("gemini-code-completion.el/" . 9823) 9849 nil ("
-" . 9852) ("(require 'google-gemini)" . 9852) (t 26560 23844 659667 787000) nil (9861 . 9875) ("'" . -9861) (9860 . 9862) nil (9853 . 9860) ("requ" . -9853) 9857 nil (9853 . 9857) (9852 . 9854) ("(" . -9852) (9852 . 9853) nil (9851 . 9852) (t 26560 23824 379947 878000) nil (9765 . 9779) ("goo" . -9765) 9768 nil (9765 . 9768) nil (9760 . 9765) nil ("lisp/" . -9760) 9765 nil ("g" . -9765) 9766 nil (9765 . 9766) nil ("g" . -9765) ("o" . -9766) ("o" . -9767) 9768 nil (9765 . 9768) nil ("gemini-" . -9765) 9772 nil ("code-" . -9772) 9777 nil ("completion." . -9777) 9788 nil ("el/" . -9788) 9791 nil (nil rear-nonsticky nil 9792 . 9793) (nil fontified nil 9792 . 9793) (nil fontified nil 9791 . 9792) (nil fontified nil 9765 . 9791) (nil fontified nil 9748 . 9765) (nil fontified nil 9724 . 9748) (9724 . 9793) nil (9723 . 9724) nil (9765 . 9791) ("g" . -9765) 9766 nil (9765 . 9766) nil (nil rear-nonsticky nil 9800 . 9801) (nil fontified nil 9724 . 9801) (9724 . 9801) nil (9725 . 9727) nil (9723 . 9725) (t 26560 23706 645140 53000) nil ("
-" . -9722) ("
-" . -9723) ("
-" . -9724) 9725 nil ("(add-to-list 'load-path \"~/.emacs.d/elpa/\")
-(require 'google-gemini)
-
-(defvar gemini-code-completion-default-prompt
-  \"Suggest only missing part to work as feature, at most just only 1 or 2 lines.
-Must not exceed 2 lines in suggesting.
-Take care indentation as well.
-
-
-\" \"Default prompt to input into Google Gemini.\")
-
-(defun gemini-code-completion-extract-completion (response)
-  \"Extract and clean completion text from the RESPONSE returned by Google Gemini.\"
-  (let* ((candidates (alist-get 'candidates response))
-         (first-candidate (aref candidates 0))
-         (content (alist-get 'content first-candidate))
-         (parts (alist-get 'parts content))
-         (first-part (aref parts 0))
-         (text (alist-get 'text first-part)))
-    (gemini-code-completion-clean-text text)))
-
-(defun gemini-code-completion-clean-text (text)
-  \"Remove unwanted backquotes from the TEXT.\"
-  (replace-regexp-in-string \"```[a-z]*\\n\\\\|```\" \"\" text))
-
-(defun gemini-code-completion-handler (response)
-  \"Handle Gemini code completion RESPONSE.\"
-
-  (let ((current-position (point))
-        (completion-text (gemini-code-completion-extract-completion response)))
-    (insert
-     (if (use-region-p)
-         \"\\n\"
-       \"\")
-     (propertize completion-text 'face 'shadow))
-    (when (use-region-p)
-      (deactivate-mark))
-    (goto-char current-position))) ; Restore cursor position
-
-;;;###autoload
-(defun gemini-code-completion (prefix)
-  \"Get completion from Google Gemini for current buffer or a selected region.
-If called with a PREFIX argument (\\\\[universal-argument]), prompt for additional
-text to customize the completion.\"
-  (interactive \"P\")
-
-  (let* ((user-prompt (if prefix (concat (read-string \"Prompt: \") \"\\n\\n\") \"\"))
-         (selected-text
-          (if (use-region-p)
-              (buffer-substring-no-properties (region-beginning) (region-end))
-            (buffer-substring-no-properties (point-min) (point))))
-         (end
-          (if (use-region-p)
-              (region-end)
-            (point))))
-    (save-excursion
-      (goto-char end)
-      (google-gemini-content-generate
-       (concat
-        user-prompt gemini-code-completion-default-prompt selected-text)
-       #'gemini-code-completion-handler))))
-
-(provide 'gemini-code-completion)
-;;; gemini-code-completion.el ends here
-" . 9723) 12029 (t 26560 23632 998045 379000) nil ("/" . 9764) (9759 . 9764) ("el" . -9759) 9761 nil (9759 . 9761) nil ("lisp" . -9759) 9763 nil ("
-" . 9767) ("(package-install 'google-gemini)" . 9767) nil ("
-" . 9767) ("(package-install 'google-gemini)" . 9767) nil (nil rear-nonsticky nil 9765 . 9766) (nil fontified nil 9723 . 9766) (9723 . 9766) nil (9723 . 9724) nil (nil rear-nonsticky nil 9754 . 9755) (nil fontified nil 9723 . 9755) (9723 . 9755) nil (9722 . 9723) (t 26560 23564 216947 767000) nil (nil rear-nonsticky nil 9754 . 9755) (nil fontified nil 9723 . 9755) (9723 . 9755) (t 26560 23472 724193 561000) nil ("(require 'google-gemini)
-
-(defvar gemini-code-completion-default-prompt
-  \"Suggest only missing part to work as feature, at most just only 1 or 2 lines.
-Must not exceed 2 lines in suggesting.
-Take care indentation as well.
-
-
-\" \"Default prompt to input into Google Gemini.\")
-
-(defun gemini-code-completion-extract-completion (response)
-  \"Extract and clean completion text from the RESPONSE returned by Google Gemini.\"
-  (let* ((candidates (alist-get 'candidates response))
-         (first-candidate (aref candidates 0))
-         (content (alist-get 'content first-candidate))
-         (parts (alist-get 'parts content))
-         (first-part (aref parts 0))
-         (text (alist-get 'text first-part)))
-    (gemini-code-completion-clean-text text)))
-
-(defun gemini-code-completion-clean-text (text)
-  \"Remove unwanted backquotes from the TEXT.\"
-  (replace-regexp-in-string \"```[a-z]*\\n\\\\|```\" \"\" text))
-
-(defun gemini-code-completion-handler (response)
-  \"Handle Gemini code completion RESPONSE.\"
-
-  (let ((current-position (point))
-        (completion-text (gemini-code-completion-extract-completion response)))
-    (insert
-     (if (use-region-p)
-         \"\\n\"
-       \"\")
-     (propertize completion-text 'face 'shadow))
-    (when (use-region-p)
-      (deactivate-mark))
-    (goto-char current-position))) ; Restore cursor position
-
-;;;###autoload
-(defun gemini-code-completion (prefix)
-  \"Get completion from Google Gemini for current buffer or a selected region.
-If called with a PREFIX argument (\\\\[universal-argument]), prompt for additional
-text to customize the completion.\"
-  (interactive \"P\")
-
-  (let* ((user-prompt (if prefix (concat (read-string \"Prompt: \") \"\\n\\n\") \"\"))
-         (selected-text
-          (if (use-region-p)
-              (buffer-substring-no-properties (region-beginning) (region-end))
-            (buffer-substring-no-properties (point-min) (point))))
-         (end
-          (if (use-region-p)
-              (region-end)
-            (point))))
-    (save-excursion
-      (goto-char end)
-      (google-gemini-content-generate
-       (concat
-        user-prompt gemini-code-completion-default-prompt selected-text)
-       #'gemini-code-completion-handler))))
-
-(provide 'gemini-code-completion)
-;;; gemini-code-completion.el ends here" . 9723) (nil fontified t 9746 . 9749) (nil fontified t 9794 . 9795) (nil fontified t 9797 . 9948) (nil fontified t 9995 . 9998) (nil fontified t 10046 . 10058) (nil fontified t 10140 . 10141) (nil fontified t 10148 . 10474) (nil fontified t 10514 . 10522) (nil fontified t 10567 . 10568) (nil fontified t 10618 . 10627) (nil fontified t 10664 . 10676) (nil fontified t 10719 . 10721) (nil fontified t 10727 . 10848) (nil fontified t 10856 . 10872) (nil fontified t 10885 . 10886) (nil fontified t 10895 . 10946) (nil fontified t 10955 . 10996) (nil fontified t 11033 . 11057) (nil fontified t 11057 . 11058) (nil fontified t 11072 . 11073) (nil fontified t 11102 . 11112) (nil fontified t 11114 . 11190) (nil fontified t 11245 . 11271) (nil fontified t 11305 . 11306) (nil fontified t 11324 . 11327) (nil fontified t 11403 . 11430) (nil fontified t 11443 . 11459) (nil fontified t 11529 . 11619) (nil fontified t 11632 . 11698) (nil fontified t 11717 . 11911) (nil fontified t 11943 . 11945) (nil rear-nonsticky t 11983 . 11984) nil (9723 . 11984) ("(require 'package)
-(add-to-list 'package-archives '(\"melpa\" . \"https://melpa.org/packages/\") t)
-(package-initialize)
-(package-install 'google-gemini)
-
-" . 9723) (nil fontified t 9740 . 9742) (nil fontified t 9814 . 9819) (nil fontified t 9839 . 9873) (nil rear-nonsticky t 9873 . 9874) nil (nil rear-nonsticky nil 9873 . 9874) (nil fontified nil 9839 . 9874) (nil fontified nil 9814 . 9839) (nil fontified nil 9785 . 9814) (nil fontified nil 9782 . 9785) (nil fontified nil 9775 . 9782) (nil fontified nil 9740 . 9775) (nil fontified nil 9733 . 9740) (nil fontified nil 9731 . 9733) (nil fontified nil 9724 . 9731) (nil fontified nil 9723 . 9724) (9723 . 9874) ("(require 'google-gemini)
-
-(defvar gemini-code-completion-default-prompt
-  \"Suggest only missing part to work as feature, at most just only 1 or 2 lines.
-Must not exceed 2 lines in suggesting.
-Take care indentation as well.
-
-
-\" \"Default prompt to input into Google Gemini.\")
-
-(defun gemini-code-completion-extract-completion (response)
-  \"Extract and clean completion text from the RESPONSE returned by Google Gemini.\"
-  (let* ((candidates (alist-get 'candidates response))
-         (first-candidate (aref candidates 0))
-         (content (alist-get 'content first-candidate))
-         (parts (alist-get 'parts content))
-         (first-part (aref parts 0))
-         (text (alist-get 'text first-part)))
-    (gemini-code-completion-clean-text text)))
-
-(defun gemini-code-completion-clean-text (text)
-  \"Remove unwanted backquotes from the TEXT.\"
-  (replace-regexp-in-string \"```[a-z]*\\n\\\\|```\" \"\" text))
-
-(defun gemini-code-completion-handler (response)
-  \"Handle Gemini code completion RESPONSE.\"
-
-  (let ((current-position (point))
-        (completion-text (gemini-code-completion-extract-completion response)))
-    (insert
-     (if (use-region-p)
-         \"\\n\"
-       \"\")
-     (propertize completion-text 'face 'shadow))
-    (when (use-region-p)
-      (deactivate-mark))
-    (goto-char current-position))) ; Restore cursor position
-
-;;;###autoload
-(defun gemini-code-completion (prefix)
-  \"Get completion from Google Gemini for current buffer or a selected region.
-If called with a PREFIX argument (\\\\[universal-argument]), prompt for additional
-text to customize the completion.\"
-  (interactive \"P\")
-
-  (let* ((user-prompt (if prefix (concat (read-string \"Prompt: \") \"\\n\\n\") \"\"))
-         (selected-text
-          (if (use-region-p)
-              (buffer-substring-no-properties (region-beginning) (region-end))
-            (buffer-substring-no-properties (point-min) (point))))
-         (end
-          (if (use-region-p)
-              (region-end)
-            (point))))
-    (save-excursion
-      (goto-char end)
-      (google-gemini-content-generate
-       (concat
-        user-prompt gemini-code-completion-default-prompt selected-text)
-       #'gemini-code-completion-handler))))
-
-(provide 'gemini-code-completion)
-;;; gemini-code-completion.el ends here" . -9723) 11984 nil (nil rear-nonsticky nil 11983 . 11984) (nil fontified nil 11949 . 11984) (nil fontified nil 11945 . 11949) (nil fontified nil 11943 . 11945) (nil fontified nil 11921 . 11943) (nil fontified nil 11919 . 11921) (nil fontified nil 11912 . 11919) (nil fontified nil 11717 . 11912) (nil fontified nil 11703 . 11717) (nil fontified nil 11632 . 11703) (nil fontified nil 11630 . 11632) (nil fontified nil 11529 . 11630) (nil fontified nil 11443 . 11529) (nil fontified nil 11441 . 11443) (nil fontified nil 11403 . 11441) (nil fontified nil 11401 . 11403) (nil fontified nil 11399 . 11401) (nil fontified nil 11393 . 11399) (nil fontified nil 11391 . 11393) (nil fontified nil 11381 . 11391) (nil fontified nil 11352 . 11381) (nil fontified nil 11350 . 11352) (nil fontified nil 11334 . 11350) (nil fontified nil 11330 . 11334) (nil fontified nil 11324 . 11330) (nil fontified nil 11321 . 11324) (nil fontified nil 11320 . 11321) (nil fontified nil 11309 . 11320) (nil fontified nil 11305 . 11309) (nil fontified nil 11245 . 11305) (nil fontified nil 11227 . 11245) (nil fontified nil 11114 . 11227) (nil fontified nil 11102 . 11114) (nil fontified nil 11080 . 11102) (nil fontified nil 11079 . 11080) (nil fontified nil 11074 . 11079) (nil fontified nil 11073 . 11074) (nil fontified nil 11072 . 11073) (nil fontified nil 11064 . 11072) (nil fontified nil 11061 . 11064) (nil fontified nil 11058 . 11061) (nil fontified nil 11057 . 11058) (nil fontified nil 11033 . 11057) (nil fontified nil 11031 . 11033) (nil fontified nil 10955 . 11031) (nil fontified nil 10951 . 10955) (nil fontified nil 10895 . 10951) (nil fontified nil 10893 . 10895) (nil fontified nil 10885 . 10893) (nil fontified nil 10881 . 10885) (nil fontified nil 10856 . 10881) (nil fontified nil 10854 . 10856) (nil fontified nil 10727 . 10854) (nil fontified nil 10724 . 10727) (nil fontified nil 10719 . 10724) (nil fontified nil 10716 . 10719) (nil fontified nil 10678 . 10716) (nil fontified nil 10664 . 10678) (nil fontified nil 10634 . 10664) (nil fontified nil 10633 . 10634) (nil fontified nil 10628 . 10633) (nil fontified nil 10618 . 10628) (nil fontified nil 10616 . 10618) (nil fontified nil 10615 . 10616) (nil fontified nil 10611 . 10615) (nil fontified nil 10610 . 10611) (nil fontified nil 10608 . 10610) (nil fontified nil 10596 . 10608) (nil fontified nil 10567 . 10596) (nil fontified nil 10524 . 10567) (nil fontified nil 10514 . 10524) (nil fontified nil 10481 . 10514) (nil fontified nil 10480 . 10481) (nil fontified nil 10475 . 10480) (nil fontified nil 10148 . 10475) (nil fontified nil 10144 . 10148) (nil fontified nil 10140 . 10144) (nil fontified nil 10060 . 10140) (nil fontified nil 10046 . 10060) (nil fontified nil 10029 . 10046) (nil fontified nil 10005 . 10029) (nil fontified nil 10004 . 10005) (nil fontified nil 9999 . 10004) (nil fontified nil 9995 . 9999) (nil fontified nil 9950 . 9995) (nil fontified nil 9949 . 9950) (nil fontified nil 9797 . 9949) (nil fontified nil 9794 . 9797) (nil fontified nil 9757 . 9794) (nil fontified nil 9756 . 9757) (nil fontified nil 9750 . 9756) (nil fontified nil 9746 . 9750) (nil fontified nil 9733 . 9746) (nil fontified nil 9731 . 9733) (nil fontified nil 9724 . 9731) (nil fontified nil 9723 . 9724) (9723 . 11984) (t 26560 23472 724193 561000) nil (nil rear-nonsticky nil 11984 . 11985) (nil fontified nil 11950 . 11985) (nil fontified nil 11946 . 11950) (nil fontified nil 11944 . 11946) (nil fontified nil 11922 . 11944) (nil fontified nil 11920 . 11922) (nil fontified nil 11913 . 11920) (nil fontified nil 11718 . 11913) (nil fontified nil 11704 . 11718) (nil fontified nil 11633 . 11704) (nil fontified nil 11631 . 11633) (nil fontified nil 11530 . 11631) (nil fontified nil 11444 . 11530) (nil fontified nil 11442 . 11444) (nil fontified nil 11404 . 11442) (nil fontified nil 11402 . 11404) (nil fontified nil 11400 . 11402) (nil fontified nil 11394 . 11400) (nil fontified nil 11392 . 11394) (nil fontified nil 11382 . 11392) (nil fontified nil 11353 . 11382) (nil fontified nil 11351 . 11353) (nil fontified nil 11335 . 11351) (nil fontified nil 11331 . 11335) (nil fontified nil 11325 . 11331) (nil fontified nil 11322 . 11325) (nil fontified nil 11321 . 11322) (nil fontified nil 11310 . 11321) (nil fontified nil 11306 . 11310) (nil fontified nil 11246 . 11306) (nil fontified nil 11228 . 11246) (nil fontified nil 11115 . 11228) (nil fontified nil 11103 . 11115) (nil fontified nil 11081 . 11103) (nil fontified nil 11080 . 11081) (nil fontified nil 11075 . 11080) (nil fontified nil 11074 . 11075) (nil fontified nil 11073 . 11074) (nil fontified nil 11065 . 11073) (nil fontified nil 11062 . 11065) (nil fontified nil 11059 . 11062) (nil fontified nil 11058 . 11059) (nil fontified nil 11034 . 11058) (nil fontified nil 11032 . 11034) (nil fontified nil 10956 . 11032) (nil fontified nil 10952 . 10956) (nil fontified nil 10896 . 10952) (nil fontified nil 10894 . 10896) (nil fontified nil 10886 . 10894) (nil fontified nil 10882 . 10886) (nil fontified nil 10857 . 10882) (nil fontified nil 10855 . 10857) (nil fontified nil 10728 . 10855) (nil fontified nil 10725 . 10728) (nil fontified nil 10720 . 10725) (nil fontified nil 10717 . 10720) (nil fontified nil 10679 . 10717) (nil fontified nil 10665 . 10679) (nil fontified nil 10635 . 10665) (nil fontified nil 10634 . 10635) (nil fontified nil 10629 . 10634) (nil fontified nil 10619 . 10629) (nil fontified nil 10617 . 10619) (nil fontified nil 10616 . 10617) (nil fontified nil 10612 . 10616) (nil fontified nil 10611 . 10612) (nil fontified nil 10609 . 10611) (nil fontified nil 10597 . 10609) (nil fontified nil 10568 . 10597) (nil fontified nil 10525 . 10568) (nil fontified nil 10515 . 10525) (nil fontified nil 10482 . 10515) (nil fontified nil 10481 . 10482) (nil fontified nil 10476 . 10481) (nil fontified nil 10149 . 10476) (nil fontified nil 10145 . 10149) (nil fontified nil 10141 . 10145) (nil fontified nil 10061 . 10141) (nil fontified nil 10047 . 10061) (nil fontified nil 10030 . 10047) (nil fontified nil 10006 . 10030) (nil fontified nil 10005 . 10006) (nil fontified nil 10000 . 10005) (nil fontified nil 9996 . 10000) (nil fontified nil 9951 . 9996) (nil fontified nil 9950 . 9951) (nil fontified nil 9798 . 9950) (nil fontified nil 9795 . 9798) (nil fontified nil 9758 . 9795) (nil fontified nil 9757 . 9758) (nil fontified nil 9751 . 9757) (nil fontified nil 9747 . 9751) (nil fontified nil 9734 . 9747) (nil fontified nil 9732 . 9734) (nil fontified nil 9725 . 9732) (nil fontified nil 9724 . 9725) (9724 . 11985) ("(add-to-list 'load-path \"~/.emacs.d/lisp/\")
-(require 'gemini-code-completion)
-
-" . -9724) 9803 nil (nil rear-nonsticky nil 9802 . 9803) (nil fontified nil 9800 . 9803) (nil fontified nil 9778 . 9800) (nil fontified nil 9776 . 9778) (nil fontified nil 9769 . 9776) (nil fontified nil 9768 . 9769) (nil fontified nil 9766 . 9768) (nil fontified nil 9748 . 9766) (nil fontified nil 9724 . 9748) (9724 . 9803) nil (9722 . 9728) nil (1384 . 1385) nil ("
-" . -1384) 1385 nil ("(add-to-list 'load-path \"~/.emacs.d/lisp/\")
-(require 'gemini-code-completion)
-
-" . 1385) 1464 (t 26560 23349 48755 24000) nil ("(require 'package)
-(add-to-list 'package-archives '(\"melpa\" . \"https://melpa.org/packages/\") t)
-(package-initialize)
-(package-install 'google-gemini)
-
-" . 1385) 1536 (t 26560 23308 816622 900000) nil ("
-(add-to-list 'load-path \"~/.emacs.d/elpa/\")
-(require 'gemini-code-completion)
-" . 1614) 1693 nil (nil rear-nonsticky nil 1612 . 1613) (nil fontified nil 1536 . 1613) (1536 . 1613) nil (1535 . 1537) nil ("
-" . 1614) ("(require 'google-gemini)" . 1614) nil (nil rear-nonsticky nil 1533 . 1534) (nil fontified nil 1502 . 1534) (1502 . 1534) nil (nil rear-nonsticky nil 1500 . 1501) (nil fontified nil 1385 . 1501) (1385 . 1501) nil (1383 . 1387) (t 26560 23074 704176 741000) nil (1480 . 1485) nil ("o" . -1480) 1481 nil (1471 . 1481) ("'" . -1471) (1470 . 1472) nil (1463 . 1470) (1462 . 1464) ("(" . -1462) (1462 . 1463) nil (1461 . 1462) (t 26560 23040 252488 854000) nil ("/" . 1425) (1420 . 1425) ("el" . -1420) 1422 nil (1420 . 1422) nil ("lisp" . -1420) 1424 nil (nil rear-nonsticky nil 1426 . 1427) (nil fontified nil 1384 . 1427) (1384 . 1427) nil (1383 . 1384) (t 26560 22848 74681 380000) nil ("
-" . -85) 86 (t 26560 22826 956409 45000) nil ("
-" . 74) (";;" . 74) (t 26560 22825 111942 139000) nil ("
-" . 77) (";; Google Gemini for a code at current cursor postion or a selected region." . 77) nil ("
-" . 77) (";; gemini-code-completion.el is an Emacs package to get code completion with" . 77) nil (nil rear-nonsticky nil 240 . 241) (nil fontified nil 235 . 241) (nil fontified nil 231 . 235) (nil fontified nil 230 . 231) (nil fontified nil 157 . 230) (nil fontified nil 154 . 157) (nil fontified nil 80 . 154) (nil fontified nil 77 . 80) (nil fontified nil 76 . 77) (nil fontified nil 74 . 76) (nil fontified nil 62 . 74) (nil fontified nil 58 . 62) (58 . 241) nil (58 . 59) (t 26560 22730 409290 479000) nil ("
-" . 1357) ("(add-to-list 'load-path \"~/.emacs.d/lisp/\")" . 1357) (t 26560 22600 755900 176000) nil ("gemini-" . -1398) 1405 nil ("code-" . -1405) 1410 nil ("completion/" . -1410) 1421 (t 26560 22552 323816 606000) nil ("." . -1420) ("e" . -1421) ("l" . -1422) 1423 (t 26560 22543 246203 533000) nil (".el" . 1459) (t 26560 22538 638836 330000) nil (1459 . 1462) (t 26560 22518 737726 457000) nil (1398 . 1424) ("gem" . -1398) 1401 nil (1398 . 1401) (t 26560 22511 459500 729000) nil ("
-" . 1357) ("(setq load-path (cons\"~/.emacs.d\" load-path))" . 1357) nil (1403 . 1446) (1403 . 1404) nil (1357 . 1402) (1357 . 1358) nil ("
-" . 1357) nil (1357 . 1358) nil ("
-" . 1357) ("(setq load-path (cons\"~/.emacs.d\" load-path))" . 1357) nil ("
-" . 1403) ("(add-to-list 'load-path \"~/.emacs.d/lisp/\")" . 1403) nil (1372 . 1373) nil (nil rear-nonsticky nil 1400 . 1401) (nil fontified nil 1357 . 1401) (1357 . 1401) nil (1356 . 1357) (t 26560 22033 668057 112000) nil (nil rear-nonsticky nil 1433 . 1434) (nil fontified nil 1357 . 1434) (1357 . 1434) nil (1356 . 1357) (t 26560 21817 840768 556000) nil ("(require 'package)
-(setq package-archives
-      '((\"gnu\" . \"http://elpa.gnu.org/packages/\")
-        (\"marmalade\" . \"https://marmalade-repo.org/packages/\")
-        (\"melpa\" . \"http://melpa.org/packages/\")
-        (\"org\" . \"http://orgmode.org/elpa/\")))
-(package-initialize)
-
-
-" . 89) 363 (t 26560 21745 333908 164000) nil (360 . 361) nil (nil rear-nonsticky nil 359 . 360) (nil fontified nil 89 . 360) (89 . 360) nil (87 . 90) (t 26560 21564 137548 479000) nil (apply -30 9050 9464 undo--wrap-and-run-primitive-undo 9050 9464 ((9389 . 9392) (9374 . 9377) (9355 . 9358) (9330 . 9333) (9274 . 9277) (9226 . 9229) (9129 . 9132) (9088 . 9091) (9071 . 9074) (9050 . 9053) 9433)) nil (apply 30 9050 9433 undo--wrap-and-run-primitive-undo 9050 9433 ((";; " . -9362) (";; " . -9350) (";; " . -9334) (";; " . -9312) (";; " . -9259) (";; " . -9214) (";; " . -9120) (";; " . -9082) (";; " . -9068) (";; " . -9050) 9463 (t 26560 9002 427423 486000))) nil (apply -30 9050 9464 undo--wrap-and-run-primitive-undo 9050 9464 ((9389 . 9392) (9374 . 9377) (9355 . 9358) (9330 . 9333) (9274 . 9277) (9226 . 9229) (9129 . 9132) (9088 . 9091) (9071 . 9074) (9050 . 9053) 9433)) nil ("
-
-" . 9434) 9436 nil ("
-" . 9434) ("bind" . 9434) nil (9434 . 9438) nil (9433 . 9436) nil (9433 . 9434) nil ("
-" . 9433) ("gi" . 9433) nil ("t" . -9435) 9436 nil (9433 . 9436) nil (9433 . 9434) nil ("
-" . 9433) ("git-rebase-filename-regexp" . 9433) nil (9433 . 9459) ("git" . -9433) 9436 nil (9433 . 9436) nil ("g" . -9433) ("i" . -9434) ("t" . -9435) ("h" . -9436) 9437 nil (9433 . 9437) nil ("g" . -9433) ("i" . -9434) ("t" . -9435) ("h" . -9436) 9437 nil (9433 . 9437) (t 26560 8892 791876 569000) nil ("
-  :after editorconfig jsonrpc" . 9431) 9461 (t 26560 8881 680243 402000) nil ("
-
-" . 9464) nil (9464 . 9465) nil ("
-" . 9464) ("leaf-keywords" . 9464) nil (9464 . 9477) (9464 . 9465) nil ("
-" . 9464) nil (9464 . 9466) nil ("
-
-" . 9049) nil ("(" . 9050) nil (9050 . 9051) nil ("
-" . 9050) nil ("(autoload-if-found '(copilot-login copilot-mode) \"copilot\" nil t)
-
-(keymap-global-set \"C-x C-:\" #'copilot-mode)
-
-(with-eval-after-load 'copilot
-  ;; config
-  (setopt copilot-log-max 100000)
-
-  ;; keymap
-  (define-key copilot-mode-map (kbd \"C-S-i\") #'copilot-complete)
-  (define-key copilot-mode-map (kbd \"C-S-a\") #'copilot-accept-completion)
-  (define-key copilot-mode-map (kbd \"C-c # a\") #'copilot-accept-completion))" . 9051) nil (apply 33 9471 9885 undo--wrap-and-run-primitive-undo 9471 9885 ((";; " . 9471) (";; " . 9492) (";; " . 9509) (";; " . 9550) (";; " . 9647) (";; " . 9695) (";; " . 9751) (";; " . 9776) (";; " . 9795) (";; " . 9810) (";; " . 9883) 9917)) nil (apply -33 9471 9918 undo--wrap-and-run-primitive-undo 9471 9918 ((9883 . 9886) (9810 . 9813) (9795 . 9798) (9776 . 9779) (9751 . 9754) (9695 . 9698) (9647 . 9650) (9550 . 9553) (9509 . 9512) (9492 . 9495) (9471 . 9474) 9051)) nil (9051 . 9469) nil (9050 . 9051) nil ("
-" . 9050) nil ("(autoload-if-found '(copilot-login copilot-mode) \"copilot\" nil t)
-
-(keymap-global-set \"C-x C-:\" #'copilot-mode)
-
-(with-eval-after-load 'copilot
-  ;; config
-  (setopt copilot-log-max 100000)
-
-  ;; keymap
-  (define-key copilot-mode-map (kbd \"C-S-i\") #'copilot-complete)
-  (define-key copilot-mode-map (kbd \"C-S-a\") #'copilot-accept-completion)
-  (define-key copilot-mode-map (kbd \"C-c # a\") #'copilot-accept-completion))" . 9051) nil (apply 33 9471 9885 undo--wrap-and-run-primitive-undo 9471 9885 ((";; " . 9471) (";; " . 9492) (";; " . 9509) (";; " . 9550) (";; " . 9647) (";; " . 9695) (";; " . 9751) (";; " . 9776) (";; " . 9795) (";; " . 9810) (";; " . 9883) 9917)) nil (apply -33 9471 9918 undo--wrap-and-run-primitive-undo 9471 9918 ((9883 . 9886) (9810 . 9813) (9795 . 9798) (9776 . 9779) (9751 . 9754) (9695 . 9698) (9647 . 9650) (9550 . 9553) (9509 . 9512) (9492 . 9495) (9471 . 9474) 9884)) nil (9051 . 9469) nil (9050 . 9051) nil ("(" . -9050) 9051 nil (9050 . 9051) nil (9049 . 9051) (t 26560 8015 431738 180000) nil ("
-
-" . 9464) 9466 nil (9464 . 9465) nil ("
-" . 9464) ("leaf-keywords" . 9464) nil (9464 . 9477) ("leaf" . -9464) 9468 nil (9464 . 9468) nil (9463 . 9464) nil ("
-" . -9463) ("
-" . -9464) 9465 nil (9464 . 9465) nil (9463 . 9464) nil ("
-" . -9048) ("
-" . -9049) ("
-" . -9050) 9051 nil (9049 . 9052) (t 26560 7917 701236 876000)))
+  :init
+  (let ((custom--inhibit-theme-enable nil))
+    (unless (memq 'use-package custom-known-themes)
+      (deftheme use-package)
+      (enable-theme 'use-package)
+      (setq custom-enabled-themes (remq 'use-package custom-enabled-themes)))
+    (custom-theme-set-variables 'use-package
+				'(doom-modeline-height 25 nil nil \"Customized with use-package doom-modeline\")
+				'(doom-modeline-bar-width 5 nil nil \"Customized with use-package doom-modeline\")
+				'(doom-modeline-icon t nil nil \"Customized with use-package doom-modeline\")
+				'(doom-modeline-buffer-file-name-style 'truncate-upto-project nil nil \"Customized with use-package doom-modeline\")
+				'(doom-modeline-persp-name t nil nil \"Customized with use-package doom-modeline\")
+				'(doom-modeline-enable-word-count nil nil nil \"Customized with use-package doom-modeline\")
+				'(doom-modeline-github t nil nil \"Customized with use-package doom-modeline\")))
+  (doom-modeline-mode 1)
+  :require t)
+" . 3845) 4838 (t 26560 36192 246354 759000)))

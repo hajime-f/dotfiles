@@ -135,18 +135,21 @@
   :ensure t
   :config
   (load-theme 'doom-dark+ t)
-  (set-frame-parameter nil 'alpha 95))
+  (set-frame-parameter nil 'alpha 92))
 
 (leaf doom-modeline
-  :doc "A minimal and modern mode-line"
-  :req "emacs-25.1" "compat-29.1.4.5" "nerd-icons-0.1.0" "shrink-path-0.3.1"
-  :tag "mode-line" "faces" "emacs>=25.1"
-  :url "https://github.com/seagle0128/doom-modeline"
-  :added "2025-02-27"
-  :emacs>= 25.1
   :ensure t
-  :global-minor-mode t
-  :after compat nerd-icons shrink-path)
+  :hook (after-init-hook . doom-modeline-mode))
+
+;; nerd-icons
+(leaf nerd-icons
+  :doc "Emacs Nerd Font Icons Library."
+  :req "emacs-24.3"
+  :tag "lisp" "emacs>=24.3"
+  :url "https://github.com/rainstormstudio/nerd-icons.el"
+  :added "2025-02-28"
+  :emacs>= 24.3
+  :ensure t)
 
 ;; all-the-icons
 (leaf all-the-icons
