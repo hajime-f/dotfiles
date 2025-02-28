@@ -6,11 +6,37 @@
 # Your branch is up to date with 'origin/master'.
 #
 # Changes to be committed:
-#	modified:   init.el
-#
-# Changes not staged for commit:
+#	deleted:    auto-save-list/.saves-53001-bali.local~
+#	new file:   auto-save-list/.saves-76580-bali.local~
+#	new file:   auto-save-list/.saves-80336-bali.local~
 #	modified:   backups/!Users!hajime-f!Development!dotfiles!.git!COMMIT_EDITMSG~
-#
-# Untracked files:
-#	auto-save-list/.saves-75460-bali.local~
+#	modified:   backups/!Users!hajime-f!Development!stocktrading!.env~
+#	new file:   eln-cache/29.1-c0bb98c9/subr--trampoline-68616e646c652d7377697463682d6672616d65_handle_switch_frame_0.eln
+#	new file:   eln-cache/29_1-00984f28/all-the-icons-73aa9a4e-715c359f.eln
+#	new file:   eln-cache/29_1-00984f28/company-box-881b6371-289a5832.eln
+#	new file:   eln-cache/29_1-00984f28/init-93a9b01d-83cb108c.eln
+#	deleted:    eln-cache/29_1-00984f28/init-93a9b01d-eac0e1be.eln
+#	new file:   elpa/minimap-1.4/minimap-autoloads.el
+#	new file:   elpa/minimap-1.4/minimap-pkg.el
+#	new file:   elpa/minimap-1.4/minimap.el
+#	new file:   elpa/minimap-1.4/minimap.elc
+#	new file:   elpa/nyan-mode-20220408.2334/img/nyan-frame-1.xpm
+#	new file:   elpa/nyan-mode-20220408.2334/img/nyan-frame-2.xpm
+#	new file:   elpa/nyan-mode-20220408.2334/img/nyan-frame-3.xpm
+#	new file:   elpa/nyan-mode-20220408.2334/img/nyan-frame-4.xpm
+#	new file:   elpa/nyan-mode-20220408.2334/img/nyan-frame-5.xpm
+#	new file:   elpa/nyan-mode-20220408.2334/img/nyan-frame-6.xpm
+#	new file:   elpa/nyan-mode-20220408.2334/img/nyan.xpm
+#	new file:   elpa/nyan-mode-20220408.2334/img/outerspace.xpm
+#	new file:   elpa/nyan-mode-20220408.2334/img/rainbow.xpm
+#	new file:   elpa/nyan-mode-20220408.2334/mus/nyanlooped.mp3
+#	new file:   elpa/nyan-mode-20220408.2334/nyan-mode-autoloads.el
+#	new file:   elpa/nyan-mode-20220408.2334/nyan-mode-pkg.el
+#	new file:   elpa/nyan-mode-20220408.2334/nyan-mode.el
+#	new file:   elpa/nyan-mode-20220408.2334/nyan-mode.elc
+#	modified:   init.el
+#	modified:   init.elc
+#	modified:   places
+#	modified:   transient/history.el
+#	modified:   undohist/!Users!hajime-f!Development!dotfiles!init.el
 #

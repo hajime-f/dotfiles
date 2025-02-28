@@ -1,9 +1,9 @@
 
-((digest . "83cb108c594dad66d65706065d3b4f9a") (undo-list nil ("
+((digest . "3fe725934fef8de8037bd94cdcfd38cf") (undo-list nil (apply -45 10404 11063 undo--wrap-and-run-primitive-undo 10404 11063 ((11051 . 11054) (11023 . 11026) (11000 . 11003) (10994 . 10997) (10937 . 10940) (10876 . 10879) (10808 . 10811) (10763 . 10766) (10742 . 10745) (10664 . 10667) (10607 . 10610) (10546 . 10549) (10478 . 10481) (10429 . 10432) (10404 . 10407) 11017)) nil (apply -3 768 799 undo--wrap-and-run-primitive-undo 768 799 ((772 . 775) 795)) nil ("
 
 
 
-" . 3842) ((marker) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) ((marker . 3842) . -2) nil ("(leaf doom-modeline
+" . 3842) nil ("(leaf doom-modeline
   :ensure t
   :hook (after-init-hook . doom-modeline-mode)
   :custom
@@ -21,7 +21,7 @@
 	:ensure t
 	:config
 	(nyan-mode 1)
-	(nyan-start-animation)))" . 3844) ((marker . 3842) . -569) (nil fontified t 4372 . 4388) (nil fontified t 4365 . 4372) (nil fontified t 4361 . 4365) (nil fontified t 4354 . 4361) (nil fontified t 4342 . 4354) (nil fontified t 4338 . 4342) (nil fontified t 4334 . 4338) (nil fontified t 4329 . 4334) (nil fontified t 4327 . 4329) (nil fontified t 4129 . 4327) (nil fontified t 4124 . 4129) (nil fontified t 4123 . 4124) (nil fontified t 4097 . 4123) (nil fontified t 4045 . 4097) (nil fontified t 4038 . 4045) (nil fontified t 3932 . 4038) (nil fontified t 3925 . 3932) (nil fontified t 3883 . 3925) (nil fontified t 3878 . 3883) (nil fontified t 3873 . 3878) (nil fontified t 3866 . 3873) (nil fontified t 3849 . 3866) (nil fontified t 3845 . 3849) (nil fontified t 3844 . 3845) (nil rear-nonsticky nil 4412 . 4413) nil (apply 9 4416 4496 undo--wrap-and-run-primitive-undo 4416 4496 ((";; " . 4416) (";; " . 4439) (";; " . 4454) 4412)) nil (4327 . 4412) nil ("  :init
+	(nyan-start-animation)))" . 3844) (nil fontified t 4372 . 4388) (nil fontified t 4365 . 4372) (nil fontified t 4361 . 4365) (nil fontified t 4354 . 4361) (nil fontified t 4342 . 4354) (nil fontified t 4338 . 4342) (nil fontified t 4334 . 4338) (nil fontified t 4329 . 4334) (nil fontified t 4327 . 4329) (nil fontified t 4129 . 4327) (nil fontified t 4124 . 4129) (nil fontified t 4123 . 4124) (nil fontified t 4097 . 4123) (nil fontified t 4045 . 4097) (nil fontified t 4038 . 4045) (nil fontified t 3932 . 4038) (nil fontified t 3925 . 3932) (nil fontified t 3883 . 3925) (nil fontified t 3878 . 3883) (nil fontified t 3873 . 3878) (nil fontified t 3866 . 3873) (nil fontified t 3849 . 3866) (nil fontified t 3845 . 3849) (nil fontified t 3844 . 3845) (nil rear-nonsticky nil 4412 . 4413) nil (apply 9 4416 4496 undo--wrap-and-run-primitive-undo 4416 4496 ((";; " . 4416) (";; " . 4439) (";; " . 4454) 4412)) nil (4327 . 4412) nil ("  :init
   (leaf nyan-mode
 	:ensure t
 	:config
