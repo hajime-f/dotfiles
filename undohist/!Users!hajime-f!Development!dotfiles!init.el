@@ -1,5 +1,22 @@
 
-((digest . "3fe725934fef8de8037bd94cdcfd38cf") (undo-list nil (apply -45 10404 11063 undo--wrap-and-run-primitive-undo 10404 11063 ((11051 . 11054) (11023 . 11026) (11000 . 11003) (10994 . 10997) (10937 . 10940) (10876 . 10879) (10808 . 10811) (10763 . 10766) (10742 . 10745) (10664 . 10667) (10607 . 10610) (10546 . 10549) (10478 . 10481) (10429 . 10432) (10404 . 10407) 11017)) nil (apply -3 768 799 undo--wrap-and-run-primitive-undo 768 799 ((772 . 775) 795)) nil ("
+((digest . "7adce442815900fd6063011c793db5c0") (undo-list nil (3815 . 3827) nil (3814 . 3815) (t 26561 25323 519201 61000) nil ("
+" . -10372) 10373 nil (";; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(package-selected-packages '(blackout el-get hydra leaf-keywords leaf)))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  )
+;; ;; Local Variables:
+;; ;; indent-tabs-mode: nil
+;; ;; End:
+" . 10373) 11031 (t 26561 25314 692291 922000) nil ("
+" . 768) ("    " . -768) (768 . 772) ("    ;; (leaf el-get :ensure t)" . 768) (t 26561 14305 304867 606000) nil (apply -45 10404 11063 undo--wrap-and-run-primitive-undo 10404 11063 ((11051 . 11054) (11023 . 11026) (11000 . 11003) (10994 . 10997) (10937 . 10940) (10876 . 10879) (10808 . 10811) (10763 . 10766) (10742 . 10745) (10664 . 10667) (10607 . 10610) (10546 . 10549) (10478 . 10481) (10429 . 10432) (10404 . 10407) 11017)) nil (apply -3 768 799 undo--wrap-and-run-primitive-undo 768 799 ((772 . 775) 795)) nil ("
 
 
 

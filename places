@@ -1,10 +1,7 @@
 ;;; -*- coding: utf-8; mode: lisp-data -*-
-(("/Users/hajime-f/Development/dotfiles/init.el" . 11062)
- ("/Users/hajime-f/.emacs.d/el-get/.loaddefs.el" . 2365)
+(("/Users/hajime-f/Development/dotfiles/init.el" . 6810)
  ("/Users/hajime-f/.zshrc" . 805)
  ("/Users/hajime-f/Development/stocktrading/stocktrading.py" . 1613)
- ("/Users/hajime-f/Development/dotfiles/elpa/el-get-20240408.837/el-get-autoloading.el" . 514)
- ("/Users/hajime-f/Development/dotfiles/elpa/smartparens-20241220.1254/smartparens.el" . 3705)
  ("/Users/hajime-f/Development/stocktrading/stock.py" . 118)
  ("/Users/hajime-f/Development/stocktrading/model.py" . 304)
  ("/Users/hajime-f/Development/stocktrading/test.py" . 44)

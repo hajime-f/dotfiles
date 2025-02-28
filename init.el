@@ -29,7 +29,6 @@
     :ensure t
     :init
     (leaf hydra :ensure t)
-    ;; (leaf el-get :ensure t)
     (leaf blackout :ensure t)
 
     :config
@@ -137,6 +136,7 @@
   (load-theme 'doom-dark+ t)
   (set-frame-parameter nil 'alpha 92))
 
+;; モードラインの設定
 (leaf doom-modeline
   :ensure t
   :hook (after-init-hook . doom-modeline-mode))
@@ -376,22 +376,6 @@
 
 
 (provide 'init)
-
-;; (custom-set-variables
-;;  ;; custom-set-variables was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(package-selected-packages '(blackout el-get hydra leaf-keywords leaf)))
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  )
-;; ;; Local Variables:
-;; ;; indent-tabs-mode: nil
-;; ;; End:
 
 ;;; init.el ends here
 
