@@ -344,24 +344,16 @@
   (tab-bar-mode t)
   (face-spec-set 'tab-bar-tab '((((background light)) (:background "gold")) (((background dark)) (:background "#808080")))))
 
-
-
-;; ;; GitHub Copilot
-;; (require 'copilot)
-;; (setq copilot-node-executable "~/.nvm/versions/node/v19.9.0/bin/node")
-;; (add-hook 'prog-mode-hook 'copilot-mode)
-;; (define-key copilot-completion-map (kbd "C-f") 'copilot-accept-completion)
-
-;; ;; GitHub Copilot
-;; (leaf copilot
-;;   :doc "An unofficial Copilot plugin"
-;;   :req "emacs-27.2" "s-1.12.0" "dash-2.19.1" "editorconfig-0.8.2" "jsonrpc-1.0.14" "f-0.20.0"
-;;   :tag "copilot" "convenience" "emacs>=27.2"
-;;   :url "https://github.com/copilot-emacs/copilot.el"
-;;   :added "2025-02-27"
-;;   :emacs>= 27.2
-;;   :ensure t
-;;   :bind  (copilot-completion-map ("C-f" . copilot-accept-completion)))
+;; GitHub Copilot
+(leaf copilot
+  :doc "An unofficial Copilot plugin"
+  :req "emacs-27.2" "s-1.12.0" "dash-2.19.1" "editorconfig-0.8.2" "jsonrpc-1.0.14" "f-0.20.0"
+  :tag "copilot" "convenience" "emacs>=27.2"
+  :url "https://github.com/copilot-emacs/copilot.el"
+  :added "2025-02-27"
+  :emacs>= 27.2
+  :ensure t
+  :bind  (copilot-completion-map ("C-f" . copilot-accept-completion)))
 
 ;; emojify
 (leaf emojify

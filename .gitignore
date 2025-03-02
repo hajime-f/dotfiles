@@ -25,3 +25,4 @@ emojis/
 places
 transient/
 undohist/
+.cache/
