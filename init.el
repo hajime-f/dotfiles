@@ -363,6 +363,15 @@
   :ensure t
   :after company highlight-indentation pyvenv yasnippet)
 
+(leaf reformatter
+  :doc "Define commands which run reformatters on the current buffer."
+  :req "emacs-24.3"
+  :tag "tools" "convenience" "emacs>=24.3"
+  :url "https://github.com/purcell/emacs-reformatter"
+  :added "2025-03-04"
+  :emacs>= 24.3
+  :ensure t)
+
 ;; ruff
 (leaf ruff-format
   :doc "Ruff format Python source"
@@ -372,30 +381,13 @@
   :added "2025-03-04"
   :emacs>= 24
   :ensure t
+  ;; :hook (python-mode-hook . ruff-format-on-save-mode)
   :after reformatter)
-
-;; autopep8
-(leaf py-autopep8
-  :doc "Use autopep8 to beautify a Python buffer"
-  :req "emacs-29.1"
-  :tag "convenience" "emacs>=29.1"
-  :url "https://codeberg.org/ideasman42/emacs-py-autopep8"
-  :added "2025-02-27"
-  :emacs>= 29.1
-  :ensure t)
-
-;; isort
-(leaf py-isort
-  :doc "Use isort to sort the imports in a Python buffer"
-  :url "http://paetzke.me/project/py-isort.el"
-  :added "2025-02-27"
-  :ensure t)
+(add-hook 'python-mode-hook 'ruff-format-on-save-mode)
 
 ;; タブ
 (leaf tab-bar-mode
   :init
-  ;; (defvar my:ctrl-o-map (make-sparse-keymap))
-  ;; (defalias 'my:ctrl-o-prefix my:ctrl-o-map)
   (define-key global-map (kbd "C-<up>") 'tab-bar-switch-to-prev-tab)
   (define-key global-map (kbd "C-<down>") 'tab-bar-switch-to-next-tab)
   (define-key global-map (kbd "C-t") 'tab-bar-new-tab)
@@ -415,6 +407,7 @@
   :added "2025-02-27"
   :emacs>= 27.2
   :ensure t
+  :global-minor-mode global-copilot-mode
   :bind  (copilot-completion-map ("C-f" . copilot-accept-completion)))
 
 ;; emojify
