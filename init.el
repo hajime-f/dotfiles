@@ -352,6 +352,28 @@
   :ensure t
   :global-minor-mode global-flycheck-mode)
 
+;; elpy
+(leaf elpy
+  :doc "Emacs Python Development Environment"
+  :req "company-0.9.10" "emacs-24.4" "highlight-indentation-0.7.0" "pyvenv-1.20" "yasnippet-0.13.0" "s-1.12.0"
+  :tag "tools" "languages" "ide" "python" "emacs>=24.4"
+  :url "https://github.com/jorgenschaefer/elpy"
+  :added "2025-03-04"
+  :emacs>= 24.4
+  :ensure t
+  :after company highlight-indentation pyvenv yasnippet)
+
+;; ruff
+(leaf ruff-format
+  :doc "Ruff format Python source"
+  :req "emacs-24" "reformatter-0.3"
+  :tag "emacs>=24"
+  :url "https://github.com/JoshHayes/emacs-ruff-format"
+  :added "2025-03-04"
+  :emacs>= 24
+  :ensure t
+  :after reformatter)
+
 ;; autopep8
 (leaf py-autopep8
   :doc "Use autopep8 to beautify a Python buffer"
