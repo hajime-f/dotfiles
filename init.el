@@ -82,7 +82,7 @@
 (define-key global-map (kbd "C-q C-u") 'find-file)
 (define-key global-map (kbd "C-r") 'isearch-backward)
 (define-key global-map (kbd "C-p") 'other-window)
-(define-key global-map (kbd "C-o") 'split-window-horizontally)
+;; (define-key global-map (kbd "C-o") 'split-window-horizontally)
 (define-key global-map (kbd "M-u") 'forward-word)
 (define-key global-map (kbd "M-x") 'backward-word)
 (define-key global-map (kbd "M-q") 'execute-extended-command)
@@ -234,6 +234,8 @@
 ;; 画像ファイルを表示する
 (auto-image-file-mode t)
 
+;; 重複行数を変更する
+(setq next-screen-context-lines 5)
 
 ;;; 
 ;;; その他の設定
@@ -398,17 +400,26 @@
   (tab-bar-mode t)
   (face-spec-set 'tab-bar-tab '((((background light)) (:background "gold")) (((background dark)) (:background "#808080")))))
 
-;; GitHub Copilot
-(leaf copilot
-  :doc "An unofficial Copilot plugin"
-  :req "emacs-27.2" "s-1.12.0" "dash-2.19.1" "editorconfig-0.8.2" "jsonrpc-1.0.14" "f-0.20.0"
-  :tag "copilot" "convenience" "emacs>=27.2"
-  :url "https://github.com/copilot-emacs/copilot.el"
-  :added "2025-02-27"
-  :emacs>= 27.2
-  :ensure t
-  :global-minor-mode global-copilot-mode
-  :bind  (copilot-completion-map ("C-f" . copilot-accept-completion)))
+;; ;; GitHub Copilot
+;; (leaf copilot
+;;   :doc "An unofficial Copilot plugin"
+;;   :req "emacs-27.2" "s-1.12.0" "dash-2.19.1" "editorconfig-0.8.2" "jsonrpc-1.0.14" "f-0.20.0"
+;;   :tag "copilot" "convenience" "emacs>=27.2"
+;;   :url "https://github.com/copilot-emacs/copilot.el"
+;;   :added "2025-02-27"
+;;   :emacs>= 27.2
+;;   :ensure t
+;;   :global-minor-mode global-copilot-mode
+;;   :bind  (copilot-completion-map ("C-f" . copilot-accept-completion))
+;;   :config
+;;   (add-to-list 'copilot-indentation-alist '(prog-mode 2))
+;;   (add-to-list 'copilot-indentation-alist '(org-mode 2))
+;;   (add-to-list 'copilot-indentation-alist '(text-mode 2))
+;;   (add-to-list 'copilot-indentation-alist '(closure-mode 2))
+;;   (add-to-list 'copilot-indentation-alist '(emacs-lisp-mode 2))
+;;   (add-to-list 'copilot-indentation-alist '(python-mode 4))
+;;   (setq copilot-indent-offset-warning-disable t)
+;;   )
 
 ;; emojify
 (leaf emojify
