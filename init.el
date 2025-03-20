@@ -51,6 +51,7 @@
   :tag "builtin" "faces" "help"
   :custom `((custom-file . ,(locate-user-emacs-file "custom.el"))))
 
+(add-to-list 'load-path "~/.emacs.d/codeium.el")
 
 ;;; 
 ;;; 操作に関する設定
@@ -267,42 +268,42 @@
           (lambda ()
             (define-key global-map (kbd "C-'") 'toggle-zsh-window)))
 
-;; 自動補完（company）
-(leaf company
-  :doc "Modular text completion framework"
-  :req "emacs-24.3"
-  :tag "matching" "convenience" "abbrev" "emacs>=24.3"
-  :url "http://company-mode.github.io/"
-  :emacs>= 24.3
-  :ensure t
-  :leaf-defer nil
-  :bind ((company-active-map
-          ("M-n" . nil)
-          ("M-p" . nil)
-          ("C-s" . company-filter-candidates)
-          ("C-n" . company-select-next)
-          ("C-p" . company-select-previous)
-          ("C-f" . company-complete-selection))
-         (company-search-map
-          ("C-n" . company-select-next)
-          ("C-p" . company-select-previous)))
-  :custom ((company-idle-delay . 0)
-           (company-minimum-prefix-length . 1)
-           (company-transformers . '(company-sort-by-occurrence)))
-  :global-minor-mode global-company-mode)
+;; ;; 自動補完（company）
+;; (leaf company
+;;   :doc "Modular text completion framework"
+;;   :req "emacs-24.3"
+;;   :tag "matching" "convenience" "abbrev" "emacs>=24.3"
+;;   :url "http://company-mode.github.io/"
+;;   :emacs>= 24.3
+;;   :ensure t
+;;   :leaf-defer nil
+;;   :bind ((company-active-map
+;;           ("M-n" . nil)
+;;           ("M-p" . nil)
+;;           ("C-s" . company-filter-candidates)
+;;           ("C-n" . company-select-next)
+;;           ("C-p" . company-select-previous)
+;;           ("C-f" . company-complete-selection))
+;;          (company-search-map
+;;           ("C-n" . company-select-next)
+;;           ("C-p" . company-select-previous)))
+;;   :custom ((company-idle-delay . 0)
+;;            (company-minimum-prefix-length . 1)
+;;            (company-transformers . '(company-sort-by-occurrence)))
+;;   :global-minor-mode global-company-mode)
 
-;; (with-eval-after-load 'company
-;;   ;; disable inline previews
-;;   (delq 'company-preview-if-just-one-frontend company-frontends))
+;; ;; (with-eval-after-load 'company
+;; ;;   ;; disable inline previews
+;; ;;   (delq 'company-preview-if-just-one-frontend company-frontends))
 
-;; companyの起動時に出るboxの設定
-(leaf company-box
-  :ensure t
-  :after (company all-the-icons)
-  :hook ((company-mode-hook . company-box-mode))
-  :custom
-  (company-box-icons-alist . 'company-box-icons-all-the-icons)
-  (company-box-doc-enable . nil))
+;; ;; companyの起動時に出るboxの設定
+;; (leaf company-box
+;;   :ensure t
+;;   :after (company all-the-icons)
+;;   :hook ((company-mode-hook . company-box-mode))
+;;   :custom
+;;   (company-box-icons-alist . 'company-box-icons-all-the-icons)
+;;   (company-box-doc-enable . nil))
 
 ;; Undohist
 (leaf undohist
@@ -400,26 +401,95 @@
   (tab-bar-mode t)
   (face-spec-set 'tab-bar-tab '((((background light)) (:background "gold")) (((background dark)) (:background "#808080")))))
 
-;; ;; GitHub Copilot
-;; (leaf copilot
-;;   :doc "An unofficial Copilot plugin"
-;;   :req "emacs-27.2" "s-1.12.0" "dash-2.19.1" "editorconfig-0.8.2" "jsonrpc-1.0.14" "f-0.20.0"
-;;   :tag "copilot" "convenience" "emacs>=27.2"
-;;   :url "https://github.com/copilot-emacs/copilot.el"
-;;   :added "2025-02-27"
-;;   :emacs>= 27.2
-;;   :ensure t
-;;   :global-minor-mode global-copilot-mode
-;;   :bind  (copilot-completion-map ("C-f" . copilot-accept-completion))
-;;   :config
-;;   (add-to-list 'copilot-indentation-alist '(prog-mode 2))
-;;   (add-to-list 'copilot-indentation-alist '(org-mode 2))
-;;   (add-to-list 'copilot-indentation-alist '(text-mode 2))
-;;   (add-to-list 'copilot-indentation-alist '(closure-mode 2))
-;;   (add-to-list 'copilot-indentation-alist '(emacs-lisp-mode 2))
-;;   (add-to-list 'copilot-indentation-alist '(python-mode 4))
-;;   (setq copilot-indent-offset-warning-disable t)
-;;   )
+;; GitHub Copilot
+(leaf copilot
+  :doc "An unofficial Copilot plugin"
+  :req "emacs-27.2" "s-1.12.0" "dash-2.19.1" "editorconfig-0.8.2" "jsonrpc-1.0.14" "f-0.20.0"
+  :tag "copilot" "convenience" "emacs>=27.2"
+  :url "https://github.com/copilot-emacs/copilot.el"
+  :added "2025-02-27"
+  :emacs>= 27.2
+  :ensure t
+  :bind  (copilot-completion-map ("C-f" . copilot-accept-completion))
+  :hook
+  (prog-mode-hook .  copilot-mode)
+  (setq copilot-indent-offset-warning-disable t)
+  (setq copilot-max-char-warning-disabled t)
+  )
+
+;; consult
+(leaf consult
+    :doc "Consulting completing-read"
+    :req "emacs-28.1" "compat-30"
+    :tag "completion" "files" "matching" "emacs>=28.1"
+    :url "https://github.com/minad/consult"
+    :added "2025-03-20"
+    :emacs>= 28.1
+    :ensure t
+    :after compat
+    :hook (after-init-hook . consult-customize))
+
+;; vertico
+(leaf vertico
+    :doc "VERTical Interactive COmpletion"
+    :req "emacs-28.1" "compat-30"
+    :tag "completion" "matching" "files" "convenience" "emacs>=28.1"
+    :url "https://github.com/minad/vertico"
+    :added "2025-03-20"
+    :emacs>= 28.1
+    :ensure t
+    :custom (vertico-count . 10)
+    :hook (after-init-hook . vertico-mode))
+
+;; corfu
+(leaf corfu
+  :doc "COmpletion in Region FUnction"
+  :req "emacs-28.1" "compat-30"
+  :tag "text" "completion" "matching" "convenience" "abbrev" "emacs>=28.1"
+  :url "https://github.com/minad/corfu"
+  :added "2025-03-20"
+  :emacs>= 28.1
+  :ensure t
+  :global-minor-mode global-corfu-mode corfu-popupinfo-mode
+  :custom ((corfu-auto . t)
+           (corfu-auto-delay . 0)
+           (corfu-auto-prefix . 1)
+           (corfu-popupinfo-delay . nil))
+  :bind ((corfu-map
+          ("C-s" . corfu-insert-separator)))
+  :after compat)
+
+;; cape
+(leaf cape
+    :doc "Completion At Point Extensions"
+    :req "emacs-28.1" "compat-30"
+    :tag "text" "completion" "matching" "convenience" "abbrev" "emacs>=28.1"
+    :url "https://github.com/minad/cape"
+    :added "2025-03-20"
+    :emacs>= 28.1
+    :ensure t
+    :after compat)
+
+;; orderless
+(leaf orderless
+  :doc "Completion style for matching regexps in any order"
+  :req "emacs-27.1" "compat-30"
+  :tag "completion" "matching" "emacs>=27.1"
+  :url "https://github.com/oantolin/orderless"
+  :added "2025-03-20"
+  :emacs>= 27.1
+  :ensure t
+  :after compat)
+
+;; prescient
+(leaf prescient
+    :doc "Better sorting and filtering"
+    :req "emacs-25.1"
+    :tag "extensions" "emacs>=25.1"
+    :url "https://github.com/raxod502/prescient.el"
+    :added "2025-03-20"
+    :emacs>= 25.1
+    :ensure t)
 
 ;; emojify
 (leaf emojify
