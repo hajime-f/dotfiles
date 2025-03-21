@@ -437,7 +437,6 @@
   :emacs>= 27.1
   :ensure t
   :after markdown-mode magit org polymode shell-maker)
-;; (add-hook 'git-commit-setup-hook 'copilot-chat-insert-commit-message)
 
 ;; consult
 (leaf consult
