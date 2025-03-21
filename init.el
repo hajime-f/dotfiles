@@ -422,9 +422,10 @@
   :bind  (copilot-completion-map ("C-f" . copilot-accept-completion))
   :hook
   (prog-mode-hook .  copilot-mode)
-  :custom
+  (git-commit-setup-hook . copilot-mode)
   (setq copilot-indent-offset-warning-disable t)
-  (setq copilot-max-char-warning-disabled t))
+  (setq copilot-max-char-warning-disabled t)
+  )
 
 ;; Copilot Chat
 (leaf copilot-chat
@@ -436,7 +437,7 @@
   :emacs>= 27.1
   :ensure t
   :after markdown-mode magit org polymode shell-maker)
-(add-hook 'git-commit-setup-hook 'copilot-mode)
+;; (add-hook 'git-commit-setup-hook 'copilot-chat-insert-commit-message)
 
 ;; consult
 (leaf consult
