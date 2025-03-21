@@ -268,42 +268,42 @@
           (lambda ()
             (define-key global-map (kbd "C-'") 'toggle-zsh-window)))
 
-;; ;; 自動補完（company）
-;; (leaf company
-;;   :doc "Modular text completion framework"
-;;   :req "emacs-24.3"
-;;   :tag "matching" "convenience" "abbrev" "emacs>=24.3"
-;;   :url "http://company-mode.github.io/"
-;;   :emacs>= 24.3
-;;   :ensure t
-;;   :leaf-defer nil
-;;   :bind ((company-active-map
-;;           ("M-n" . nil)
-;;           ("M-p" . nil)
-;;           ("C-s" . company-filter-candidates)
-;;           ("C-n" . company-select-next)
-;;           ("C-p" . company-select-previous)
-;;           ("C-f" . company-complete-selection))
-;;          (company-search-map
-;;           ("C-n" . company-select-next)
-;;           ("C-p" . company-select-previous)))
-;;   :custom ((company-idle-delay . 0)
-;;            (company-minimum-prefix-length . 1)
-;;            (company-transformers . '(company-sort-by-occurrence)))
-;;   :global-minor-mode global-company-mode)
+;; 自動補完（company）
+(leaf company
+  :doc "Modular text completion framework"
+  :req "emacs-24.3"
+  :tag "matching" "convenience" "abbrev" "emacs>=24.3"
+  :url "http://company-mode.github.io/"
+  :emacs>= 24.3
+  :ensure t
+  :leaf-defer nil
+  :bind ((company-active-map
+          ("M-n" . nil)
+          ("M-p" . nil)
+          ("C-s" . company-filter-candidates)
+          ("C-n" . company-select-next)
+          ("C-p" . company-select-previous)
+          ("C-f" . company-complete-selection))
+         (company-search-map
+          ("C-n" . company-select-next)
+          ("C-p" . company-select-previous)))
+  :custom ((company-idle-delay . 0)
+           (company-minimum-prefix-length . 1)
+           (company-transformers . '(company-sort-by-occurrence)))
+  :global-minor-mode global-company-mode)
 
-;; ;; (with-eval-after-load 'company
-;; ;;   ;; disable inline previews
-;; ;;   (delq 'company-preview-if-just-one-frontend company-frontends))
+;; (with-eval-after-load 'company
+;;   ;; disable inline previews
+;;   (delq 'company-preview-if-just-one-frontend company-frontends))
 
-;; ;; companyの起動時に出るboxの設定
-;; (leaf company-box
-;;   :ensure t
-;;   :after (company all-the-icons)
-;;   :hook ((company-mode-hook . company-box-mode))
-;;   :custom
-;;   (company-box-icons-alist . 'company-box-icons-all-the-icons)
-;;   (company-box-doc-enable . nil))
+;; companyの起動時に出るboxの設定
+(leaf company-box
+  :ensure t
+  :after (company all-the-icons)
+  :hook ((company-mode-hook . company-box-mode))
+  :custom
+  (company-box-icons-alist . 'company-box-icons-all-the-icons)
+  (company-box-doc-enable . nil))
 
 ;; Undohist
 (leaf undohist
@@ -387,6 +387,15 @@
   ;; :hook (python-mode-hook . ruff-format-on-save-mode)
   :after reformatter)
 (add-hook 'python-mode-hook 'ruff-format-on-save-mode)
+;; (add-hook 'python-mode-hook 'ruff-sort-imports-on-save-mode)
+
+;; isort
+(leaf py-isort
+  :doc "Use isort to sort the imports in a Python buffer."
+  :url "http://paetzke.me/project/py-isort.el"
+  :added "2025-03-20"
+  :ensure t)
+(add-hook 'python-mode-hook 'py-isort-before-save)
 
 ;; タブ
 (leaf tab-bar-mode
@@ -413,9 +422,21 @@
   :bind  (copilot-completion-map ("C-f" . copilot-accept-completion))
   :hook
   (prog-mode-hook .  copilot-mode)
+  :custom
   (setq copilot-indent-offset-warning-disable t)
-  (setq copilot-max-char-warning-disabled t)
-  )
+  (setq copilot-max-char-warning-disabled t))
+
+;; Copilot Chat
+(leaf copilot-chat
+  :doc "Copilot chat interface."
+  :req "request-0.3.2" "markdown-mode-2.6" "emacs-27.1" "magit-4.0.0" "transient-0.8.3" "org-9.4.6" "polymode-0.2.2" "shell-maker-0.76.2"
+  :tag "tools" "convenience" "emacs>=27.1"
+  :url "https://github.com/chep/copilot-chat.el"
+  :added "2025-03-21"
+  :emacs>= 27.1
+  :ensure t
+  :after markdown-mode magit org polymode shell-maker)
+(add-hook 'git-commit-setup-hook 'copilot-mode)
 
 ;; consult
 (leaf consult
@@ -502,6 +523,15 @@
   :custom
   (emojify-emoji-styles . '(unicode github)))
 
+(leaf marginalia
+    :doc "Enrich existing commands with completion annotations"
+    :req "emacs-28.1" "compat-30"
+    :tag "completion" "matching" "help" "docs" "emacs>=28.1"
+    :url "https://github.com/minad/marginalia"
+    :added "2025-03-20"
+    :emacs>= 28.1
+    :ensure t
+    :after compat)
 
 (provide 'init)
 
