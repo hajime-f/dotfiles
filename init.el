@@ -101,7 +101,7 @@
 (setq kill-whole-line t)
 
 ;; 最後のカーソル位置を記録
-(save-place-mode t) 
+(save-place-mode t)
 
 
 
@@ -137,50 +137,50 @@
   (load-theme 'doom-dark+ t)
   (set-frame-parameter nil 'alpha 92))
 
-(leaf doom-modeline
-  :ensure t
-  :hook (after-init-hook . doom-modeline-mode)
-  :custom
-  ((doom-modeline-height . 1)
-   (doom-modeline-bar-width . 3)
-   (doom-modeline-buffer-file-name-style . 'truncate-with-project)
-   (doom-modeline-icon . t)
-   (doom-modeline-major-mode-icon . t)
-   (doom-modeline-minor-modes . t)
-   (doom-modeline-enable-word-count . t)
-   (doom-modeline-buffer-modification-icon . t)
-   (doom-modeline-buffer-state-icon . t)
-   (doom-modeline-buffer-encoding . t)
-   (doom-modeline-indent-info . t)
-   (doom-modeline-checker-simple-format . t)
-   (doom-modeline-vcs-max-length . 12)
-   (doom-modeline-persp-name . t)
-   (doom-modeline-lsp . t)
-   (doom-modeline-github . t)
-   (doom-modeline-github-interval . 30)
-   (doom-modeline-env-version . t)
-   (doom-modeline-env-enable-python . t)
-   (doom-modeline-env-enable-ruby . t)
-   (doom-modeline-env-enable-perl . t)
-   (doom-modeline-env-enable-go . t)
-   (doom-modeline-env-enable-elixir . t)
-   (doom-modeline-env-enable-rust . t)
-   (doom-modeline-env-enable-csharp . t)
-   (doom-modeline-env-enable-java . t)
-   (doom-modeline-env-enable-haskell . t)
-   (doom-modeline-env-enable-scala . t)
-   (doom-modeline-env-enable-r . t)
-   (doom-modeline-env-enable-julia . t)
-   (doom-modeline-env-enable-php . t)
-   (doom-modeline-env-enable-lua . t)
-   (doom-modeline-env-enable-shell . t)
-   (doom-modeline-env-enable-swift . t)
-   (doom-modeline-env-enable-perl . t)
-   (doom-modeline-env-enable-ruby . t)
-   (doom-modeline-env-enable-elixir . t)
-   (doom-modeline-env-enable-rust . t)
-   (doom-modeline-env-enable-csharp . t)
-   (doom-modeline-env-enable-java)))
+;; (leaf doom-modeline
+;;   :ensure t
+;;   :hook (after-init-hook . doom-modeline-mode)
+;;   :custom
+;;   ((doom-modeline-height . 1)
+;;    (doom-modeline-bar-width . 3)
+;;    (doom-modeline-buffer-file-name-style . 'truncate-with-project)
+;;    (doom-modeline-icon . t)
+;;    (doom-modeline-major-mode-icon . t)
+;;    (doom-modeline-minor-modes . t)
+;;    (doom-modeline-enable-word-count . t)
+;;    (doom-modeline-buffer-modification-icon . t)
+;;    (doom-modeline-buffer-state-icon . t)
+;;    (doom-modeline-buffer-encoding . t)
+;;    (doom-modeline-indent-info . t)
+;;    (doom-modeline-checker-simple-format . t)
+;;    (doom-modeline-vcs-max-length . 12)
+;;    (doom-modeline-persp-name . t)
+;;    (doom-modeline-lsp . t)
+;;    (doom-modeline-github . t)
+;;    (doom-modeline-github-interval . 30)
+;;    (doom-modeline-env-version . t)
+;;    (doom-modeline-env-enable-python . t)
+;;    (doom-modeline-env-enable-ruby . t)
+;;    (doom-modeline-env-enable-perl . t)
+;;    (doom-modeline-env-enable-go . t)
+;;    (doom-modeline-env-enable-elixir . t)
+;;    (doom-modeline-env-enable-rust . t)
+;;    (doom-modeline-env-enable-csharp . t)
+;;    (doom-modeline-env-enable-java . t)
+;;    (doom-modeline-env-enable-haskell . t)
+;;    (doom-modeline-env-enable-scala . t)
+;;    (doom-modeline-env-enable-r . t)
+;;    (doom-modeline-env-enable-julia . t)
+;;    (doom-modeline-env-enable-php . t)
+;;    (doom-modeline-env-enable-lua . t)
+;;    (doom-modeline-env-enable-shell . t)
+;;    (doom-modeline-env-enable-swift . t)
+;;    (doom-modeline-env-enable-perl . t)
+;;    (doom-modeline-env-enable-ruby . t)
+;;    (doom-modeline-env-enable-elixir . t)
+;;    (doom-modeline-env-enable-rust . t)
+;;    (doom-modeline-env-enable-csharp . t)
+;;    (doom-modeline-env-enable-java)))
 
 ;; nerd-icons
 (leaf nerd-icons
@@ -386,16 +386,17 @@
   :ensure t
   ;; :hook (python-mode-hook . ruff-format-on-save-mode)
   :after reformatter)
-(add-hook 'python-mode-hook 'ruff-format-on-save-mode)
-;; (add-hook 'python-mode-hook 'ruff-sort-imports-on-save-mode)
+(eval-after-load 'python
+  '(add-hook 'python-mode-hook #'ruff-format-on-save-mode))
 
-;; isort
-(leaf py-isort
-  :doc "Use isort to sort the imports in a Python buffer."
-  :url "http://paetzke.me/project/py-isort.el"
-  :added "2025-03-20"
-  :ensure t)
-(add-hook 'python-mode-hook 'py-isort-before-save)
+;; (add-hook 'python-mode-hook 'ruff-format-on-save-mode)
+
+;; ;; isort
+;; (leaf py-isort
+;;   :doc "Use isort to sort the imports in a Python buffer."
+;;   :url "http://paetzke.me/project/py-isort.el"
+;;   :added "2025-03-20"
+;;   :ensure t)
 
 ;; タブ
 (leaf tab-bar-mode
