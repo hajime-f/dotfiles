@@ -418,14 +418,15 @@
   :url "https://github.com/copilot-emacs/copilot.el"
   :added "2025-02-27"
   :emacs>= 27.2
-  :ensure t
   :bind  (copilot-completion-map ("C-f" . copilot-accept-completion))
   :hook
   (prog-mode-hook .  copilot-mode)
   (git-commit-setup-hook . copilot-mode)
-  (setq copilot-indent-offset-warning-disable t)
-  (setq copilot-max-char-warning-disabled t)
-  )
+  :config
+  (eval-after-load 'copilot
+    '(progn
+       (customize-set-variable 'copilot-indent-offset-warning-disable t)
+       (customize-set-variable 'copilot-max-char-warning-disabled t))))
 
 ;; Copilot Chat
 (leaf copilot-chat
@@ -462,34 +463,34 @@
     :custom (vertico-count . 10)
     :hook (after-init-hook . vertico-mode))
 
-;; corfu
-(leaf corfu
-  :doc "COmpletion in Region FUnction"
-  :req "emacs-28.1" "compat-30"
-  :tag "text" "completion" "matching" "convenience" "abbrev" "emacs>=28.1"
-  :url "https://github.com/minad/corfu"
-  :added "2025-03-20"
-  :emacs>= 28.1
-  :ensure t
-  :global-minor-mode global-corfu-mode corfu-popupinfo-mode
-  :custom ((corfu-auto . t)
-           (corfu-auto-delay . 0)
-           (corfu-auto-prefix . 1)
-           (corfu-popupinfo-delay . nil))
-  :bind ((corfu-map
-          ("C-s" . corfu-insert-separator)))
-  :after compat)
+;; ;; corfu
+;; (leaf corfu
+;;   :doc "COmpletion in Region FUnction"
+;;   :req "emacs-28.1" "compat-30"
+;;   :tag "text" "completion" "matching" "convenience" "abbrev" "emacs>=28.1"
+;;   :url "https://github.com/minad/corfu"
+;;   :added "2025-03-20"
+;;   :emacs>= 28.1
+;;   :ensure t
+;;   :global-minor-mode global-corfu-mode corfu-popupinfo-mode
+;;   :custom ((corfu-auto . t)
+;;            (corfu-auto-delay . 0)
+;;            (corfu-auto-prefix . 1)
+;;            (corfu-popupinfo-delay . nil))
+;;   :bind ((corfu-map
+;;           ("C-s" . corfu-insert-separator)))
+;;   :after compat)
 
-;; cape
-(leaf cape
-    :doc "Completion At Point Extensions"
-    :req "emacs-28.1" "compat-30"
-    :tag "text" "completion" "matching" "convenience" "abbrev" "emacs>=28.1"
-    :url "https://github.com/minad/cape"
-    :added "2025-03-20"
-    :emacs>= 28.1
-    :ensure t
-    :after compat)
+;; ;; cape
+;; (leaf cape
+;;     :doc "Completion At Point Extensions"
+;;     :req "emacs-28.1" "compat-30"
+;;     :tag "text" "completion" "matching" "convenience" "abbrev" "emacs>=28.1"
+;;     :url "https://github.com/minad/cape"
+;;     :added "2025-03-20"
+;;     :emacs>= 28.1
+;;     :ensure t
+;;     :after compat)
 
 ;; orderless
 (leaf orderless
