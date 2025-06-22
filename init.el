@@ -137,50 +137,50 @@
   (load-theme 'doom-dark+ t)
   (set-frame-parameter nil 'alpha 92))
 
-;; (leaf doom-modeline
-;;   :ensure t
-;;   :hook (after-init-hook . doom-modeline-mode)
-;;   :custom
-;;   ((doom-modeline-height . 1)
-;;    (doom-modeline-bar-width . 3)
-;;    (doom-modeline-buffer-file-name-style . 'truncate-with-project)
-;;    (doom-modeline-icon . t)
-;;    (doom-modeline-major-mode-icon . t)
-;;    (doom-modeline-minor-modes . t)
-;;    (doom-modeline-enable-word-count . t)
-;;    (doom-modeline-buffer-modification-icon . t)
-;;    (doom-modeline-buffer-state-icon . t)
-;;    (doom-modeline-buffer-encoding . t)
-;;    (doom-modeline-indent-info . t)
-;;    (doom-modeline-checker-simple-format . t)
-;;    (doom-modeline-vcs-max-length . 12)
-;;    (doom-modeline-persp-name . t)
-;;    (doom-modeline-lsp . t)
-;;    (doom-modeline-github . t)
-;;    (doom-modeline-github-interval . 30)
-;;    (doom-modeline-env-version . t)
-;;    (doom-modeline-env-enable-python . t)
-;;    (doom-modeline-env-enable-ruby . t)
-;;    (doom-modeline-env-enable-perl . t)
-;;    (doom-modeline-env-enable-go . t)
-;;    (doom-modeline-env-enable-elixir . t)
-;;    (doom-modeline-env-enable-rust . t)
-;;    (doom-modeline-env-enable-csharp . t)
-;;    (doom-modeline-env-enable-java . t)
-;;    (doom-modeline-env-enable-haskell . t)
-;;    (doom-modeline-env-enable-scala . t)
-;;    (doom-modeline-env-enable-r . t)
-;;    (doom-modeline-env-enable-julia . t)
-;;    (doom-modeline-env-enable-php . t)
-;;    (doom-modeline-env-enable-lua . t)
-;;    (doom-modeline-env-enable-shell . t)
-;;    (doom-modeline-env-enable-swift . t)
-;;    (doom-modeline-env-enable-perl . t)
-;;    (doom-modeline-env-enable-ruby . t)
-;;    (doom-modeline-env-enable-elixir . t)
-;;    (doom-modeline-env-enable-rust . t)
-;;    (doom-modeline-env-enable-csharp . t)
-;;    (doom-modeline-env-enable-java)))
+(leaf doom-modeline
+  :ensure t
+  :hook (after-init-hook . doom-modeline-mode)
+  :custom
+  ((doom-modeline-height . 1)
+   (doom-modeline-bar-width . 3)
+   (doom-modeline-buffer-file-name-style . 'truncate-with-project)
+   (doom-modeline-icon . t)
+   (doom-modeline-major-mode-icon . t)
+   (doom-modeline-minor-modes . t)
+   (doom-modeline-enable-word-count . t)
+   (doom-modeline-buffer-modification-icon . t)
+   (doom-modeline-buffer-state-icon . t)
+   (doom-modeline-buffer-encoding . t)
+   (doom-modeline-indent-info . t)
+   (doom-modeline-checker-simple-format . t)
+   (doom-modeline-vcs-max-length . 12)
+   (doom-modeline-persp-name . t)
+   (doom-modeline-lsp . t)
+   (doom-modeline-github . t)
+   (doom-modeline-github-interval . 30)
+   (doom-modeline-env-version . t)
+   (doom-modeline-env-enable-python . t)
+   (doom-modeline-env-enable-ruby . t)
+   (doom-modeline-env-enable-perl . t)
+   (doom-modeline-env-enable-go . t)
+   (doom-modeline-env-enable-elixir . t)
+   (doom-modeline-env-enable-rust . t)
+   (doom-modeline-env-enable-csharp . t)
+   (doom-modeline-env-enable-java . t)
+   (doom-modeline-env-enable-haskell . t)
+   (doom-modeline-env-enable-scala . t)
+   (doom-modeline-env-enable-r . t)
+   (doom-modeline-env-enable-julia . t)
+   (doom-modeline-env-enable-php . t)
+   (doom-modeline-env-enable-lua . t)
+   (doom-modeline-env-enable-shell . t)
+   (doom-modeline-env-enable-swift . t)
+   (doom-modeline-env-enable-perl . t)
+   (doom-modeline-env-enable-ruby . t)
+   (doom-modeline-env-enable-elixir . t)
+   (doom-modeline-env-enable-rust . t)
+   (doom-modeline-env-enable-csharp . t)
+   (doom-modeline-env-enable-java)))
 
 ;; nerd-icons
 (leaf nerd-icons
@@ -411,34 +411,34 @@
   (tab-bar-mode t)
   (face-spec-set 'tab-bar-tab '((((background light)) (:background "gold")) (((background dark)) (:background "#808080")))))
 
-;; GitHub Copilot
-(leaf copilot
-  :doc "An unofficial Copilot plugin"
-  :req "emacs-27.2" "s-1.12.0" "dash-2.19.1" "editorconfig-0.8.2" "jsonrpc-1.0.14" "f-0.20.0"
-  :tag "copilot" "convenience" "emacs>=27.2"
-  :url "https://github.com/copilot-emacs/copilot.el"
-  :added "2025-02-27"
-  :emacs>= 27.2
-  :bind  (copilot-completion-map ("C-f" . copilot-accept-completion))
-  :hook
-  (prog-mode-hook .  copilot-mode)
-  (git-commit-setup-hook . copilot-mode)
-  :config
-  (eval-after-load 'copilot
-    '(progn
-       (customize-set-variable 'copilot-indent-offset-warning-disable t)
-       (customize-set-variable 'copilot-max-char-warning-disabled t))))
+;; ;; GitHub Copilot
+;; (leaf copilot
+;;   :doc "An unofficial Copilot plugin"
+;;   :req "emacs-27.2" "s-1.12.0" "dash-2.19.1" "editorconfig-0.8.2" "jsonrpc-1.0.14" "f-0.20.0"
+;;   :tag "copilot" "convenience" "emacs>=27.2"
+;;   :url "https://github.com/copilot-emacs/copilot.el"
+;;   :added "2025-02-27"
+;;   :emacs>= 27.2
+;;   :bind  (copilot-completion-map ("C-f" . copilot-accept-completion))
+;;   :hook
+;;   (prog-mode-hook .  copilot-mode)
+;;   (git-commit-setup-hook . copilot-mode)
+;;   :config
+;;   (eval-after-load 'copilot
+;;     '(progn
+;;        (customize-set-variable 'copilot-indent-offset-warning-disable t)
+;;        (customize-set-variable 'copilot-max-char-warning-disabled t))))
 
-;; Copilot Chat
-(leaf copilot-chat
-  :doc "Copilot chat interface."
-  :req "request-0.3.2" "markdown-mode-2.6" "emacs-27.1" "magit-4.0.0" "transient-0.8.3" "org-9.4.6" "polymode-0.2.2" "shell-maker-0.76.2"
-  :tag "tools" "convenience" "emacs>=27.1"
-  :url "https://github.com/chep/copilot-chat.el"
-  :added "2025-03-21"
-  :emacs>= 27.1
-  :ensure t
-  :after markdown-mode magit org polymode shell-maker)
+;; ;; Copilot Chat
+;; (leaf copilot-chat
+;;   :doc "Copilot chat interface."
+;;   :req "request-0.3.2" "markdown-mode-2.6" "emacs-27.1" "magit-4.0.0" "transient-0.8.3" "org-9.4.6" "polymode-0.2.2" "shell-maker-0.76.2"
+;;   :tag "tools" "convenience" "emacs>=27.1"
+;;   :url "https://github.com/chep/copilot-chat.el"
+;;   :added "2025-03-21"
+;;   :emacs>= 27.1
+;;   :ensure t
+;;   :after markdown-mode magit org polymode shell-maker)
 
 ;; consult
 (leaf consult
@@ -534,6 +534,45 @@
     :emacs>= 28.1
     :ensure t
     :after compat)
+
+;; init.el
+
+(defun print-perfectly ()
+  "バッファをHTML化し、フォントサイズを完全に制御してChromeで開き、手動印刷を促す。"
+  (interactive)
+  (let* (;; --- 1. htmlfontifyでHTMLを生成（この時点ではテーマのスタイルが含まれる） ---
+         (html-buffer (htmlfontify-buffer))
+         (raw-html-content (with-current-buffer html-buffer
+                             (buffer-string)))
+         (kill-buffer html-buffer)
+
+         ;; --- 2.【最重要】正規表現で、HTML内の全てのfont-size指定を削除 ---
+         (html-no-font-size (replace-regexp-in-string "font-size: [^;]+;" "" raw-html-content))
+         
+         ;; --- 3. 印刷用の「理想のスタイル」を定義（フォントサイズ指定のみ） ---
+         (print-css
+          (concat "<style type=\"text/css\">\n"
+                  "body, pre { font-size: 12pt; font-family: 'Hiragino Kaku Gothic Mono ProN', monospace; }\n"
+                  "</style>"))
+
+         ;; --- 4. スタイルが更地になったHTMLの<head>に、理想のスタイルを挿入 ---
+         (final-html (replace-regexp-in-string "<head>"
+                                               (concat "<head>\n" print-css)
+                                               html-no-font-size))
+
+         ;; --- 5. Chromeで開くためのコマンドを準備 ---
+         (temp-html-file (make-temp-file "emacs-print-" nil ".html"))
+         (command (format "open -a \"/Applications/Google Chrome.app\" '%s'" temp-html-file)))
+
+    ;; --- 6. 最終版HTMLをファイルに書き出し、Chromeで開く ---
+    (with-temp-file temp-html-file
+      (insert final-html))
+    
+    (message "Google Chromeで印刷用ページを開いています...")
+    (shell-command command)))
+
+;; (オプション) キーに割り当てる
+;; (global-set-key (kbd "C-c p") 'print-perfectly)
 
 (provide 'init)
 
