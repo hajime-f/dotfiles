@@ -93,6 +93,8 @@
 (define-key global-map (kbd "M-k") 'next-buffer)
 (define-key global-map (kbd "C-j t j") 'compile)
 (define-key global-map (kbd "C-q C-f") 'magit-status)
+;; (define-key global-map (kbd "C-q >") 'indent-rigidly-right-to-column)
+;; (define-key global-map (kbd "C-q <") 'indent-rigidly-left-to-column)
 
 ;; yes-or-no を y-or-n で応えるようにする
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -535,44 +537,60 @@
     :ensure t
     :after compat)
 
-;; init.el
 
+;; org-mode設定
+(setq org-directory (expand-file-name "~/Memory"))
+
+;; 見出しをインデントする
+(setq org-startup-indented t)
+
+;; 見出しをインデントした時にアスタリスクが減るのを防ぐ
+(setq org-indent-mode-turns-on-hiding-stars nil)
+
+;; インデントの幅を設定
+(setq org-indent-indentation-per-level 4)
+
+;; 見出しの初期状態（見出しだけ表示）
+(setq org-startup-folded 'content)
+
+;; org-mode 行の折り返し
+(setq org-startup-truncated nil)
+
+;; 画像をインラインで表示
+(setq org-startup-with-inline-images t)
+
+;; 見出しの余分な*を消す
+(setq org-hide-leading-stars t)
+
+;; orgファイルを開いたときにすべて展開して表示する
+(setq org-startup-folded nil)
+
+
+;; 印刷設定
 (defun print-perfectly ()
-  "バッファをHTML化し、フォントサイズを完全に制御してChromeで開き、手動印刷を促す。"
   (interactive)
-  (let* (;; --- 1. htmlfontifyでHTMLを生成（この時点ではテーマのスタイルが含まれる） ---
+  (let* (
          (html-buffer (htmlfontify-buffer))
          (raw-html-content (with-current-buffer html-buffer
                              (buffer-string)))
          (kill-buffer html-buffer)
-
-         ;; --- 2.【最重要】正規表現で、HTML内の全てのfont-size指定を削除 ---
-         (html-no-font-size (replace-regexp-in-string "font-size: [^;]+;" "" raw-html-content))
-         
-         ;; --- 3. 印刷用の「理想のスタイル」を定義（フォントサイズ指定のみ） ---
+         (html-no-font-size (replace-regexp-in-string "font-size: [^;]+;" "" raw-html-content))         
          (print-css
           (concat "<style type=\"text/css\">\n"
                   "body, pre { font-size: 12pt; font-family: 'Hiragino Kaku Gothic Mono ProN', monospace; }\n"
                   "</style>"))
-
-         ;; --- 4. スタイルが更地になったHTMLの<head>に、理想のスタイルを挿入 ---
          (final-html (replace-regexp-in-string "<head>"
                                                (concat "<head>\n" print-css)
                                                html-no-font-size))
-
-         ;; --- 5. Chromeで開くためのコマンドを準備 ---
          (temp-html-file (make-temp-file "emacs-print-" nil ".html"))
          (command (format "open -a \"/Applications/Google Chrome.app\" '%s'" temp-html-file)))
-
-    ;; --- 6. 最終版HTMLをファイルに書き出し、Chromeで開く ---
     (with-temp-file temp-html-file
       (insert final-html))
-    
     (message "Google Chromeで印刷用ページを開いています...")
     (shell-command command)))
+(global-set-key (kbd "C-q C-p") 'print-perfectly)
 
-;; (オプション) キーに割り当てる
-;; (global-set-key (kbd "C-c p") 'print-perfectly)
+
 
 (provide 'init)
 
