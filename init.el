@@ -565,6 +565,27 @@
 ;; orgファイルを開いたときにすべて展開して表示する
 (setq org-startup-folded nil)
 
+(setq org-bullets-mode t)
+
+
+(leaf elfeed
+  :ensure t
+  :config
+  (setq elfeed-db-directory "~/Memory/.elfeed/")
+  :custom
+  (elfeed-feeds . '("https://www.tachibana-akira.com/feed"
+		    "https://2week.net/feed/"
+		    "http://nenza.net/feed"
+		    "https://blog.tinect.jp/?feed=rss2"
+		    "https://tobalog.com/feed/"
+		    "https://feeds.content.dowjones.io/public/rss/RSSJapanTechnology"
+		    )))
+
+;; (leaf elfeed-org
+;;   :after elfeed
+;;   :config
+;;   (setq rmh-elfeed-org-files '("~/Memory/.elfeed/elfeed.org"))
+;;   (elfeed-org))
 
 ;; 印刷設定
 (defun print-perfectly ()
@@ -590,6 +611,19 @@
     (shell-command command)))
 (global-set-key (kbd "C-q C-p") 'print-perfectly)
 
+
+;; C-j t j でplatexコンパイルを実行するコマンドを定義
+(defun my-compile-with-platex ()
+  "Save the current buffer and compile it with platex."
+  (interactive)
+  (when (buffer-file-name)
+    (save-buffer)
+    (let ((command (format "platex %s" (shell-quote-argument (buffer-file-name)))))
+      (message "Compiling with: %s" command)
+      (compilation-start command 'tex-mode (lambda (mode) "*platex-compilation*")))))
+
+;; 上記で定義したコマンドをキーバインドに設定
+(global-set-key (kbd "C-c C-j") #'my-compile-with-platex)
 
 
 (provide 'init)
