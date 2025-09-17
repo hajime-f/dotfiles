@@ -612,19 +612,51 @@
 (global-set-key (kbd "C-q C-p") 'print-perfectly)
 
 
-;; C-j t j でplatexコンパイルを実行するコマンドを定義
-(defun my-compile-with-platex ()
-  "Save the current buffer and compile it with platex."
+
+(defun my-compile-platex-dvipdfmx ()
+  "Save current buffer and compile with 'platex' then 'dvipdfmx'."
   (interactive)
+  ;; ファイルに紐づいたバッファでのみ実行する
   (when (buffer-file-name)
     (save-buffer)
-    (let ((command (format "platex %s" (shell-quote-argument (buffer-file-name)))))
+    ;; ファイル名やコマンドを変数として定義
+    (let* ((filename (buffer-file-name))
+           (basename (file-name-sans-extension filename))
+           ;; シェルコマンドを作成: platex "file.tex" && dvipdfmx "file"
+           (command (format "platex %s && dvipdfmx %s"
+                            (shell-quote-argument filename)
+                            (shell-quote-argument basename))))
+      ;; コマンド実行をメッセージで通知
       (message "Compiling with: %s" command)
-      (compilation-start command 'tex-mode (lambda (mode) "*platex-compilation*")))))
+      ;; コンパイルを実行し、結果を *PDF Compilation* バッファに表示
+      (compilation-start command 'tex-mode (lambda (mode) "*PDF Compilation*")))))
 
-;; 上記で定義したコマンドをキーバインドに設定
-(global-set-key (kbd "C-c C-j") #'my-compile-with-platex)
+(define-key global-map (kbd "C-c C-j") 'my-compile-platex-dvipdfmx)
 
+;; (defun my-latex-mode-keys-setup ()
+;;   "Set keybindings for my custom LaTeX commands."
+;;   (define-key latex-mode-map (kbd "C-c C-j") #'my-compile-platex-dvipdfmx))
+
+;; LaTeXモードが起動したときにキー設定を有効にする
+(add-hook 'yatex-mode-hook #'my-latex-mode-keys-setup)
+
+
+(defun my-swift-mode-setup ()
+  "My custom settings for swift-mode."
+  ;; 基本のインデントをスペース4つに設定
+  (setq swift-indent-offset 4)
+
+  ;; switch文のcaseのインデントを0に設定
+  (setq swift-indent-switch-case-offset 0)
+
+  ;; 複数行にわたる文のインデントをスペース2つに設定
+  (setq swift-indent-multiline-statement-offset 2)
+
+  ;; Swiftの対話型実行環境(REPL)のコマンドを設定
+  (setq swift-repl-executable "xcrun swift"))
+
+;; swift-modeが起動したときに上記の設定を呼び出す
+(add-hook 'swift-mode-hook #'my-swift-mode-setup)
 
 (provide 'init)
 
