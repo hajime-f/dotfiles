@@ -214,7 +214,7 @@
   :global-minor-mode t)
 
 ;; フォントの設定
-(set-frame-font "Bizin Gothic 20")
+(set-frame-font "Bizin Gothic 24")
 
 ;; フォントサイズ変更の設定
 (global-set-key [(control +)] (lambda () (interactive) (text-scale-increase 1)))
@@ -400,6 +400,33 @@
 ;;   :added "2025-03-20"
 ;;   :ensure t)
 
+
+(leaf gptel
+  :doc "Programmable LLM control panel"
+  :url "https://github.com/karthink/gptel"
+  :ensure t
+  :bind (("C-c g" . gptel-send)
+         ("C-c t" . gptel-menu)) ; メニューからモデル切り替え等ができて便利です
+  :custom
+  ((gptel-default-mode . 'markdown-mode))
+  :config
+  (setq-default gptel-backend
+                (gptel-make-gemini "Gemini"
+                  :key (getenv "GEMINI_API_KEY")
+                  :stream t))
+  
+  ;; デフォルトのモデルを最新のものに設定
+  ;;(setq-default gptel-model 'gemini-1.5-flash-latest))
+   (setq-default gptel-model 'gemini-1.5-pro-latest))
+
+
+(leaf typescript-mode
+  :ensure t
+  :mode (("\\.tsx?\\'" . typescript-mode))
+  :config
+  (setq typescript-indent-level 2))
+
+
 ;; タブ
 (leaf tab-bar-mode
   :init
@@ -412,6 +439,22 @@
   :config
   (tab-bar-mode t)
   (face-spec-set 'tab-bar-tab '((((background light)) (:background "gold")) (((background dark)) (:background "#808080")))))
+
+;; Centaur-tabs
+(leaf centaur-tabs
+  :after projectile
+  :custom ((centaur-tabs--buffer-show-groups . nil)
+           (centaur-tabs-cycle-scope . 'tabs)
+           (centaur-tabs-buffer-groups-function . #'my-centaur-tabs-group))
+  :config
+  (defun my-centaur-tabs-group ()
+    (let ((name (buffer-name)))
+      (cond ((string-prefix-p "@" name) '("Sidebar"))
+            ((string-prefix-p "⊥" name) '("Bottom bar"))
+            (t (centaur-tabs-projectile-buffer-groups)))))
+  
+  (centaur-tabs-mode t))
+
 
 ;; ;; GitHub Copilot
 ;; (leaf copilot
