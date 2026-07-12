@@ -115,9 +115,9 @@
 (setq default-frame-alist
       (append (list
                ;; サイズ・位置
-               '(width . 200)           ; 横幅(文字数)
-               '(height . 65)           ; 高さ(行数)
-               '(top . 50)              ; フレーム左上角 y 座標
+               '(width . 180)           ; 横幅(文字数)
+               '(height . 70)           ; 高さ(行数)
+               '(top . 200)              ; フレーム左上角 y 座標
                '(left . 2200)            ; フレーム左上角 x 座標
                )
               default-frame-alist))
@@ -265,10 +265,6 @@
       (other-window 1)
       (term "/bin/zsh")
       (rename-buffer "*terminal*"))))
-(global-set-key (kbd "C-'") 'toggle-zsh-window)
-(add-hook 'term-mode-hook
-          (lambda ()
-            (define-key global-map (kbd "C-'") 'toggle-zsh-window)))
 
 ;; 自動補完（company）
 (leaf company
@@ -401,23 +397,23 @@
 ;;   :ensure t)
 
 
-(leaf gptel
-  :doc "Programmable LLM control panel"
-  :url "https://github.com/karthink/gptel"
-  :ensure t
-  :bind (("C-c g" . gptel-send)
-         ("C-c t" . gptel-menu)) ; メニューからモデル切り替え等ができて便利です
-  :custom
-  ((gptel-default-mode . 'markdown-mode))
-  :config
-  (setq-default gptel-backend
-                (gptel-make-gemini "Gemini"
-                  :key (getenv "GEMINI_API_KEY")
-                  :stream t))
+;; (leaf gptel
+;;   :doc "Programmable LLM control panel"
+;;   :url "https://github.com/karthink/gptel"
+;;   :ensure t
+;;   :bind (("C-c g" . gptel-send)
+;;          ("C-c t" . gptel-menu)) ; メニューからモデル切り替え等ができて便利です
+;;   :custom
+;;   ((gptel-default-mode . 'markdown-mode))
+;;   :config
+;;   (setq-default gptel-backend
+;;                 (gptel-make-gemini "Gemini"
+;;                   :key (getenv "GEMINI_API_KEY")
+;;                   :stream t))
   
-  ;; デフォルトのモデルを最新のものに設定
-  ;;(setq-default gptel-model 'gemini-1.5-flash-latest))
-   (setq-default gptel-model 'gemini-1.5-pro-latest))
+  ;; ;; デフォルトのモデルを最新のものに設定
+  ;; ;;(setq-default gptel-model 'gemini-1.5-flash-latest))
+  ;;  (setq-default gptel-model 'gemini-1.5-pro-latest))
 
 
 (leaf typescript-mode
@@ -484,6 +480,28 @@
 ;;   :emacs>= 27.1
 ;;   :ensure t
 ;;   :after markdown-mode magit org polymode shell-maker)
+
+
+(leaf claude-code-ide
+  :vc (:url "https://github.com/manzaltu/claude-code-ide.el" :rev :newest)
+  :preface
+  (defun my/claude-code-ide-toggle ()
+    "Claude Code IDEウィンドウをトグルする。セッションが無ければ新規に開始する。"
+    (interactive)
+    (condition-case nil
+        (claude-code-ide-toggle)
+      (user-error (claude-code-ide))))
+  :bind (("C-c g" . claude-code-ide-menu)
+         ("C-'" . my/claude-code-ide-toggle))
+  :custom
+  (claude-code-ide-window-side . 'right)       ; ウィンドウの表示位置
+  (claude-code-ide-window-width . 100)         ; 左右表示時の幅
+  (claude-code-ide-focus-on-open . t)          ; 起動時にフォーカス
+  (claude-code-ide-terminal-backend . 'vterm)  ; vterm/eat/ghostel
+  (claude-code-ide-use-ide-diff . t)           ; ediffによる差分表示
+  (claude-code-ide-diagnostics-backend . 'auto); flycheck/flymake自動判定
+  :config
+  (claude-code-ide-emacs-tools-setup))
 
 ;; consult
 (leaf consult
