@@ -1,0 +1,15 @@
+* News :news:
+** 日本 :japan:
+ - https://www.nikkei.com/rss/newstopics.rdf
+ - https://www.asahi.com/rss/asahi/newsheadlines.rdf
+
+** 海外 :world:
+ - http://feeds.bbci.co.uk/news/world/rss.xml
+
+* Tech :tech:
+** Emacs :emacs:
+ - https://planet.emacslife.com/atom.xml
+
+** プログラミング
+ - https://example.com/programming-feed.xml
+   :elfeed_tags: (:programming: :development:)
