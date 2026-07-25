@@ -253,18 +253,22 @@
 ;; autorevert
 (global-auto-revert-mode t)
 
-;; zsh
-(defun toggle-zsh-window ()
-  (interactive)
-  (if (get-buffer-window "*terminal*")
-      (progn
-        (switch-to-buffer (other-buffer))
-        (delete-window (get-buffer-window "*terminal*")))
-    (progn
-      (split-window-below)
-      (other-window 1)
-      (term "/bin/zsh")
-      (rename-buffer "*terminal*"))))
+;; ;; zsh
+;; (defun toggle-zsh-window ()
+;;   (interactive)
+;;   (if (get-buffer-window "*terminal*")
+;;       (progn
+;;         (switch-to-buffer (other-buffer))
+;;         (delete-window (get-buffer-window "*terminal*")))
+;;     (progn
+;;       (split-window-below)
+;;       (other-window 1)
+;;       (term "/bin/zsh")
+;;       (rename-buffer "*terminal*"))))
+;; (global-set-key (kbd "C-'") 'toggle-zsh-window)
+;; (add-hook 'term-mode-hook
+;;           (lambda ()
+;;             (define-key term-raw-map (kbd "C-'") 'toggle-zsh-window)))
 
 ;; 自動補完（company）
 (leaf company
@@ -491,17 +495,60 @@
     (condition-case nil
         (claude-code-ide-toggle)
       (user-error (claude-code-ide))))
+  ;; vtermは出力が届くたびに末尾へ追従するため、Claudeの長い応答を遡れない。
+  ;; vterm-copy-mode（追従を止めてfundamental-mode相当になる）へ自動的に出入り
+  ;; させて、PageUp/PageDownだけでスクロールバックを読めるようにする。
+  (defun my/vterm-scroll-resume ()
+    "`vterm-copy-mode'を抜けて、端末出力への追従を再開する。"
+    (interactive)
+    (when vterm-copy-mode
+      (vterm-copy-mode -1))
+    (vterm-reset-cursor-point))
+  (defun my/vterm-scroll-up ()
+    "出力への追従を止めて上方向にスクロールする。"
+    (interactive)
+    (unless vterm-copy-mode
+      (vterm-copy-mode 1)
+      (message "スクロールバック閲覧中（qで最新へ戻る）"))
+    (condition-case nil
+        (scroll-down-command)
+      (beginning-of-buffer (goto-char (point-min)))))
+  (defun my/vterm-scroll-down ()
+    "下方向にスクロールし、末尾まで戻ったら出力への追従を再開する。"
+    (interactive)
+    (if (not vterm-copy-mode)
+        (my/vterm-scroll-resume)
+      (condition-case nil
+          (scroll-up-command)
+        (end-of-buffer (goto-char (point-max))))
+      (when (pos-visible-in-window-p (point-max))
+        (my/vterm-scroll-resume))))
   :bind (("C-c g" . claude-code-ide-menu)
          ("C-'" . my/claude-code-ide-toggle))
   :custom
   (claude-code-ide-window-side . 'right)       ; ウィンドウの表示位置
-  (claude-code-ide-window-width . 100)         ; 左右表示時の幅
+  (claude-code-ide-window-width . 90)         ; 左右表示時の幅
   (claude-code-ide-focus-on-open . t)          ; 起動時にフォーカス
   (claude-code-ide-terminal-backend . 'vterm)  ; vterm/eat/ghostel
   (claude-code-ide-use-ide-diff . t)           ; ediffによる差分表示
   (claude-code-ide-diagnostics-backend . 'auto); flycheck/flymake自動判定
   :config
-  (claude-code-ide-emacs-tools-setup))
+  (claude-code-ide-emacs-tools-setup)
+  ;; vtermはほぼ全キーを端末（claude）に送るため、Emacs側で処理したいキーは
+  ;; vterm-mode-mapに明示的にバインドしてトラップを回避する。
+  (with-eval-after-load 'vterm
+    ;; 長い出力の前半が消えないようスクロールバック行数を増やす（デフォルト1000）。
+    (setq vterm-max-scrollback 100000)
+    (define-key vterm-mode-map (kbd "C-<up>") #'tab-bar-switch-to-prev-tab)
+    (define-key vterm-mode-map (kbd "C-<down>") #'tab-bar-switch-to-next-tab)
+    ;; PageUp/PageDownで応答を遡る。C-c C-tでも手動でcopy-modeに入れる。
+    (define-key vterm-mode-map (kbd "<prior>") #'my/vterm-scroll-up)
+    (define-key vterm-mode-map (kbd "<next>") #'my/vterm-scroll-down)
+    (define-key vterm-copy-mode-map (kbd "<prior>") #'my/vterm-scroll-up)
+    (define-key vterm-copy-mode-map (kbd "<next>") #'my/vterm-scroll-down)
+    ;; qでスクロールバック閲覧を終了し、最新の出力へ戻る。
+    (define-key vterm-copy-mode-map (kbd "q") #'my/vterm-scroll-resume)))
+
 
 ;; consult
 (leaf consult
