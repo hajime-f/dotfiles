@@ -176,13 +176,7 @@
    (doom-modeline-env-enable-php . t)
    (doom-modeline-env-enable-lua . t)
    (doom-modeline-env-enable-shell . t)
-   (doom-modeline-env-enable-swift . t)
-   (doom-modeline-env-enable-perl . t)
-   (doom-modeline-env-enable-ruby . t)
-   (doom-modeline-env-enable-elixir . t)
-   (doom-modeline-env-enable-rust . t)
-   (doom-modeline-env-enable-csharp . t)
-   (doom-modeline-env-enable-java)))
+   (doom-modeline-env-enable-swift . t)))
 
 ;; nerd-icons
 (leaf nerd-icons
@@ -252,6 +246,8 @@
 
 ;; autorevert
 (global-auto-revert-mode t)
+;; ファイルを開いたバッファごとに auto-revert-mode を明示的にオンにする（モードラインに ARev を表示）
+(add-hook 'find-file-hook #'auto-revert-mode)
 
 ;; ;; zsh
 ;; (defun toggle-zsh-window ()
@@ -741,11 +737,15 @@
 
 (define-key global-map (kbd "C-c C-j") 'my-compile-platex-dvipdfmx)
 
-;; (defun my-latex-mode-keys-setup ()
-;;   "Set keybindings for my custom LaTeX commands."
-;;   (define-key latex-mode-map (kbd "C-c C-j") #'my-compile-platex-dvipdfmx))
+;; .tex ファイルは AUCTeX の LaTeX-mode ではなく YaTeX で開く
+(autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
+(add-to-list 'auto-mode-alist '("\\.tex\\'" . yatex-mode))
 
-;; LaTeXモードが起動したときにキー設定を有効にする
+(defun my-latex-mode-keys-setup ()
+  "YaTeX でも C-c C-j を自作のコンパイルコマンドに割り当てる."
+  (local-set-key (kbd "C-c C-j") #'my-compile-platex-dvipdfmx))
+
+;; YaTeX が起動したときにキー設定を有効にする
 (add-hook 'yatex-mode-hook #'my-latex-mode-keys-setup)
 
 
